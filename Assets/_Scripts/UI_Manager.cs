@@ -18,4 +18,34 @@ public class UI_Manager : MonoBehaviour
         //above will need work later (hooking it up to work and changing the code accordingly)
         //I might make this process more eficcient later (for the quota), but it works for now.
     }
+
+    public void Continue()
+    {
+
+    }
+
+    public void New()
+    {
+
+    }
+
+    public void Shop()
+    {
+
+    }
+
+    public void Help()
+    {
+
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
+
+    public void Settings()
+    {
+
+    }
 }
