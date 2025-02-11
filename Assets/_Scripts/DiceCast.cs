@@ -57,16 +57,25 @@ public class DiceCast : MonoBehaviour
                     break;
             }
             Debug.Log(CastList[index]);
-        }
 
-        Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore());
+        }
+        this.GetComponent<TEMPUI>().PopulateButtons(CastList);
+
+        Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
     }
+
+    public int passCalculateMaxPotentialScore(int[] arr)
+    {
+        return CalculateMaxPotentialScore(arr);
+    }
+
+
 
     /// <summary>
     /// Calculates the max potential score only from a roll currently, but is likely to change in the future to accommodate pockets
     /// </summary>
     /// <returns></returns>
-    private int CalculateMaxPotentialScore()
+    private int CalculateMaxPotentialScore(int[] arr)
     {
         int maxPotentialScore = 0;
 
@@ -162,7 +171,45 @@ public class DiceCast : MonoBehaviour
 
         }
         
+        if (!threePairs && !rainbow)
+        {
+            bool[] scoreable = new bool[6];
+            for (int i = 0; i < 6; i++)
+            {
+                scoreable[i] = false;
 
+                if (arr[i] == 1 || arr[i] == 5)
+                    scoreable[i] = true;
+
+                if (twosRolled >= 3)
+                {
+                    if (arr[i] == 2)
+                        scoreable[i] = true;
+                }
+                if (threesRolled >= 3)
+                {
+                    if (arr[i] == 3)
+                        scoreable[i] = true;
+                }
+                if (foursRolled >= 3)
+                {
+                    if (arr[i] == 4)
+                        scoreable[i] = true;
+                }
+                if (fivesRolled >= 3)
+                {
+                    if (arr[i] == 5)
+                        scoreable[i] = true;
+                }
+                if (sixesRolled >= 3)
+                {
+                    if (arr[i] == 6)
+                        scoreable[i] = true;
+                }
+            }
+            this.GetComponent<TEMPUI>().EnableButtons(scoreable);
+            
+        }
 
 
         if (onesRolled > 0 && !(rainbow || threePairs))
