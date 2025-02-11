@@ -12,6 +12,7 @@ public class QuotaProgressUI : MonoBehaviour
     }    
 
     //currently, this is just for the first quota. 
+    //this script is currently attached to the canvas in the quota UI scene. It might need to be removed later because I didn't know where to put it
 
     public ProgressBar CreateProgressBar()
     {
