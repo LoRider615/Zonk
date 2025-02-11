@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 903436937}
   - component: {fileID: 903436936}
   - component: {fileID: 903436940}
+  - component: {fileID: 903436941}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -411,6 +412,18 @@ MonoBehaviour:
   scoreText: {fileID: 1756628671}
   playerController: {fileID: 1364151882}
   quotaControl: {fileID: 1796820897}
+--- !u!114 &903436941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903436935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5b6dd4441984449a5452c836710cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &997820270
 GameObject:
   m_ObjectHideFlags: 0
