@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /* Sharkey Logan
@@ -10,13 +8,6 @@ using UnityEngine;
 
 public class DiceCast : MonoBehaviour
 {
-    private int onesRolled = 0;
-    private int twosRolled = 0;
-    private int threesRolled = 0;
-    private int foursRolled = 0;
-    private int fivesRolled = 0;
-    private int sixesRolled = 0;
-
     private bool rainbow = false;
     private bool threePairs = false;
 
@@ -26,19 +17,50 @@ public class DiceCast : MonoBehaviour
     public int fiveOfAKindMultiplier;
     public int sixOfAKindMultiplier;
 
-    private void Awake()
+    public void CastDice()
     {
         int[] CastList = new int[diceToRoll];
         for (int index = 0; index < diceToRoll; index++)
         {
-            CastList[index] = (int)Mathf.Round(Random.Range(1f, 6f));
-            switch (CastList[index])
+            CastList[index] = Random.Range(1, 7);
+            //Debug.Log(CastList[index]);
+        }
+        this.GetComponent<TEMPUI>().PopulateButtons(CastList);
+
+        Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
+    }
+
+    public int PassCalculatedScore(int[] arr)
+    {
+        return CalculateMaxPotentialScore(arr);
+    }
+
+    /// <summary>
+    /// Calculates the max potential score only from a roll currently, but is likely to change in the future to accommodate pockets
+    /// </summary>
+    /// <returns></returns>
+    private int CalculateMaxPotentialScore(int[] arr)
+    {
+        int maxPotentialScore = 0;
+
+        bool onePair = false;
+        bool twoPair = false;
+        int onesRolled = 0;
+        int twosRolled = 0;
+        int threesRolled = 0;
+        int foursRolled = 0;
+        int fivesRolled = 0;
+        int sixesRolled = 0;
+
+        for (int index = 0; index < arr.Length; index++)
+        {
+            switch (arr[index])
             {
                 case 1:
                     onesRolled++;
                     break;
-                case 2: 
-                    twosRolled++; 
+                case 2:
+                    twosRolled++;
                     break;
                 case 3:
                     threesRolled++;
@@ -56,32 +78,11 @@ public class DiceCast : MonoBehaviour
                     Debug.Log("Warning, roll outside of expected parameters and not counted");
                     break;
             }
-            Debug.Log(CastList[index]);
-
         }
-        this.GetComponent<TEMPUI>().PopulateButtons(CastList);
-
-        Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
-    }
-
-    public int passCalculateMaxPotentialScore(int[] arr)
-    {
-        return CalculateMaxPotentialScore(arr);
-    }
 
 
 
-    /// <summary>
-    /// Calculates the max potential score only from a roll currently, but is likely to change in the future to accommodate pockets
-    /// </summary>
-    /// <returns></returns>
-    private int CalculateMaxPotentialScore(int[] arr)
-    {
-        int maxPotentialScore = 0;
 
-        bool onePair = false;
-        bool twoPair = false;
-        
         if (onesRolled == 1)
         {
             if (twosRolled == 1)
@@ -173,8 +174,8 @@ public class DiceCast : MonoBehaviour
         
         if (!threePairs && !rainbow)
         {
-            bool[] scoreable = new bool[6];
-            for (int i = 0; i < 6; i++)
+            bool[] scoreable = new bool[diceToRoll];
+            for (int i = 0; i < diceToRoll; i++)
             {
                 scoreable[i] = false;
 
@@ -367,20 +368,8 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
-
-
-        onesRolled = 0;
-        twosRolled = 0;
-        threesRolled = 0;
-        foursRolled = 0;
-        fivesRolled = 0;
-        sixesRolled = 0;
         threePairs = false;
         rainbow = false;
-
-
-
-
 
         return maxPotentialScore;
     }
