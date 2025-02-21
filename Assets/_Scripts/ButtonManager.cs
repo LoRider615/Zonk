@@ -34,4 +34,9 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("Settings was pressed.");
     }
+
+    public void Back()
+    {
+        Debug.Log("This takes you back home.");
+    }
 }
