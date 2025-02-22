@@ -19,6 +19,8 @@ public class PocketHandler : MonoBehaviour
     public int[] Pocket4;
     public int[] Pocket5;
     public int[] Pocket6;
+
+    //This is an outdated variable, but it could be useful later so i'm leaving it in for reference for future me just in case
     public int[][] PocketHolder = new int[6][];
 
     public int currentPocket = 1;
@@ -28,6 +30,7 @@ public class PocketHandler : MonoBehaviour
 
     private void Awake()
     {
+        //This is part of the above comment on being an outdated variable, safe to ignore this part
         for (int i = 0; i < PocketHolder.Length; i++)
         {
             switch (i)
@@ -53,14 +56,21 @@ public class PocketHandler : MonoBehaviour
             }
         }
         _diceCast = this.GetComponent<DiceCast>();
+
+        //Ensures all pockets are empty
         Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
     }
 
+    /// <summary>
+    /// This handles the logic of adding a number to a pocket
+    /// </summary>
+    /// <param name="diceNum"></param>
     public void AddToPocket(int diceNum)
     {
         switch (currentPocket)
         {
             case 1:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket1 == null)
                 {
                     Pocket1 = new int[_diceCast.maxDiceToRoll];
@@ -69,18 +79,18 @@ public class PocketHandler : MonoBehaviour
                         Pocket1[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket1[i] == 0)
                     {
                         Pocket1[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
                 break;
             case 2:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket2 == null)
                 {
                     Pocket2 = new int[_diceCast.maxDiceToRoll];
@@ -89,19 +99,19 @@ public class PocketHandler : MonoBehaviour
                         Pocket2[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket2[i] == 0)
                     {
                         Pocket2[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
                 break;
 
             case 3:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket3 == null)
                 {
                     Pocket3 = new int[_diceCast.maxDiceToRoll];
@@ -110,19 +120,19 @@ public class PocketHandler : MonoBehaviour
                         Pocket3[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket3[i] == 0)
                     {
                         Pocket3[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
                 break;
 
             case 4:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket4 == null)
                 {
                     Pocket4 = new int[_diceCast.maxDiceToRoll];
@@ -131,19 +141,19 @@ public class PocketHandler : MonoBehaviour
                         Pocket4[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket4[i] == 0)
                     {
                         Pocket4[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
                 break;
 
             case 5:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket5 == null)
                 {
                     Pocket5 = new int[_diceCast.maxDiceToRoll];
@@ -152,19 +162,19 @@ public class PocketHandler : MonoBehaviour
                         Pocket5[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket5[i] == 0)
                     {
                         Pocket5[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
                 break;
 
             case 6:
+                //This is to initialize the pocket only when it's going to be used, in order to save memory
                 if (Pocket6 == null)
                 {
                     Pocket6 = new int[_diceCast.maxDiceToRoll];
@@ -173,13 +183,12 @@ public class PocketHandler : MonoBehaviour
                         Pocket6[i] = 0;
                     }
                 }
+                //Goes through the current pocket and replaces the first 0 it finds with the number added
                 for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket6[i] == 0)
                     {
                         Pocket6[i] = diceNum;
-                        Debug.Log("Dice Added, pocket updated");
-                        //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
                         break;
                     }
                 }
@@ -187,7 +196,12 @@ public class PocketHandler : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// This handles removing a number from a pocket
+    /// Right now it just removes the first matching number, which isn't correlated with the button itself
+    /// This will need some consideration if it'll be a probelm when dice are implemented, but works fine with the way it is now
+    /// </summary>
+    /// <param name="diceNum"></param>
     public void RemoveFromPocket(int diceNum)
     {
         switch (currentPocket)
@@ -254,6 +268,10 @@ public class PocketHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the score the player earned on whatever pocket they have currently just ended
+    /// </summary>
+    /// <returns></returns>
     public int CalculatePocketPoints()
     {
         int pocketScore = 0;
@@ -288,6 +306,9 @@ public class PocketHandler : MonoBehaviour
         return pocketScore;
     }
 
+    /// <summary>
+    /// Handles Ending a turn and resetting variables for a new turn
+    /// </summary>
     public void EndTurn()
     {
         GetComponent<TEMPUI>().EndTurn();
@@ -297,8 +318,6 @@ public class PocketHandler : MonoBehaviour
         GetComponent<TEMPUI>().TurnText.text = "Turn: " + currentTurn;
         GetComponent<DiceCast>().diceToRoll = GetComponent<DiceCast>().maxDiceToRoll;
         Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
-
-
     }
 
 }

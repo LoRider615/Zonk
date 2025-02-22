@@ -13,10 +13,13 @@ public class DiceCast : MonoBehaviour
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
+
+    //currently unimplemented and all scoring is hard-coded, THIS NEEDS TO CHANGE IN THE FUTURE
     public int threeOfAKindMultiplier;
     public int fourOfAKindMultiplier;
     public int fiveOfAKindMultiplier;
     public int sixOfAKindMultiplier;
+
     public int onesRolled = 0;
     public int twosRolled = 0;
     public int threesRolled = 0;
@@ -24,15 +27,18 @@ public class DiceCast : MonoBehaviour
     public int fivesRolled = 0;
     public int sixesRolled = 0;
 
+    /// <summary>
+    /// Simple logic for filling an array of dice, size is variable
+    /// </summary>
     public void CastDice()
     {
         int[] CastList = new int[maxDiceToRoll];
+        //RNG for simulating dice rolls
         for (int index = 0; index < diceToRoll; index++)
         {
             CastList[index] = Random.Range(1, 7);
-            //Debug.Log(CastList[index]);
-            //
         }
+        //Fills empty spots with zero's in order to signify they are not an option 
         for (int index = diceToRoll; index < maxDiceToRoll; index++)
         {
             CastList[index] = 0;
@@ -42,13 +48,18 @@ public class DiceCast : MonoBehaviour
         Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
     }
 
+    /// <summary>
+    /// This is a getter function, used mainly for calculating individual pocket scores
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
     public int PassCalculatedScore(int[] arr)
     {
         return CalculateMaxPotentialScore(arr);
     }
 
     /// <summary>
-    /// Calculates the max potential score only from a roll currently, but is likely to change in the future to accommodate pockets
+    /// Calculates the max potential score in a pocket, right now this code is only partially used, should be implemented so that the player can see the max potential score a pocket has
     /// </summary>
     /// <returns></returns>
     private int CalculateMaxPotentialScore(int[] arr)
@@ -65,7 +76,7 @@ public class DiceCast : MonoBehaviour
         fivesRolled = 0;
         sixesRolled = 0;
         
-
+        //Counting all the numbers from dice rolls 
         for (int index = 0; index < arr.Length; index++)
         {
             switch (arr[index])
@@ -97,7 +108,7 @@ public class DiceCast : MonoBehaviour
 
 
 
-
+        //Checking for Rainbow score condition
         if (onesRolled == 1)
         {
             if (twosRolled == 1)
@@ -118,6 +129,8 @@ public class DiceCast : MonoBehaviour
                 }
             }
         }
+
+        //Checking for the 3 pairs score condition
         while (true)
         {
             if (onesRolled == 2)
@@ -186,13 +199,8 @@ public class DiceCast : MonoBehaviour
             break;
 
         }
-        
-        if (!threePairs && !rainbow)
-        {
-            //this.GetComponent<TEMPUI>().EnableButtons(CheckIfScoreable(arr));   
-        }
 
-        
+        //Scoring the ones rolled
         if (onesRolled > 0 && !(rainbow || threePairs))
         {
             switch (onesRolled)
@@ -220,6 +228,8 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
+
+        //Scoring the twos rolled
         if (twosRolled > 0 && !(rainbow || threePairs))
         {
             switch (twosRolled)
@@ -245,6 +255,8 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
+
+        //scoring the threes rolled
         if (threesRolled > 0 && !(rainbow || threePairs))
         {
             switch (threesRolled)
@@ -271,6 +283,8 @@ public class DiceCast : MonoBehaviour
             }
             
         }
+
+        //scoring the fours rolled
         if (foursRolled > 0 && !(rainbow || threePairs))
         {
             switch (foursRolled)
@@ -296,6 +310,8 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
+
+        //scoring the fives rolled
         if (fivesRolled > 0 && !(rainbow || threePairs))
         {
             switch (fivesRolled)
@@ -323,6 +339,8 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
+
+        //scoring the sixes rolled
         if (sixesRolled > 0 && !(rainbow || threePairs))
         {
             switch (sixesRolled)
@@ -354,6 +372,13 @@ public class DiceCast : MonoBehaviour
         return maxPotentialScore;
     }
 
+    /// <summary>
+    /// Code used to check if a button is scoreable, going to need to be replaced once actual dice are in, but the concept will need to remain
+    /// This code disables a button that cannot be scored, so that it cannot be added to the pocket
+    /// Returns a boolean array that is parallel to the dice rolling one, also checks if the player Zonks out
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
     public bool[] CheckIfScoreable(int[] arr)
     {
 
@@ -367,6 +392,8 @@ public class DiceCast : MonoBehaviour
 
         for (int index = 0; index < arr.Length; index++)
         {
+            //It has to go through and check everything again, this is copy pasted code from calc max score above
+            //For whatever reason just passing the variables always resets them to 0 so it's kinda unavoidable, if a fix comes to mind, go for it
             switch (arr[index])
             {
                 case 1:
@@ -393,7 +420,7 @@ public class DiceCast : MonoBehaviour
             }
         }
 
-
+        //Methodically goes through and dynamically checks for scoring numbers, 
         int unscoreable = 0;
         bool[] scoreable = new bool[maxDiceToRoll];
         for (int i = 0; i < maxDiceToRoll; i++)
@@ -436,7 +463,8 @@ public class DiceCast : MonoBehaviour
                 unscoreable++;
 
         }
-        Debug.Log(unscoreable);
+        //Debug.Log(unscoreable);
+        //Zonk Detection
         if (unscoreable == diceToRoll)
         {
             GetComponent<TEMPUI>().ZonkOut();
