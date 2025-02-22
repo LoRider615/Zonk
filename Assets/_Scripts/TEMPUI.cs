@@ -9,12 +9,15 @@ public class TEMPUI : MonoBehaviour
     public Button[] buttonList = new Button[6];
     int[] passedArray = new int[6];
     public int playerScore = 0;
+    public int playerCachedScore = 0;
 
     public TMP_Text ScoreText;
+    public TMP_Text CachedScoreText;
     public TMP_Text TurnText;
 
     public Button CastDiceButton;
     public Button CachePointsButton;
+    public Button EndTurnButton;
 
     private bool _buttonAClicked = false;
     private bool _buttonBClicked = false;
@@ -49,11 +52,14 @@ public class TEMPUI : MonoBehaviour
     
     public void EnableButtons(bool[] scoreable)
     {
-        for (int i = 0; i < scoreable.Length; i++)
+        if (scoreable.Length > 0)
         {
-            if (!scoreable[i])
+            for (int i = 0; i < scoreable.Length; i++)
             {
-                buttonList[i].interactable = false;
+                if (!scoreable[i])
+                {
+                    buttonList[i].interactable = false;
+                }
             }
         }
     }
@@ -151,12 +157,15 @@ public class TEMPUI : MonoBehaviour
             //if (GetComponent<DiceCast>())
             buttonList[i].interactable = true;
         }
+        EndTurnButton.interactable = false;
         CastDiceButton.interactable = false;
         this.GetComponent<DiceCast>().CastDice();
     }
 
     public void CachePointsClicked()
     {
+        EndTurnButton.interactable = true;
+
         playerScore += this.GetComponent<PocketHandler>().CalculatePocketPoints();
         if (_buttonAClicked)
         {
@@ -188,13 +197,13 @@ public class TEMPUI : MonoBehaviour
             //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
-        ScoreText.text = "Score: " + playerScore;
+        ScoreText.text = "Temp Score: " + playerScore;
         int[] emptyArr = new int[GetComponent<DiceCast>().maxDiceToRoll];
         if (GetComponent<DiceCast>().diceToRoll <= 0 )
         {
             PopulateButtons(emptyArr);
             
-            GetComponent<PocketHandler>().EndTurn();
+            
             //Debug.Log("out of dice to roll, start new turn");
         }
         this.GetComponent<PocketHandler>().currentPocket++;
@@ -207,6 +216,33 @@ public class TEMPUI : MonoBehaviour
         CastDiceButton.interactable = true;
 
     }
+
+    public void EndTurn()
+    {
+        playerCachedScore += playerScore;
+        playerScore = 0;
+        ScoreText.text = "Temp Score: " + playerScore;
+        CachedScoreText.text = "Cached Score: " + playerCachedScore;
+        CastDiceButton.interactable = true;
+    }
+
+    public void ZonkOut()
+    {
+        for (int i = 0;i < GetComponent<DiceCast>().maxDiceToRoll; i++)
+        {
+            buttonList[i].interactable = false;
+        }
+        CachePointsButton.interactable = false;
+        CastDiceButton.interactable= false;
+        EndTurnButton.interactable= true;
+        playerScore = 0;
+        ScoreText.text = "Temp Score: " + playerScore;
+
+
+    }
+
+
+
 
 
 }

@@ -56,128 +56,6 @@ public class PocketHandler : MonoBehaviour
         Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
     }
 
-    /*
-    public void AddToPocket(int diceNum)
-    {
-        foreach (var subArray in PocketHolder)
-        {
-            switch (subArray)
-            {
-                case var arr when arr == PocketHolder[0]:
-                   if (currentPocket == 1)
-                    {
-                        if (Pocket1 == null)
-                        {
-                            Pocket1 = new int[_diceCast.diceToRoll];
-                            for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            {
-                                Pocket1[i] = 0;
-                            }
-                        }
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                        {
-                            if (Pocket1[i] == 0)
-                            {
-                                Pocket1[i] = diceNum;
-                                Debug.Log("Dice Added, pocket updated");
-                                //Debug.Log("Current Pocket Score:" + _diceCast.passCalculateMaxPotentialScore(Pocket1));
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                    break;
-
-                case var arr when arr == PocketHolder[1]:
-                    if (Pocket2 == null)
-                    {
-                        Pocket2 = new int[_diceCast.diceToRoll];
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            Pocket2[i] = 0;
-                    }
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
-                    {
-                        if (Pocket2[i] == 0)
-                        {
-                            Pocket2[i] = diceNum;
-                            break;
-                        }
-                    }
-                    break;
-
-                case var arr when arr == PocketHolder[2]:
-                    if (Pocket3 == null)
-                    {
-                        Pocket3 = new int[_diceCast.diceToRoll];
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            Pocket3[i] = 0;
-                    }
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
-                    {
-                        if (Pocket3[i] == 0)
-                        {
-                            Pocket3[i] = diceNum;
-                            break;
-                        }
-                    }
-                    break;
-
-                case var arr when arr == PocketHolder[3]:
-                    if (Pocket4 == null)
-                    {
-                        Pocket4 = new int[_diceCast.diceToRoll];
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            Pocket4[i] = 0;
-                    }
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
-                    {
-                        if (Pocket4[i] == 0)
-                        {
-                            Pocket4[i] = diceNum;
-                            break;
-                        }
-                    }
-                    break;
-
-                case var arr when arr == PocketHolder[4]:
-                    if (Pocket5 == null)
-                    {
-                        Pocket5 = new int[_diceCast.diceToRoll];
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            Pocket5[i] = 0;
-                    }
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
-                    {
-                        if (Pocket5[i] == 0)
-                        {
-                            Pocket5[i] = diceNum;
-                            break;
-                        }
-                    }
-                    break;
-
-                case var arr when arr == PocketHolder[5]:
-                    if (Pocket6 == null)
-                    {
-                        Pocket6 = new int[_diceCast.diceToRoll];
-                        for (int i = 0; i < _diceCast.diceToRoll; i++)
-                            Pocket6[i] = 0;
-                    }
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
-                    {
-                        if (Pocket6[i] == 0)
-                        {
-                            Pocket6[i] = diceNum;
-                            break;
-                        }
-                    }
-                    break;
-            }
-            break;
-        }
-    }
-    */
-
     public void AddToPocket(int diceNum)
     {
         switch (currentPocket)
@@ -412,17 +290,15 @@ public class PocketHandler : MonoBehaviour
 
     public void EndTurn()
     {
+        GetComponent<TEMPUI>().EndTurn();
         currentPocket = 1;
         Debug.Log("End of turn: " + currentTurn);
         currentTurn++;
-        GetComponent<TEMPUI>().ScoreText.text = "Turn: " + currentTurn;
+        GetComponent<TEMPUI>().TurnText.text = "Turn: " + currentTurn;
         GetComponent<DiceCast>().diceToRoll = GetComponent<DiceCast>().maxDiceToRoll;
-    }
+        Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
 
-    public void ZonkOut()
-    {
-        Debug.Log("You Zonked out");
-        EndTurn();
+
     }
 
 }
