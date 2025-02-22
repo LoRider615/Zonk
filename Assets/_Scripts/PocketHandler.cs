@@ -185,13 +185,13 @@ public class PocketHandler : MonoBehaviour
             case 1:
                 if (Pocket1 == null)
                 {
-                    Pocket1 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket1 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket1[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket1[i] == 0)
                     {
@@ -205,13 +205,13 @@ public class PocketHandler : MonoBehaviour
             case 2:
                 if (Pocket2 == null)
                 {
-                    Pocket2 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket2 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket2[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket2[i] == 0)
                     {
@@ -226,13 +226,13 @@ public class PocketHandler : MonoBehaviour
             case 3:
                 if (Pocket3 == null)
                 {
-                    Pocket3 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket3 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket3[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket3[i] == 0)
                     {
@@ -247,13 +247,13 @@ public class PocketHandler : MonoBehaviour
             case 4:
                 if (Pocket4 == null)
                 {
-                    Pocket4 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket4 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket4[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket4[i] == 0)
                     {
@@ -268,13 +268,13 @@ public class PocketHandler : MonoBehaviour
             case 5:
                 if (Pocket5 == null)
                 {
-                    Pocket5 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket5 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket5[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket5[i] == 0)
                     {
@@ -289,13 +289,13 @@ public class PocketHandler : MonoBehaviour
             case 6:
                 if (Pocket6 == null)
                 {
-                    Pocket6 = new int[_diceCast.diceToRoll];
-                    for (int i = 0; i < _diceCast.diceToRoll; i++)
+                    Pocket6 = new int[_diceCast.maxDiceToRoll];
+                    for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                     {
                         Pocket6[i] = 0;
                     }
                 }
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket6[i] == 0)
                     {
@@ -315,7 +315,7 @@ public class PocketHandler : MonoBehaviour
         switch (currentPocket)
         {
             case 1:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket1[i] == diceNum)
                     {
@@ -325,7 +325,7 @@ public class PocketHandler : MonoBehaviour
                 break;
 
             case 2:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket2[i] == diceNum)
                     {
@@ -335,7 +335,7 @@ public class PocketHandler : MonoBehaviour
                 break;
 
             case 3:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket3[i] == diceNum)
                     {
@@ -345,7 +345,7 @@ public class PocketHandler : MonoBehaviour
                 break;
 
             case 4:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket4[i] == diceNum)
                     {
@@ -355,7 +355,7 @@ public class PocketHandler : MonoBehaviour
                 break;
 
             case 5:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket5[i] == diceNum)
                     {
@@ -365,7 +365,7 @@ public class PocketHandler : MonoBehaviour
                 break;
 
             case 6:
-                for (int i = 0; i < _diceCast.diceToRoll; i++)
+                for (int i = 0; i < _diceCast.maxDiceToRoll; i++)
                 {
                     if (Pocket6[i] == diceNum)
                     {
@@ -410,6 +410,19 @@ public class PocketHandler : MonoBehaviour
         return pocketScore;
     }
 
+    public void EndTurn()
+    {
+        currentPocket = 1;
+        Debug.Log("End of turn: " + currentTurn);
+        currentTurn++;
+        GetComponent<TEMPUI>().ScoreText.text = "Turn: " + currentTurn;
+        GetComponent<DiceCast>().diceToRoll = GetComponent<DiceCast>().maxDiceToRoll;
+    }
 
+    public void ZonkOut()
+    {
+        Debug.Log("You Zonked out");
+        EndTurn();
+    }
 
 }

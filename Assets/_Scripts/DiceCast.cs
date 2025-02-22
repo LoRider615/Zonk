@@ -11,19 +11,31 @@ public class DiceCast : MonoBehaviour
     private bool rainbow = false;
     private bool threePairs = false;
 
-    public int diceToRoll;
+    public int diceToRoll = 6;
+    public int maxDiceToRoll = 6;
     public int threeOfAKindMultiplier;
     public int fourOfAKindMultiplier;
     public int fiveOfAKindMultiplier;
     public int sixOfAKindMultiplier;
+    public int onesRolled = 0;
+    public int twosRolled = 0;
+    public int threesRolled = 0;
+    public int foursRolled = 0;
+    public int fivesRolled = 0;
+    public int sixesRolled = 0;
 
     public void CastDice()
     {
-        int[] CastList = new int[diceToRoll];
+        int[] CastList = new int[maxDiceToRoll];
         for (int index = 0; index < diceToRoll; index++)
         {
             CastList[index] = Random.Range(1, 7);
             //Debug.Log(CastList[index]);
+            //
+        }
+        for (int index = diceToRoll; index < maxDiceToRoll; index++)
+        {
+            CastList[index] = 0;
         }
         this.GetComponent<TEMPUI>().PopulateButtons(CastList);
 
@@ -45,12 +57,13 @@ public class DiceCast : MonoBehaviour
 
         bool onePair = false;
         bool twoPair = false;
-        int onesRolled = 0;
-        int twosRolled = 0;
-        int threesRolled = 0;
-        int foursRolled = 0;
-        int fivesRolled = 0;
-        int sixesRolled = 0;
+        onesRolled = 0;
+        twosRolled = 0;
+        threesRolled = 0;
+        foursRolled = 0;
+        fivesRolled = 0;
+        sixesRolled = 0;
+        
 
         for (int index = 0; index < arr.Length; index++)
         {
@@ -75,7 +88,7 @@ public class DiceCast : MonoBehaviour
                     sixesRolled++;
                     break;
                 default:
-                    Debug.Log("Warning, roll outside of expected parameters and not counted");
+                    //Debug.Log("Warning, roll outside of expected parameters and not counted, num:" + arr[index]);
                     break;
             }
         }
@@ -174,42 +187,7 @@ public class DiceCast : MonoBehaviour
         
         if (!threePairs && !rainbow)
         {
-            bool[] scoreable = new bool[diceToRoll];
-            for (int i = 0; i < diceToRoll; i++)
-            {
-                scoreable[i] = false;
-
-                if (arr[i] == 1 || arr[i] == 5)
-                    scoreable[i] = true;
-
-                if (twosRolled >= 3)
-                {
-                    if (arr[i] == 2)
-                        scoreable[i] = true;
-                }
-                if (threesRolled >= 3)
-                {
-                    if (arr[i] == 3)
-                        scoreable[i] = true;
-                }
-                if (foursRolled >= 3)
-                {
-                    if (arr[i] == 4)
-                        scoreable[i] = true;
-                }
-                if (fivesRolled >= 3)
-                {
-                    if (arr[i] == 5)
-                        scoreable[i] = true;
-                }
-                if (sixesRolled >= 3)
-                {
-                    if (arr[i] == 6)
-                        scoreable[i] = true;
-                }
-            }
-            this.GetComponent<TEMPUI>().EnableButtons(scoreable);
-            
+            //this.GetComponent<TEMPUI>().EnableButtons(CheckIfScoreable(arr));   
         }
 
 
@@ -374,6 +352,75 @@ public class DiceCast : MonoBehaviour
         return maxPotentialScore;
     }
 
+    public bool[] CheckIfScoreable(int[] arr)
+    {
+        int unscoreable = 0;
+        bool[] scoreable = new bool[maxDiceToRoll];
+        for (int i = 0; i < maxDiceToRoll; i++)
+        {
+            scoreable[i] = false;
 
+            if (arr[i] == 1 || arr[i] == 5)
+                scoreable[i] = true;
+            else
+                unscoreable++;
+
+            if (twosRolled >= 3)
+            {
+                if (arr[i] == 2)
+                    scoreable[i] = true;
+            }
+            else
+            {
+                unscoreable++;
+            }
+            if (threesRolled >= 3)
+            {
+                if (arr[i] == 3)
+                    scoreable[i] = true;
+            }
+            else
+            {
+                unscoreable++;
+            }
+            if (foursRolled >= 3)
+            {
+                if (arr[i] == 4)
+                    scoreable[i] = true;
+            }
+            else
+            {
+                unscoreable++;
+            }
+            if (fivesRolled >= 3)
+            {
+                if (arr[i] == 5)
+                    scoreable[i] = true;
+            }
+            else
+            {
+                unscoreable++;
+            }
+            if (sixesRolled >= 3)
+            {
+                if (arr[i] == 6)
+                    scoreable[i] = true;
+            }
+            else
+            {
+                unscoreable++;
+            }
+            if (arr[i] == 0)
+            {
+                scoreable[i] = false;
+            }
+        }
+        if (unscoreable == diceToRoll)
+        {
+            GetComponent<PocketHandler>().ZonkOut();
+            return null;
+        }
+        return scoreable;
+    }
 
 }

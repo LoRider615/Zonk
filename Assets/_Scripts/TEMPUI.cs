@@ -9,10 +9,9 @@ public class TEMPUI : MonoBehaviour
     public Button[] buttonList = new Button[6];
     int[] passedArray = new int[6];
     public int playerScore = 0;
+
     public TMP_Text ScoreText;
-
-
-
+    public TMP_Text TurnText;
 
     public Button CastDiceButton;
     public Button CachePointsButton;
@@ -30,17 +29,22 @@ public class TEMPUI : MonoBehaviour
         {
             buttonList[i].interactable = false;
         }
-
-        
     }
 
     public void PopulateButtons(int[] myArray)
     {
-        for (int i = 0; i < myArray.Length; i++)
+        for (int i = 0; i < GetComponent<DiceCast>().maxDiceToRoll; i++)
         {
             passedArray[i] = myArray[i];
             buttonList[i].GetComponentInChildren<TMP_Text>().text = myArray[i].ToString();
         }
+        EnableButtons(GetComponent<DiceCast>().CheckIfScoreable(myArray));
+        _buttonAClicked = false;
+        _buttonBClicked = false;
+        _buttonCClicked = false;
+        _buttonDClicked = false;
+        _buttonEClicked = false;
+        _buttonFClicked = false;
     }
     
     public void EnableButtons(bool[] scoreable)
@@ -144,6 +148,7 @@ public class TEMPUI : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
+            //if (GetComponent<DiceCast>())
             buttonList[i].interactable = true;
         }
         CastDiceButton.interactable = false;
@@ -155,37 +160,44 @@ public class TEMPUI : MonoBehaviour
         playerScore += this.GetComponent<PocketHandler>().CalculatePocketPoints();
         if (_buttonAClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         if (_buttonBClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         if (_buttonCClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         if (_buttonDClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         if (_buttonEClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         if (_buttonFClicked)
         {
-            buttonList[0].interactable = false;
+            //buttonList[0].interactable = false;
             GetComponent<DiceCast>().diceToRoll--;
         }
         ScoreText.text = "Score: " + playerScore;
+        int[] emptyArr = new int[GetComponent<DiceCast>().maxDiceToRoll];
+        if (GetComponent<DiceCast>().diceToRoll <= 0 )
+        {
+            PopulateButtons(emptyArr);
+            
+            GetComponent<PocketHandler>().EndTurn();
+            //Debug.Log("out of dice to roll, start new turn");
+        }
         this.GetComponent<PocketHandler>().currentPocket++;
-        int[] emptyArr = new int[GetComponent<DiceCast>().diceToRoll];
         PopulateButtons(emptyArr);
         for (int i = 0; i < emptyArr.Length; i++)
         {
