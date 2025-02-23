@@ -200,7 +200,7 @@ public class TEMPUI : MonoBehaviour
             GetComponent<DiceCast>().diceToRoll--;
         
 
-        ScoreText.text = "Temp Score: " + playerScore;
+        ScoreText.text = "Temp Money: " + playerScore;
 
         int[] emptyArr = new int[GetComponent<DiceCast>().maxDiceToRoll];
         if (GetComponent<DiceCast>().diceToRoll <= 0 )
@@ -228,8 +228,8 @@ public class TEMPUI : MonoBehaviour
     {
         playerCachedScore += playerScore;
         playerScore = 0;
-        ScoreText.text = "Temp Score: " + playerScore;
-        CachedScoreText.text = "Cached Score: " + playerCachedScore;
+        ScoreText.text = "Temp Money: " + playerScore;
+        CachedScoreText.text = "Cached Money: " + playerCachedScore;
         CastDiceButton.interactable = true;
     }
 
@@ -246,7 +246,7 @@ public class TEMPUI : MonoBehaviour
         CastDiceButton.interactable= false;
         EndTurnButton.interactable= true;
         playerScore = 0;
-        ScoreText.text = "Temp Score: " + playerScore;
+        ScoreText.text = "Temp Money: " + playerScore;
 
 
     }
