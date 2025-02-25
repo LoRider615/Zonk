@@ -16,7 +16,7 @@ public class RollDice : MonoBehaviour
     {
         castVel = diceBody.velocity;
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.touchCount > 0)
         {
             DiceNumberText.diceNumber = 0;
 
