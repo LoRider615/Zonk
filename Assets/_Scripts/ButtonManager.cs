@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    public GameObject PauseCanvas;
+
+    public void Start()
+    {
+        PauseCanvas.SetActive(false);
+    }
+
     public void Continue()
     {
         Debug.Log("Continue was pressed.");
@@ -39,5 +46,19 @@ public class ButtonManager : MonoBehaviour
     public void Back()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void PauseGame()
+    {
+        //pauses game
+        Time.timeScale = 0;
+        //adds pause screen overlay
+        PauseCanvas.SetActive(true);
+    }
+
+    public void PlayGame()
+    {
+        Time.timeScale = 1;
+        PauseCanvas.SetActive(false);
     }
 }
