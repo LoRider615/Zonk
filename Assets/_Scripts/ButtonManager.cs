@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -32,11 +33,11 @@ public class ButtonManager : MonoBehaviour
 
     public void Settings()
     {
-        Debug.Log("Settings was pressed.");
+        SceneManager.LoadScene(2);
     }
 
     public void Back()
     {
-        Debug.Log("This takes you back home.");
+        SceneManager.LoadScene(1);
     }
 }
