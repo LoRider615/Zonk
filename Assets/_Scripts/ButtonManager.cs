@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public GameObject PauseCanvas;
+    public GameObject pauseButton;
 
     public void Start()
     {
         PauseCanvas.SetActive(false);
+        pauseButton.SetActive(true);
     }
 
     public void Continue()
@@ -54,11 +56,13 @@ public class ButtonManager : MonoBehaviour
         Time.timeScale = 0;
         //adds pause screen overlay
         PauseCanvas.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     public void PlayGame()
     {
         Time.timeScale = 1;
         PauseCanvas.SetActive(false);
+        pauseButton.SetActive(true);
     }
 }
