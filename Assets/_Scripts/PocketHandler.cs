@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -25,6 +24,7 @@ public class PocketHandler : MonoBehaviour
 
     public int currentPocket = 1;
     public int currentTurn = 1;
+    public int quota = 1000;
 
     private DiceCast _diceCast;
 
@@ -318,6 +318,19 @@ public class PocketHandler : MonoBehaviour
         GetComponent<TEMPUI>().TurnText.text = "Turn: " + currentTurn;
         GetComponent<DiceCast>().diceToRoll = GetComponent<DiceCast>().maxDiceToRoll;
         Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
+        if (currentTurn > 3)
+        {
+            if (GetComponent<TEMPUI>().playerCachedScore >= quota)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+
     }
 
 }

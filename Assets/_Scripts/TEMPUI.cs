@@ -10,6 +10,7 @@ public class TEMPUI : MonoBehaviour
     int[] passedArray = new int[6];
     public int playerScore = 0;
     public int playerCachedScore = 0;
+    
 
     public TMP_Text ScoreText;
     public TMP_Text CachedScoreText;
