@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/_Game.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/_Home.unity
     guid: 77f683afac4e1bf4bab8c566b010b5f6
   - enabled: 1
     path: Assets/Scenes/SettingsScreen.unity
     guid: bf663efafad8fb547abf410f7a1f7cfc
+  - enabled: 1
+    path: Assets/Scenes/Logan.unity
+    guid: 21168403da08b71499d360c699e07134
+  - enabled: 1
+    path: Assets/Scenes/_Lose.unity
+    guid: 031417fd3e4d79247867401559e02724
+  - enabled: 1
+    path: Assets/Scenes/_Win.unity
+    guid: 08c76ab6e07739247a3c4db0b7a36b4a
   m_configObjects: {}
