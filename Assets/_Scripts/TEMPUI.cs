@@ -182,6 +182,7 @@ public class TEMPUI : MonoBehaviour
         }
         EndTurnButton.interactable = false;
         CastDiceButton.interactable = false;
+        CachePointsButton.interactable = true;
         this.GetComponent<DiceCast>().CastDice();
     }
 
@@ -213,7 +214,7 @@ public class TEMPUI : MonoBehaviour
             GetComponent<DiceCast>().diceToRoll--;
         
 
-        ScoreText.text = "Temp: $" + playerScore;
+        ScoreText.text = "Pocket Total: $" + playerScore;
 
         int[] emptyArr = new int[GetComponent<DiceCast>().maxDiceToRoll];
         if (GetComponent<DiceCast>().diceToRoll <= 0 )
@@ -233,7 +234,7 @@ public class TEMPUI : MonoBehaviour
         CastDiceButton.interactable = true;
 
         // Clears color for each button
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             buttonList[i].image.color = Color.white;
         }
@@ -247,7 +248,7 @@ public class TEMPUI : MonoBehaviour
     {
         playerCachedScore += playerScore;
         playerScore = 0;
-        ScoreText.text = "Temp: $" + playerScore;
+        ScoreText.text = "Pocket Total: $" + playerScore;
         CachedScoreText.text = "Cached: $" + playerCachedScore;
         CastDiceButton.interactable = true;
     }
@@ -265,7 +266,7 @@ public class TEMPUI : MonoBehaviour
         CastDiceButton.interactable= false;
         EndTurnButton.interactable= true;
         playerScore = 0;
-        ScoreText.text = "Temp: $" + playerScore;
+        ScoreText.text = "Pocket Total: $" + playerScore;
 
 
     }
