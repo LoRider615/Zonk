@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Logan Sharkey
@@ -322,11 +322,11 @@ public class PocketHandler : MonoBehaviour
         {
             if (GetComponent<TEMPUI>().playerCachedScore >= quota)
             {
-
+                SceneManager.LoadScene(4);
             }
             else
             {
-
+                SceneManager.LoadScene(3);
             }
         }
 
