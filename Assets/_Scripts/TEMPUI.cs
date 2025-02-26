@@ -79,11 +79,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[0]);
             _buttonAClicked = true;
+            buttonList[0].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[0]);
             _buttonAClicked = false;
+            buttonList[0].image.color = Color.white;
         }
         
         //Debug.Log("Num Passed " + passedArray[0]);
@@ -95,11 +97,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[1]);
             _buttonBClicked = true;
+            buttonList[1].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[1]);
             _buttonBClicked = false;
+            buttonList[1].image.color = Color.white;
         }
     }
 
@@ -109,11 +113,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[2]);
             _buttonCClicked = true;
+            buttonList[2].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[2]);
             _buttonCClicked = false;
+            buttonList[2].image.color = Color.white;
         }
     }
 
@@ -123,11 +129,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[3]);
             _buttonDClicked = true;
+            buttonList[3].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[3]);
             _buttonDClicked = false;
+            buttonList[3].image.color = Color.white;
         }
     }
 
@@ -137,11 +145,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[4]);
             _buttonEClicked = true;
+            buttonList[4].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[4]);
             _buttonEClicked = false;
+            buttonList[4].image.color = Color.white;
         }
     }
 
@@ -151,11 +161,13 @@ public class TEMPUI : MonoBehaviour
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[5]);
             _buttonFClicked = true;
+            buttonList[5].image.color = Color.green;
         }
         else
         {
             this.GetComponent<PocketHandler>().RemoveFromPocket(passedArray[5]);
             _buttonFClicked = false;
+            buttonList[5].image.color = Color.white;
         }
     }
 
@@ -219,6 +231,12 @@ public class TEMPUI : MonoBehaviour
         }
 
         CastDiceButton.interactable = true;
+
+        // Clears color for each button
+        for (int i = 0; i < 5; i++)
+        {
+            buttonList[i].image.color = Color.white;
+        }
 
     }
 
