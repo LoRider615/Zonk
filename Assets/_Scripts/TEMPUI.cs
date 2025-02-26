@@ -229,8 +229,8 @@ public class TEMPUI : MonoBehaviour
     {
         playerCachedScore += playerScore;
         playerScore = 0;
-        ScoreText.text = "Temp Money: " + playerScore;
-        CachedScoreText.text = "Cached Money: " + playerCachedScore;
+        ScoreText.text = "Temp: $" + playerScore;
+        CachedScoreText.text = "Cached: $" + playerCachedScore;
         CastDiceButton.interactable = true;
     }
 
@@ -247,7 +247,7 @@ public class TEMPUI : MonoBehaviour
         CastDiceButton.interactable= false;
         EndTurnButton.interactable= true;
         playerScore = 0;
-        ScoreText.text = "Temp Money: " + playerScore;
+        ScoreText.text = "Temp: $" + playerScore;
 
 
     }
