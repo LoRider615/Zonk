@@ -201,7 +201,7 @@ public class TEMPUI : MonoBehaviour
             GetComponent<DiceCast>().diceToRoll--;
         
 
-        ScoreText.text = "Temp Money: " + playerScore;
+        ScoreText.text = "Temp: $" + playerScore;
 
         int[] emptyArr = new int[GetComponent<DiceCast>().maxDiceToRoll];
         if (GetComponent<DiceCast>().diceToRoll <= 0 )
