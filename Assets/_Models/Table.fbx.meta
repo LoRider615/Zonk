@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: a7f3a7ddc63c0094e8c855e9d3033f75
+guid: d06f089240199674f9b52dfb41a4c78c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DiceLambert
-    second: {fileID: 2100000, guid: 42ea96a3abfe64c47b1c4b985ca4a58a, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
