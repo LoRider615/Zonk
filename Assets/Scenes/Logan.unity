@@ -1490,6 +1490,7 @@ MonoBehaviour:
   ScoreText: {fileID: 1095649859}
   CachedScoreText: {fileID: 1770470118}
   TurnText: {fileID: 2121545179}
+  QuotaText: {fileID: 2042729194}
   CastDiceButton: {fileID: 2090078869}
   CachePointsButton: {fileID: 1531769825}
   EndTurnButton: {fileID: 1881340413}
