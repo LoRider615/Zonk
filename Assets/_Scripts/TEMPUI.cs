@@ -15,6 +15,7 @@ public class TEMPUI : MonoBehaviour
     public TMP_Text ScoreText;
     public TMP_Text CachedScoreText;
     public TMP_Text TurnText;
+    public TMP_Text QuotaText;
 
     public Button CastDiceButton;
     public Button CachePointsButton;
