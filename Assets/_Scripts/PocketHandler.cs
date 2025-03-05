@@ -28,6 +28,8 @@ public class PocketHandler : MonoBehaviour
 
     private DiceCast _diceCast;
 
+    public AudioSource _audioSource;
+
     private void Awake()
     {
         //This is part of the above comment on being an outdated variable, safe to ignore this part
@@ -326,6 +328,7 @@ public class PocketHandler : MonoBehaviour
                 currentTurn = 1;
                 GetComponent<TEMPUI>().TurnText.text = "Turn: " + currentTurn;
                 GetComponent<TEMPUI>().QuotaText.text = "Quota: $" + quota;
+                _audioSource.Play();
             }
             else
             {
