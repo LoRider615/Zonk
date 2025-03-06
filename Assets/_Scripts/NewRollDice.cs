@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewDiceRoll : MonoBehaviour
+public class NewRollDice : MonoBehaviour
 {
     //dice rigibody
     private Rigidbody rb;
@@ -17,7 +17,7 @@ public class NewDiceRoll : MonoBehaviour
     private void Update()
     {
         //if the dice is no longer moving, read which face is up (what we rolled)
-        if(IsStopped() == true)
+        if (IsStopped() == true)
         {
             int indexResult = RollResult();
         }
@@ -32,14 +32,14 @@ public class NewDiceRoll : MonoBehaviour
         int x = Random.Range(0, 360);
         int y = Random.Range(0, 360);
         int z = Random.Range(0, 360);
-        
+
         Quaternion rotation = Quaternion.Euler(x, y, z);
 
         //force
         x = Random.Range(0, 25);
         y = Random.Range(0, 25);
         z = Random.Range(0, 25);
-        
+
         Vector3 force = new Vector3(x, -y, z);
 
         //torque
@@ -63,7 +63,7 @@ public class NewDiceRoll : MonoBehaviour
     {
         //if the rigidbody's velocity and angular velocity are zero (not moving) then it's stopped
         //if not, then return false cause its still moving
-        if(rb.velocity == Vector3.zero && rb.angularVelocity == Vector3.zero)
+        if (rb.velocity == Vector3.zero && rb.angularVelocity == Vector3.zero)
         {
             return true;
         }
@@ -78,7 +78,7 @@ public class NewDiceRoll : MonoBehaviour
     {
         int maxValue = 0;
 
-        for(int i = 1; i < faceReader.Length; i++)
+        for (int i = 1; i < faceReader.Length; i++)
         {
             if (faceReader[maxValue].transform.position.y < faceReader[i].transform.position.y)
             {
