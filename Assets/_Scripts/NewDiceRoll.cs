@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class NewDiceRoll : MonoBehaviour
 {
+    //NOTES: Still need to get this to instantiate when needed
+    //right now it stays on screen
+    //doesn't reset position for each roll
+    //also need to ensure that the player can't tap again while dice is being rolled/touch can only affect dice when we want them to in the game
+    
     //dice rigibody
     public Rigidbody rb;
 
@@ -12,13 +17,25 @@ public class NewDiceRoll : MonoBehaviour
 
     private void Start()
     {
-        StartState();
+        //StartState();
     }
 
     private void Update()
     {
+        //touch ctrls (for now this will be blocked out, unblock when testing on phone)
+        /*if (Input.touchCount > 0)
+        {
+            StartState();
+        }*/
+
+        //temp keyboard ctrls - block out when using touch ctrls above
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartState();
+        }
+
         //if the dice is no longer moving, read which face is up (what we rolled)
-        if(IsStopped() == true)
+        if (IsStopped() == true)
         {
             int indexResult = RollResult();
         }
@@ -85,8 +102,12 @@ public class NewDiceRoll : MonoBehaviour
             if (faceReader[maxValue].transform.position.y < faceReader[i].transform.position.y)
             {
                 maxValue = i;
+                Debug.Log("Rolled " + faceReader[i].name);
             }
         }
         return maxValue;
     }
+
+    //my brain is fried 
+    //I have never had to consult the Unity documentation more than I have now
 }
