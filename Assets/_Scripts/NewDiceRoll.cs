@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewDiceRoll : MonoBehaviour
 {
     //dice rigibody
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     //this neat thing creates a list of game objects
     public GameObject[] faceReader;
@@ -27,6 +27,7 @@ public class NewDiceRoll : MonoBehaviour
     //code for the rotation, force and torque for the dice
     //also adds torque and force to the dice rigidbody
     //the state in which the dice starts off in
+    //might need to adjust either the force or torque range later bc it's a little strong
     private void StartState()
     {
         //rotation
