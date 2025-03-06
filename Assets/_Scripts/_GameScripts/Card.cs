@@ -8,7 +8,7 @@ public class Card
     public string cardName;
     public Sprite cardImage;
     public string description;
-    //public CardEffectType effectType; // different effect types
+    //public CardEffectType effectType; // Different effect types
 
     public virtual void Use()
     {
@@ -16,6 +16,7 @@ public class Card
     }
 }
 
+// don't know how this is going to work...
 //public enum CardEffectType
 //{
 //    TimeWarpTonic,
