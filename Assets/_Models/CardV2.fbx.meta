@@ -3,7 +3,12 @@ guid: 9ceefb1b812f4d640b7cf4e9a2eecccf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CardLamb
+    second: {fileID: 2100000, guid: ee373d95d54a52d41b28aee08209f98a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
