@@ -138,7 +138,7 @@ public class RiggedDice : MonoBehaviour
         {
             this.altFaceRoll = altFaceRoll;
             //Vector3 rotate = diceData.faceRelativeRotation[defaultFaceRoll].rotation[altFaceRoll];
-            transform.Rotate(rotate);
+            //transform.Rotate(rotate);
         }
         else
         {
