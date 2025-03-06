@@ -3,7 +3,12 @@ guid: 9f381253942b07745a50398de6b7ad7a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RuneLamb
+    second: {fileID: 2100000, guid: b38e4469d1083914fbf931f012bfa3fe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
