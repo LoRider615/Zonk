@@ -8,10 +8,8 @@ using Unity.VisualScripting;
 public class CardManager : MonoBehaviour
 {
     public GameObject cardUIPrefab; // UI Prefab for a single card
-    public GameObject cardUIAll; // Reference to the specific game object of the CardUI panel
     public Transform cardPanel; // Parent UI panel for cards
     public int maxCards = 5; // Max cards allowed
-    public bool isCardPanelOn = false;
 
 
     public List<Card> playerCards = new List<Card>();
@@ -25,17 +23,15 @@ public class CardManager : MonoBehaviour
     //{
     //    for (int i = 0; i < 3; i++)
     //    {
-    //        // Manually create a test card if needed
     //        Card testCard = new Card();
     //        testCard.cardName = "Test Card";
     //        testCard.description = "This is a test card.";
-    //        AddCard(testCard); // Add the card manually
+    //        AddCard(testCard); 
     //    }
     //}
 
     private void Start()
     {
-        cardUIAll.SetActive(false);
         AddCard(testCard);
         AddCard(testCard2);
         AddCard(testCard3);
@@ -46,38 +42,6 @@ public class CardManager : MonoBehaviour
     //    AddCard(testCard);
     //}
     // -----
-
-    void Update()
-    {
-        OpenCardPanel();
-    }
-
-    public void OpenCardPanel()
-    {
-        if (!isCardPanelOn)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.collider.gameObject == gameObject) // Checks if this object was tapped
-                    {
-                        cardUIAll.SetActive(true);
-                        isCardPanelOn = true;
-                    }
-                }
-            }
-        }
-    }
-
-    public void CloseCardPanel()
-    {
-        cardUIAll.SetActive(false);
-        isCardPanelOn = false;
-    }
 
     public void AddCard(Card newCard)
     {
@@ -122,7 +86,7 @@ public class CardManager : MonoBehaviour
         {
             //Debug.Log("Displaying card at index: " + i); // log each card being created
 
-            GameObject cardUI = Instantiate(cardUIPrefab, cardPanel); // Auto positions with Layout Group (TODO)
+            GameObject cardUI = Instantiate(cardUIPrefab, cardPanel); // Auto positions with Layout Group
             cardUI.transform.Find("CardName").GetComponent<TextMeshProUGUI>().text = playerCards[i].cardName;
             cardUI.transform.Find("CardDescription").GetComponent<TextMeshProUGUI>().text = playerCards[i].description;
             cardUI.transform.Find("CardImage").GetComponent<Image>().sprite = playerCards[i].cardImage;

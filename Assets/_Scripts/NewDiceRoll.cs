@@ -12,14 +12,14 @@ public class NewDiceRoll : MonoBehaviour
         StartState();
     }
 
-    private void Update()
-    {
-        //if the dice is no longer moving, read which face is up (what we rolled)
-        if(IsStopped() == true)
-        {
-            int indexResult = RollResult();
-        }
-    }
+    //private void Update()
+    //{
+    //    //if the dice is no longer moving, read which face is up (what we rolled)
+    //    if (IsStopped() == true)
+    //    {
+    //        int indexResult = RollResult();
+    //    }
+    //}
 
     //code for the rotation, force and torque for the dice
     //also adds torque and force to the dice rigidbody
@@ -72,17 +72,17 @@ public class NewDiceRoll : MonoBehaviour
     }
 
     //sees which face is the highest on the y axis to tell which face/number we rolled
-    private int RollResult()
-    {
-        int maxValue = 0;
+    //private int RollResult()
+    //{
+    //    int maxValue = 0;
 
-        for(int i = 1; i < faceReader.Length; i++)
-        {
-            if (faceReader[maxValue].transform.position.y < faceReader[i].transform.position.y)
-            {
-                maxValue = i;
-            }
-        }
-        return maxValue;
-    }
+    //    for(int i = 1; i < faceReader.Length; i++)
+    //    {
+    //        if (faceReader[maxValue].transform.position.y < faceReader[i].transform.position.y)
+    //        {
+    //            maxValue = i;
+    //        }
+    //    }
+    //    return maxValue;
+    //}
 }
