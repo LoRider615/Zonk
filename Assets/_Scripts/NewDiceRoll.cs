@@ -7,6 +7,7 @@ public class NewDiceRoll : MonoBehaviour
     //dice rigibody
     private Rigidbody rb;
 
+    //this neat thing creates a list of game objects
     public GameObject[] faceReader;
 
     private void Start()
