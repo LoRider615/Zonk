@@ -93,9 +93,9 @@ public class NewDiceRoll : MonoBehaviour
     }
 
     //sees which face is the highest on the y axis to tell which face/number we rolled
-    //private int RollResult()
-    //{
-    //    int maxValue = 0;
+    private int RollResult()
+    {
+        int maxValue = 0;
 
         for(int i = 1; i < faceReader.Length; i++)
         {
