@@ -11,12 +11,16 @@ public class NewDiceRoll : MonoBehaviour
     
     //dice rigibody
     public Rigidbody rb;
+    public DiceCast diceCast;
 
     //this neat thing creates a list of game objects
     public GameObject[] faceReader;
+    public bool allDiceStopped = false;
+    public int diceStoppedCount = 0;
 
     private void Start()
     {
+        diceCast = FindObjectOfType<DiceCast>();
         //StartState();
     }
 
@@ -32,12 +36,18 @@ public class NewDiceRoll : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             StartState();
+            allDiceStopped = false;
+            diceStoppedCount = 0;
         }
 
         //if the dice is no longer moving, read which face is up (what we rolled)
-        if (IsStopped() == true)
+        if (IsStopped() == true && !allDiceStopped)
         {
-            int indexResult = RollResult();
+            diceCast.CastDice(RollResult());
+            diceStoppedCount++;
+            Debug.Log(diceStoppedCount);
+            if (diceStoppedCount == diceCast.diceToRoll)
+                allDiceStopped = true;
         }
     }
 
@@ -93,7 +103,7 @@ public class NewDiceRoll : MonoBehaviour
     }
 
     //sees which face is the highest on the y axis to tell which face/number we rolled
-    private int RollResult()
+    public int RollResult()
     {
         int maxValue = 0;
 

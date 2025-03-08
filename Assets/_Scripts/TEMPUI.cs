@@ -184,7 +184,7 @@ public class TEMPUI : MonoBehaviour
         EndTurnButton.interactable = false;
         CastDiceButton.interactable = false;
         CachePointsButton.interactable = true;
-        this.GetComponent<DiceCast>().CastDice();
+        //this.GetComponent<DiceCast>().CastDice();
     }
 
     /// <summary>
