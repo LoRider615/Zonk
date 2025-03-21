@@ -1,3 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="ScreenContainer" focusable="false" style="flex-grow: 1; justify-content: space-around; align-items: center; align-self: center; height: auto; width: 900px; flex-direction: column; flex-basis: auto; max-height: 150px; max-width: 900px; min-width: 900px; min-height: 150px; position: absolute; bottom: 0; padding-top: 0.5%; padding-right: 0.5%; padding-bottom: 0.5%; padding-left: 0.5%; margin-top: 0; margin-right: 0; margin-bottom: 0; background-color: rgba(0, 0, 0, 0.47);" />
+    <Style src="project://database/Assets/UIToolkit/MiniPocketUSS.uss?fileID=7433441132597879392&amp;guid=5209099c0ee220149a956c109c1d3b37&amp;type=3#MiniPocketUSS" />
+    <ui:VisualElement name="ScreenContainer" focusable="false" style="flex-grow: 1; justify-content: space-around; align-items: center; align-self: center; height: auto; width: 900px; flex-direction: column; flex-basis: auto; max-height: 150px; max-width: 900px; min-width: 900px; min-height: 150px; position: absolute; bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; background-color: rgba(0, 0, 0, 0.47);">
+        <ui:VisualElement name="MiniPocket1" class="mp" style="flex-grow: 1; position: absolute; left: 0;" />
+        <ui:VisualElement name="MiniPocket2" class="mp" style="flex-grow: 1; position: absolute; left: 20.5%;" />
+        <ui:VisualElement name="MiniPocket3" class="mp" style="flex-grow: 1; position: relative;" />
+        <ui:VisualElement name="MiniPocket4" class="mp" style="flex-grow: 1; position: absolute; left: auto; right: 20.5%;" />
+        <ui:VisualElement name="MiniPocket5" class="mp" style="flex-grow: 1; position: absolute; left: auto; right: 0;" />
+    </ui:VisualElement>
 </ui:UXML>
