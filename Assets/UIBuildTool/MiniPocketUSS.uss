@@ -1,0 +1,31 @@
+.mp {
+    max-width: 160px;
+    max-height: 150px;
+    min-width: 160px;
+    min-height: 150px;
+    height: 150px;
+    width: 160px;
+    padding-top: 0.2%;
+    padding-right: 0.2%;
+    padding-bottom: 0.2%;
+    padding-left: 0.2%;
+    position: absolute;
+    bottom: auto;
+    background-color: rgba(0, 0, 0, 0.18);
+}
+
+.dp {
+    width: 50px;
+    height: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-self: auto;
+    background-color: rgba(0, 0, 0, 0.27);
+    position: absolute;
+    justify-content: flex-start;
+    top: 15%;
+}
