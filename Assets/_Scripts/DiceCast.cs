@@ -33,7 +33,7 @@ public class DiceCast : MonoBehaviour
         DiceArray = null;
     }
 
-    /*
+    
     /// <summary>
     /// Simple logic for filling an array of dice, size is variable
     /// </summary>
@@ -54,7 +54,7 @@ public class DiceCast : MonoBehaviour
 
         Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
     }
-    */
+    
 
     public void CastDice(int diceNum)
     {
