@@ -21,12 +21,14 @@ public class TEMPUI : MonoBehaviour
     public Button CachePointsButton;
     public Button EndTurnButton;
 
+    /*
     private bool _buttonAClicked = false;
     private bool _buttonBClicked = false;
     private bool _buttonCClicked = false;
     private bool _buttonDClicked = false;
     private bool _buttonEClicked = false;
     private bool _buttonFClicked = false;
+    */
 
     private void Awake()
     {
@@ -48,12 +50,14 @@ public class TEMPUI : MonoBehaviour
             buttonList[i].GetComponentInChildren<TMP_Text>().text = myArray[i].ToString();
         }
         EnableButtons(GetComponent<DiceCast>().CheckIfScoreable(myArray));
+        /*
         _buttonAClicked = false;
         _buttonBClicked = false;
         _buttonCClicked = false;
         _buttonDClicked = false;
         _buttonEClicked = false;
         _buttonFClicked = false;
+        */
     }
     
     /// <summary>
@@ -74,8 +78,10 @@ public class TEMPUI : MonoBehaviour
         }
     }
 
+    /*
     public void ButtonAClicked()
     {
+        
         if (!_buttonAClicked)
         {
             this.GetComponent<PocketHandler>().AddToPocket(passedArray[0]);
@@ -171,6 +177,7 @@ public class TEMPUI : MonoBehaviour
             buttonList[5].image.color = Color.white;
         }
     }
+    */
 
     /// <summary>
     /// Rolls the proverbial dice when the button is clicked
@@ -184,7 +191,7 @@ public class TEMPUI : MonoBehaviour
         EndTurnButton.interactable = false;
         CastDiceButton.interactable = false;
         CachePointsButton.interactable = true;
-        this.GetComponent<DiceCast>().CastDice();
+        //this.GetComponent<DiceCast>().CastDice();
     }
 
     /// <summary>
@@ -196,6 +203,7 @@ public class TEMPUI : MonoBehaviour
 
         playerScore += this.GetComponent<PocketHandler>().CalculatePocketPoints();
 
+        /*
         if (_buttonAClicked)
             GetComponent<DiceCast>().diceToRoll--;
         
@@ -213,6 +221,7 @@ public class TEMPUI : MonoBehaviour
         
         if (_buttonFClicked)
             GetComponent<DiceCast>().diceToRoll--;
+        */
         
 
         ScoreText.text = "Pocket Total: $" + playerScore;

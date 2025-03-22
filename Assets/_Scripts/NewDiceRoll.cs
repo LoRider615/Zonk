@@ -12,15 +12,18 @@ public class NewDiceRoll : MonoBehaviour
     //dice rigibody
     public Rigidbody rb;
     public DiceCast diceCast;
+    public GameObject gameManager;
 
     //this neat thing creates a list of game objects
     public GameObject[] faceReader;
     public bool allDiceStopped = false;
-    public int diceStoppedCount = 0;
+    //public int diceStoppedCount = 0;
+
+    private bool valuePassed = true;
 
     private void Start()
     {
-        diceCast = FindObjectOfType<DiceCast>();
+        diceCast = gameManager.GetComponent<DiceCast>();
         //StartState();
     }
 
@@ -32,23 +35,54 @@ public class NewDiceRoll : MonoBehaviour
             StartState();
         }*/
 
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Dice")
+                {
+                    Debug.Log("Dice touched successfully");
+                    hit.collider.gameObject.SetActive(false);
+                }
+            }
+        }
+
+
         //temp keyboard ctrls - block out when using touch ctrls above
         if(Input.GetKeyDown(KeyCode.Space))
         {
             StartState();
             allDiceStopped = false;
-            diceStoppedCount = 0;
+            valuePassed = false;
+            diceCast.diceStoppedCount = 0;
         }
 
         //if the dice is no longer moving, read which face is up (what we rolled)
-        if (IsStopped() == true && !allDiceStopped)
+        /*
+        if (IsStopped() && !allDiceStopped)
         {
-            diceCast.CastDice(RollResult());
+            //diceCast.CastDice(RollResult());
             diceStoppedCount++;
             Debug.Log(diceStoppedCount);
             if (diceStoppedCount == diceCast.diceToRoll)
                 allDiceStopped = true;
         }
+        */
+        if (IsStopped() && !valuePassed)
+        {
+            diceCast.CastDice(RollResult());
+            valuePassed = true;
+            diceCast.diceStoppedCount++;
+            Debug.Log("Dice Stopped: " + diceCast.diceStoppedCount);
+            if (diceCast.diceStoppedCount == diceCast.diceToRoll)
+                allDiceStopped = true;
+        }
+
     }
 
     //code for the rotation, force and torque for the dice
@@ -112,10 +146,11 @@ public class NewDiceRoll : MonoBehaviour
             if (faceReader[maxValue].transform.position.y < faceReader[i].transform.position.y)
             {
                 maxValue = i;
-                Debug.Log("Rolled " + faceReader[i].name);
+                //Debug.Log("Rolled " + faceReader[i].name);
             }
         }
-        return maxValue;
+        Debug.Log("MAX VALUE: " +  (maxValue + 1));
+        return maxValue + 1;
     }
 
     //my brain is fried 

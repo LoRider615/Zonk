@@ -714,6 +714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceV2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -789,6 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 126904701}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 1259654937}
   - {fileID: 501968259}
@@ -797,7 +803,6 @@ MonoBehaviour:
   - {fileID: 892100799}
   - {fileID: 1991859104}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!82 &126904698
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1163,6 +1168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceV2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1238,6 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 309400753}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 1633539130}
   - {fileID: 606595592}
@@ -1246,7 +1257,6 @@ MonoBehaviour:
   - {fileID: 1431440803}
   - {fileID: 77021346}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!82 &309400750
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1718,6 +1728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DiceV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4419,6 +4434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceV2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4494,6 +4514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 882754258}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 1633479696}
   - {fileID: 2085010829}
@@ -4502,7 +4523,6 @@ MonoBehaviour:
   - {fileID: 1422469596}
   - {fileID: 816692489}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!82 &882754255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5507,6 +5527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1049272609}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 1776624192}
   - {fileID: 893490734}
@@ -5515,7 +5536,6 @@ MonoBehaviour:
   - {fileID: 497564188}
   - {fileID: 1457820759}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!1 &1115270166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,6 +6019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceV2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6074,6 +6099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1211284922}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 1043425414}
   - {fileID: 1275171520}
@@ -6082,7 +6108,6 @@ MonoBehaviour:
   - {fileID: 437066215}
   - {fileID: 12818705}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!82 &1211284919
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7531,6 +7556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceV2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d39b65fa502a6e449235759272cf254,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -7606,6 +7636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1519551257}
   diceCast: {fileID: 0}
+  gameManager: {fileID: 1937256980}
   faceReader:
   - {fileID: 441957097}
   - {fileID: 17748919}
@@ -7614,7 +7645,6 @@ MonoBehaviour:
   - {fileID: 1536695108}
   - {fileID: 1621242024}
   allDiceStopped: 0
-  diceStoppedCount: 0
 --- !u!82 &1519551254
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9011,6 +9041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3d921c91bb5e942b0800319d999533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DiceArray: 
   diceToRoll: 6
   maxDiceToRoll: 6
   threeOfAKindMultiplier: 0
@@ -9023,6 +9054,7 @@ MonoBehaviour:
   foursRolled: 0
   fivesRolled: 0
   sixesRolled: 0
+  diceStoppedCount: 0
 --- !u!4 &1937256982
 Transform:
   m_ObjectHideFlags: 0
