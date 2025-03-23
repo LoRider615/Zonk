@@ -11,6 +11,9 @@ public class DiceCast : MonoBehaviour
     private bool rainbow = false;
     private bool threePairs = false;
     public int[] DiceArray;
+    public GameObject[] PhysicalDice = new GameObject[6];
+    public GameObject[] PocketSpawns = new GameObject[6];
+    public bool[] scoreableArray = new bool[6];
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -68,15 +71,25 @@ public class DiceCast : MonoBehaviour
                 DiceArray[i] = 0;
             }
         }
+
         for (int i = 0;i < DiceArray.Length; i++)
         {
             if (DiceArray[i] == 0)
             {
                 DiceArray[i] = diceNum;
                 Debug.Log("Dice Added: " + diceNum);
-                break;
+                if (i == DiceArray.Length - 1)
+                {
+                    for (int j = 0; j < scoreableArray.Length; j++)
+                    {
+                        scoreableArray[j] = CheckIfScoreable(DiceArray)[j];
+                        Debug.Log("scoreableArray[" + j + "]: " + scoreableArray[j]);
+                    }
+                }
+                else
+                    break;
             }
-        }  
+        }
     }
     
 

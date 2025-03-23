@@ -46,8 +46,7 @@ public class NewDiceRoll : MonoBehaviour
             {
                 if (hit.collider.tag == "Dice")
                 {
-                    Debug.Log("Dice touched successfully");
-                    hit.collider.gameObject.SetActive(false);
+                    
                 }
             }
         }
