@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3321,21 +3321,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Objective:\r</b>\n\r\n\t- Play 3 turns and meet the Quota each round
-    to win!\r\n\t- Roll 6 dice, pocket scoring combos, and bank points to advance\n\n<b>Scoring
-    Combos:\r</b>\n\r\n\t- 1s = 100 points\n\t- 5s = 50 points\r\n\t- Three of a
-    kind = Dice value \xD7 100 (Three 1s = 1000!)\r\n\t- Four of a kind = Dice value
-    \xD7 200\n\t- Five of a kind = Dice value \xD7 400\n\t- Six of a kind  = Dice
-    value \xD7 600\r\n\t- Three different pairs = 750\n\t- Rainbow (1-6) = 2500\r\n\r\n<b>Turn
-    Basics:\r</b>\n\r\n\t1. Roll all dice (Cast)\n\t2. Pocket any scoring dice (at
-    least one die must be pocketed to continue)\n\t3. Pocketed dice will not be included
-    in subsequent roles until the turn is ended\n\t3. Recast remaining dice or Cache
-    points to end turn early, securing your points\n\t4. If all dice are pocketed
-    when the turn ends, Recast all dice\n\t5. If no scoring dice appear = Zonked!
-    (lose all potential points currently in pocket)\n\r\n<b>Cards:\r</b>\n\r\n\t-
-    Modifiers = Permanent effects\n\t- Items = Single-use actions\n\r\n<b>Quotas:\r</b>\n\r\n\t-
-    Round 1: 1,000 points\r\n\t- Round 2: 2,000 points\r\n\t- Round 3: 3,000 points\r\n\r\n<b>Zonked?\r</b>\n\r\n\t-
-    A cast with no scoring dice ends your turn, losing all uncached points!\r\n\r\n<b>Tip:\r</b>\n\r\n\t-
+  m_text: "<b>Objective:\r</b>\n\r\n\t- Within 3 turns, reach Quota to continue.\n\t-
+    Cast 6 dice, Pocket Scoring Combos, and Cache points to reach Quota.\n\n<b>Terms:</b>\n\n\t-
+    3 Turns = 1 Round\n\t- Quota = Point amount to reach each Round\n\t- Pocket =
+    Selected Scoring Combos\n\t- Cache = Earned points\n\t- Zonked = Lose all Pocketed
+    points\n\n<b>Scoring Combos & Points:\r</b>\n\n\t- 1s = 100\n\t- 5s = 50\r\n\t-
+    Three of a kind = Dice value \xD7 100 (Any matching 3 | Three 1s = 1000)\r\n\t-
+    Four of a kind = Dice value \xD7 200 (Any matching 4)\n\t- Five of a kind = Dice
+    value \xD7 400 (Any matching 5)\n\t- Six of a kind  = Dice value \xD7 600 (Any
+    matching 6)\r\n\t- Three different pairs = 750 (3 sets of 2. Ex: 1, 1, 3, 3,
+    5, 5)\n\t- Rainbow = 2500 (1, 2, 3, 4, 5, 6)\n\r\n<b>Turn System:\r</b>\n\r\nWithin
+    each turn, you can Cast 3 times.\n\t1. Cast dice.\n\t2. Pocket any Scoring Combos
+    (1 required to continue).\n\t    - Pocketed dice will not be included in subsequent
+    roles until the turn is ended.\n\t3. Recast remaining dice or end turn to Cache
+    points.\n\t4. If all dice are Pocketed when the turn ends, recast all dice.\n\t5.
+    If no Scoring Combos appear, you've Zonked!\n\r\n<b>Effects:\r</b>\n\n\rNot available
+    in game yet!\n\t- Modifier Runes = Permanent\n\t- Item Cards = Single-use \n\r\n<b>Tip:\r</b>\n\r\n\t-
     Take risks to maximize points, but don\u2019t get Zonked!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3367,7 +3368,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 30
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -4614,7 +4615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You rolled no scoreable dice, all pocketed money lost, end turn to continue
+  m_text: You casted no scoreable dice, all pocketed money lost. End turn to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5385,7 +5386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total: $Amnt'
+  m_text: 'Cached: $Amnt'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
