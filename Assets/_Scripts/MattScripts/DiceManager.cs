@@ -11,8 +11,7 @@ public class DiceManager : MonoBehaviour
     {
         foreach (DiceRoller die in diceArray)
         {
-            int number = 3;
-            die.RollDice(number);
+            die.RollDice();
         }
     }
 }
