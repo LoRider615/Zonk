@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UIBuildTool/MiniPocketUSS.uss?fileID=7433441132597879392&amp;guid=5209099c0ee220149a956c109c1d3b37&amp;type=3#MiniPocketUSS" />
-    <ui:VisualElement name="ScreenContainer" focusable="false" style="height: 655px; flex-direction: row; flex-wrap: wrap-reverse; align-self: auto; justify-content: space-around; flex-grow: 1;">
+    <ui:VisualElement name="ScreenContainer" focusable="false" style="height: 655px; flex-direction: row; flex-wrap: wrap-reverse; align-self: auto; justify-content: space-around; flex-shrink: 0;">
         <ui:VisualElement name="MiniPocket1" class="mp" style="flex-grow: 1; position: absolute; left: 0; flex-direction: column;">
             <ui:VisualElement name="DiceP1" class="dp" style="flex-grow: 1; justify-content: flex-start; flex-direction: row; flex-wrap: wrap-reverse; position: absolute; left: 0; top: 15%;" />
             <ui:VisualElement name="DiceP2" class="dp" style="flex-grow: 1; justify-content: flex-start; flex-direction: row; flex-wrap: wrap-reverse; position: absolute; left: 35%;" />
