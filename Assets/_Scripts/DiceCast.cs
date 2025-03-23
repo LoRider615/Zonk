@@ -216,20 +216,31 @@ public class DiceCast : MonoBehaviour
             else
                 selected++;
         }
-        int scoreable = 0;
-        for (int i = 0; i < diceToRoll; i++)
-        {
-            if (PhysicalDice[i].GetComponent<DiceRoller>().scoreable && !PhysicalDice[i].GetComponent<DiceRoller>().selected)
-                scoreable++;
-        }
-        if (scoreable == 0)
-            //pocketHandler.ZonkOut();
-        
+
+        StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
     }
     
+    public IEnumerator CountDice()
+    {
+        yield return new WaitForSeconds(2);
+        int scoreable = 0;
+        for (int i = 0; i < diceToRoll; i++)
+        {
+            if (!PhysicalDice[i].GetComponent<DiceRoller>().selected)
+            {
+                if (PhysicalDice[i].GetComponent<DiceRoller>().scoreable)
+                {
+                    scoreable++;
+                }
+            }
 
+        }
+        Debug.Log(scoreable);
+        if (scoreable == 0)
+            pocketHandler.ZonkOut();
+    }
 
 
 
@@ -677,6 +688,7 @@ public class DiceCast : MonoBehaviour
             PhysicalDice[i].transform.position = TableSpawns[i].transform.position;
             PhysicalDice[i].GetComponent<MeshRenderer>().enabled = true;
             PhysicalDice[i].GetComponent<DiceRoller>().selected = false;
+            PhysicalDice[i].GetComponent<DiceRoller>().scoreable = false;
         }
         CastDiceButton.interactable = true;
     }

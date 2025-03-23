@@ -33,13 +33,19 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text CachedScoreText;
     public TMP_Text TurnText;
     public TMP_Text QuotaText;
+    public GameObject ZonkText;
 
     public int playerScore = 0;
     public int playerCachedScore = 0;
 
     private void Awake()
     {
-        //This is part of the above comment on being an outdated variable, safe to ignore this part
+        
+        _diceCast = this.GetComponent<DiceCast>();
+
+        //Ensures all pockets are empty
+        Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
+
         for (int i = 0; i < PocketHolder.Length; i++)
         {
             switch (i)
@@ -64,16 +70,52 @@ public class PocketHandler : MonoBehaviour
                     break;
             }
         }
-        _diceCast = this.GetComponent<DiceCast>();
-
-        //Ensures all pockets are empty
-        Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
 
         TurnText.text = "Turn: " + currentTurn;
         QuotaText.text = "Quota: $" + quota;
         CachedScoreText.text = "Total: $" + playerCachedScore;
         ScoreText.text = "Pocketed: $" + playerScore;
 
+
+        SetPockets();
+
+    }
+
+    public void SetPockets()
+    {
+        if (Pocket1 == null) Pocket1 = new int[_diceCast.diceToRoll];
+        if (Pocket2 == null) Pocket2 = new int[_diceCast.diceToRoll];
+        if (Pocket3 == null) Pocket3 = new int[_diceCast.diceToRoll];
+        if (Pocket4 == null) Pocket4 = new int[_diceCast.diceToRoll];
+        if (Pocket5 == null) Pocket5 = new int[_diceCast.diceToRoll];
+        if (Pocket6 == null) Pocket6 = new int[_diceCast.diceToRoll];
+
+
+
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket1[i] = 0;
+        }
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket2[i] = 0;
+        }
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket3[i] = 0;
+        }
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket4[i] = 0;
+        }
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket5[i] = 0;
+        }
+        for (int i = 0; i < _diceCast.diceToRoll; ++i)
+        {
+            Pocket6[i] = 0;
+        }
     }
 
     /// <summary>
@@ -347,6 +389,7 @@ public class PocketHandler : MonoBehaviour
     /// </summary>
     public void EndTurn()
     {
+        ZonkText.SetActive(false);
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
         playerScore = CalculatePocketPoints();
@@ -358,9 +401,8 @@ public class PocketHandler : MonoBehaviour
         //Debug.Log("End of turn: " + currentTurn);
         currentTurn++;
         TurnText.text = "Turn: " + currentTurn;
-        
-        GetComponent<DiceCast>().diceToRoll = GetComponent<DiceCast>().maxDiceToRoll;
-        Pocket1 = null; Pocket2 = null; Pocket3 = null; Pocket4 = null; Pocket5 = null; Pocket6 = null;
+
+        SetPockets();
         if (currentTurn > 3)
         {
             if (playerCachedScore >= quota)
@@ -369,15 +411,13 @@ public class PocketHandler : MonoBehaviour
                 currentTurn = 1;
                 TurnText.text = "Turn: " + currentTurn;
                 QuotaText.text = "Quota: $" + quota;
-                _audioSource.Play();
+                //_audioSource.Play();
             }
             else
             {
                 SceneManager.LoadScene(3);
             }
         }
-
-
     }
 
     public void ZonkOut()
@@ -387,13 +427,15 @@ public class PocketHandler : MonoBehaviour
 
     private IEnumerator Zonked()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(3.5f);
+        SetPockets();
         playerScore = 0;
         ScoreText.text = "Pocket Total: $" + playerScore;
         for (int i = 0; i < _diceCast.diceToRoll; i++)
         {
             _diceCast.PhysicalDice[i].GetComponent<MeshRenderer>().enabled = false;
         }
+        ZonkText.SetActive(true);
     }
 
 }
