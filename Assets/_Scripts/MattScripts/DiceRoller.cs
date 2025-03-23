@@ -40,10 +40,10 @@ public class DiceRoller : MonoBehaviour
         }
 
         // add small final roll (found that it makes it feel a little more natural, gives it a bit of a pop)
-        diceRb.AddTorque(Random.insideUnitSphere * 1f, ForceMode.Impulse);
-        diceRb.AddForce(Vector3.up * 0.5f, ForceMode.Impulse);
+        //diceRb.AddTorque(Random.insideUnitSphere * 1f, ForceMode.Impulse);
+        //diceRb.AddForce(Vector3.up * 0.5f, ForceMode.Impulse);
 
-        yield return new WaitForSeconds(0.2f); // let the dice roll a bit more
+        yield return new WaitForSeconds(0.1f); // let the dice roll a bit more
 
         // now smoothly change to desired face
         StartCoroutine(FinalSettleRotation(targetNumber));
@@ -54,7 +54,7 @@ public class DiceRoller : MonoBehaviour
         Quaternion targetRotation = GetTargetRotation(number);
         Quaternion startRotation = transform.rotation;
         float elapsedTime = 0f;
-        float duration = 0.3f; // total time to change to face, more duration means slower turn
+        float duration = 0.5f; // total time to change to face, more duration means slower turn
 
         while (elapsedTime < duration)
         {
@@ -63,7 +63,6 @@ public class DiceRoller : MonoBehaviour
             yield return null;
         }
 
-        // double make sure that the rotation is correct
         transform.rotation = targetRotation;
         isRolling = false;
     }
