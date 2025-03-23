@@ -27,8 +27,8 @@ public class DiceRoller : MonoBehaviour
         diceRb.angularVelocity = Vector3.zero;
 
         // apply random force and spin
-        diceRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
-        diceRb.AddTorque(Random.insideUnitSphere * 10f, ForceMode.Impulse);
+        diceRb.AddForce(Vector3.up * 15f, ForceMode.Impulse);
+        diceRb.AddTorque(Random.insideUnitSphere * 20f, ForceMode.Impulse);
 
         // wait until the dice slows down
         yield return new WaitForSeconds(1f); // let the dice roll
@@ -40,8 +40,8 @@ public class DiceRoller : MonoBehaviour
         }
 
         // add small final roll (found that it makes it feel a little more natural, gives it a bit of a pop)
-        diceRb.AddTorque(Random.insideUnitSphere * 3f, ForceMode.Impulse);
-        diceRb.AddForce(Vector3.up * 2f, ForceMode.Impulse);
+        diceRb.AddTorque(Random.insideUnitSphere * 1f, ForceMode.Impulse);
+        diceRb.AddForce(Vector3.up * 0.5f, ForceMode.Impulse);
 
         yield return new WaitForSeconds(0.2f); // let the dice roll a bit more
 
