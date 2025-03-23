@@ -1,0 +1,81 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DiceRoller : MonoBehaviour
+{
+    private Rigidbody diceRb;
+    private int targetNumber;
+    private bool isRolling = false;
+
+    void Start()
+    {
+        diceRb = GetComponent<Rigidbody>();
+    }
+
+    public void RollDice(int number)
+    {
+        targetNumber = number;
+        isRolling = true;
+        StartCoroutine(RollAndStop());
+    }
+
+    private IEnumerator RollAndStop()
+    {
+        // reset dice movement
+        diceRb.velocity = Vector3.zero;
+        diceRb.angularVelocity = Vector3.zero;
+
+        // apply random force and spin
+        diceRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        diceRb.AddTorque(Random.insideUnitSphere * 10f, ForceMode.Impulse);
+
+        // wait until the dice slows down
+        yield return new WaitForSeconds(1f); // let the dice roll
+
+        // wait until dice is nearly stopped
+        while (diceRb.velocity.magnitude > 0.1f || diceRb.angularVelocity.magnitude > 0.1f)
+        {
+            yield return null;
+        }
+
+        // add small final roll (found that it makes it feel a little more natural, gives it a bit of a pop)
+        diceRb.AddTorque(Random.insideUnitSphere * 3f, ForceMode.Impulse);
+        diceRb.AddForce(Vector3.up * 2f, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(0.2f); // let the dice roll a bit more
+
+        // now smoothly change to desired face
+        StartCoroutine(FinalSettleRotation(targetNumber));
+    }
+
+    private IEnumerator FinalSettleRotation(int number)
+    {
+        Quaternion targetRotation = GetTargetRotation(number);
+        Quaternion startRotation = transform.rotation;
+        float elapsedTime = 0f;
+        float duration = 0.3f; // total time to change to face, more duration means slower turn
+
+        while (elapsedTime < duration)
+        {
+            transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // double make sure that the rotation is correct
+        transform.rotation = targetRotation;
+        isRolling = false;
+    }
+
+    private Quaternion GetTargetRotation(int number)
+    {
+        if (number == 1) return Quaternion.Euler(-90, 0, 0);
+        if (number == 2) return Quaternion.Euler(0, 0, -90);
+        if (number == 3) return Quaternion.Euler(0, 0, 0);
+        if (number == 4) return Quaternion.Euler(180, 0, 0);
+        if (number == 5) return Quaternion.Euler(0, 0, 90);
+        if (number == 6) return Quaternion.Euler(90, 0, 0);
+        return Quaternion.identity;
+    }
+}
