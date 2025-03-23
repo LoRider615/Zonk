@@ -10,7 +10,7 @@ public class DiceCast : MonoBehaviour
 {
     private bool rainbow = false;
     private bool threePairs = false;
-    private int[] DiceArray;
+    public int[] DiceArray;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -27,6 +27,7 @@ public class DiceCast : MonoBehaviour
     public int foursRolled = 0;
     public int fivesRolled = 0;
     public int sixesRolled = 0;
+    public int diceStoppedCount = 0;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class DiceCast : MonoBehaviour
     }
     */
 
+    
     public void CastDice(int diceNum)
     {
         if (DiceArray == null)
@@ -74,10 +76,9 @@ public class DiceCast : MonoBehaviour
                 Debug.Log("Dice Added: " + diceNum);
                 break;
             }
-        }
-        
-        
+        }  
     }
+    
 
 
 

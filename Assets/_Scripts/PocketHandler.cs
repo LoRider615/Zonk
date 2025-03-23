@@ -87,6 +87,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket1[i] == 0)
                     {
                         Pocket1[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -107,6 +108,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket2[i] == 0)
                     {
                         Pocket2[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -128,6 +130,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket3[i] == 0)
                     {
                         Pocket3[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -149,6 +152,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket4[i] == 0)
                     {
                         Pocket4[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -170,6 +174,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket5[i] == 0)
                     {
                         Pocket5[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -191,6 +196,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket6[i] == 0)
                     {
                         Pocket6[i] = diceNum;
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
                         break;
                     }
                 }
@@ -213,7 +219,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket1[i] == diceNum)
                     {
-                        Pocket1[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket1[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
@@ -223,7 +231,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket2[i] == diceNum)
                     {
-                        Pocket2[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket2[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
@@ -233,7 +243,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket3[i] == diceNum)
                     {
-                        Pocket3[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket3[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
@@ -243,7 +255,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket4[i] == diceNum)
                     {
-                        Pocket4[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket4[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
@@ -253,7 +267,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket5[i] == diceNum)
                     {
-                        Pocket5[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket5[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
@@ -263,7 +279,9 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket6[i] == diceNum)
                     {
-                        Pocket6[i] = 0; Debug.Log("Dice Removed"); break;
+                        Pocket6[i] = 0; Debug.Log("Dice Removed");
+                        GetComponent<TEMPUI>().ScoreText.text = "Pocket Total: $" + CalculatePocketPoints();
+                        break;
                     }
                 }
                 break;
