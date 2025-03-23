@@ -23,9 +23,10 @@ public class UI_Manager : MonoBehaviour
     }
 
     //Not sure if this has to be in OnEnable, I was following a tutorial to help me learn this and they used their example in this.
-    private void OnEnable()
+    /*private void OnEnable()
     {
         //This is a root reference to the UI, giving us access to it's elements.
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
     }
+    */
 }
