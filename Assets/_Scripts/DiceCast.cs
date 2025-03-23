@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /* Sharkey Logan
  * 2/4/2025
@@ -10,10 +11,15 @@ public class DiceCast : MonoBehaviour
 {
     private bool rainbow = false;
     private bool threePairs = false;
+    private PocketHandler pocketHandler;
+    public Button CastDiceButton;
+
     public int[] DiceArray;
     public GameObject[] PhysicalDice = new GameObject[6];
     public GameObject[] PocketSpawns = new GameObject[6];
+    public GameObject[] TableSpawns = new GameObject[6];
     public bool[] scoreableArray = new bool[6];
+    public bool[] PocketSpawnOpen = new bool[6];
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -34,33 +40,149 @@ public class DiceCast : MonoBehaviour
 
     private void Awake()
     {
+        ResetSpawnOpen();
         DiceArray = null;
+        pocketHandler = GetComponent<PocketHandler>();
     }
 
-    /*
-    /// <summary>
-    /// Simple logic for filling an array of dice, size is variable
-    /// </summary>
-    public void CastDice()
+    private void Update()
     {
-        int[] CastList = new int[maxDiceToRoll];
-        //RNG for simulating dice rolls
-        for (int index = 0; index < diceToRoll; index++)
+        if (Input.GetMouseButtonDown(0))
         {
-            CastList[index] = Random.Range(1, 7);
-        }
-        //Fills empty spots with zero's in order to signify they are not an option 
-        for (int index = diceToRoll; index < maxDiceToRoll; index++)
-        {
-            CastList[index] = 0;
-        }
-        this.GetComponent<TEMPUI>().PopulateButtons(CastList);
+            //Touch touch = Input.GetTouch(0);
+            //Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            Vector3 mousPos = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(mousPos);
 
-        Debug.Log("Max potential score from cast: " + CalculateMaxPotentialScore(CastList));
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Dice")
+                {
+                    if (hit.collider.transform.position.z < 9.1f)
+                    {
+                        switch (hit.collider.name)
+                        {
+                            case "DiceV2":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[0].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[0].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[0].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case "DiceV2 (1)":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[1].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[1].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[1].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case "DiceV2 (2)":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[2].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[2].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[2].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case "DiceV2 (3)":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[3].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[3].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[3].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case "DiceV2 (4)":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[4].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[4].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[4].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case "DiceV2 (5)":
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                {
+                                    for (int i = 0; i < diceToRoll; i++)
+                                    {
+                                        if (PocketSpawnOpen[i])
+                                        {
+                                            PhysicalDice[5].transform.position = PocketSpawns[i].transform.position;
+                                            PhysicalDice[5].GetComponent<DiceRoller>().selected = true;
+                                            PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(PhysicalDice[5].GetComponent<DiceRoller>().targetNumber);
+                                            CastDiceButton.interactable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                    //Switch ends here
+
+
+
+
+                }
+            }
+        }
     }
-    */
 
-    
     public void CastDice(int diceNum)
     {
         if (DiceArray == null)
@@ -69,27 +191,42 @@ public class DiceCast : MonoBehaviour
             for (int i = 0; i < DiceArray.Length; i++)
             {
                 DiceArray[i] = 0;
+                //PhysicalDice[i].GetComponent<DiceRoller>().selected = false;
+                PhysicalDice[i].GetComponent<DiceRoller>().scoreable = false;
             }
+            pocketHandler.currentPocket++;
         }
 
-        for (int i = 0;i < DiceArray.Length; i++)
+        for (int i = 0;i < diceToRoll; i++)
         {
             if (DiceArray[i] == 0)
             {
                 DiceArray[i] = diceNum;
-                Debug.Log("Dice Added: " + diceNum);
-                if (i == DiceArray.Length - 1)
-                {
-                    for (int j = 0; j < scoreableArray.Length; j++)
-                    {
-                        scoreableArray[j] = CheckIfScoreable(DiceArray)[j];
-                        Debug.Log("scoreableArray[" + j + "]: " + scoreableArray[j]);
-                    }
-                }
-                else
-                    break;
+                break;
             }
         }
+        int j = 0; int selected = 0;
+        for (int i = 0; i < diceToRoll; i++)
+        {
+            if (!PhysicalDice[i].GetComponent<DiceRoller>().selected)
+            {
+                PhysicalDice[i].GetComponent<DiceRoller>().scoreable = CheckIfScoreable(DiceArray)[j];
+                j++;
+            }
+            else
+                selected++;
+        }
+        int scoreable = 0;
+        for (int i = 0; i < diceToRoll; i++)
+        {
+            if (PhysicalDice[i].GetComponent<DiceRoller>().scoreable && !PhysicalDice[i].GetComponent<DiceRoller>().selected)
+                scoreable++;
+        }
+        if (scoreable == 0)
+            //pocketHandler.ZonkOut();
+        
+
+        CastDiceButton.interactable = false;
     }
     
 
@@ -470,8 +607,8 @@ public class DiceCast : MonoBehaviour
 
         //Methodically goes through and dynamically checks for scoring numbers, 
         int unscoreable = 0;
-        bool[] scoreable = new bool[maxDiceToRoll];
-        for (int i = 0; i < maxDiceToRoll; i++)
+        bool[] scoreable = new bool[diceToRoll];
+        for (int i = 0; i < diceToRoll; i++)
         {
             scoreable[i] = false;
 
@@ -513,12 +650,35 @@ public class DiceCast : MonoBehaviour
         }
         //Debug.Log(unscoreable);
         //Zonk Detection
+        /*
         if (unscoreable == diceToRoll)
         {
-            GetComponent<TEMPUI>().ZonkOut();
+            //GetComponent<PocketHandler>().ZonkOut();
             return null;
         }
+        */
         return scoreable;
+    }
+
+    public void ResetSpawnOpen()
+    {
+        PocketSpawnOpen[0] = true;
+        PocketSpawnOpen[1] = true;
+        PocketSpawnOpen[2] = true;
+        PocketSpawnOpen[3] = true;
+        PocketSpawnOpen[4] = true;
+        PocketSpawnOpen[5] = true;
+    }
+
+    public void ResetDice()
+    {
+        for (int i = 0; i < maxDiceToRoll; i++)
+        {
+            PhysicalDice[i].transform.position = TableSpawns[i].transform.position;
+            PhysicalDice[i].GetComponent<MeshRenderer>().enabled = true;
+            PhysicalDice[i].GetComponent<DiceRoller>().selected = false;
+        }
+        CastDiceButton.interactable = true;
     }
 
 }

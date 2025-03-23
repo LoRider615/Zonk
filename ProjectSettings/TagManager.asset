@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CardUI
   - Dice
+  - Borders
+  - Canavs
+  - Table
   layers:
   - Default
   - TransparentFX

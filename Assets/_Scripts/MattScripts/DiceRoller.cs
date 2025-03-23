@@ -5,13 +5,16 @@ using UnityEngine;
 public class DiceRoller : MonoBehaviour
 {
     private Rigidbody diceRb;
-    private int targetNumber;
+    public int targetNumber;
     private bool isRolling = false;
     public GameObject gameManager;
     private DiceCast diceCast;
+    
+    public bool scoreable = false;
+    public bool selected = false;
 
-    public bool[] PocketSpawnOpen = new bool[6];
-    public Transform[] previousLocations = new Transform[6];
+
+    
 
     void Start()
     {
@@ -21,130 +24,156 @@ public class DiceRoller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        /*
+        //if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
-
-            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            //Touch touch = Input.GetTouch(0);
+            //Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            Vector3 mousPos = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(mousPos);
+            
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.tag == "Dice")
                 {
-                    switch (hit.collider.name)
+                    if (hit.collider.transform.position.z < 9.1f)
                     {
-                        case "DiceV2":
-                            if (diceCast.scoreableArray[0])
-                            {
-                                for (int i = 0; i < 6; i++)
+                        switch (hit.collider.name)
+                        {
+                            case "DiceV2":
+                                if (diceCast.scoreableArray[0])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[0].position = diceCast.PhysicalDice[0].transform.position;
-                                        diceCast.PhysicalDice[0].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[0].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[0]);
+                                            diceCast.Dice1Clicked = true;
+                                            //diceCast.diceToRoll--;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
 
-                        case "DiceV2 (1)":
-                            if (diceCast.scoreableArray[1])
-                            {
-                                for (int i = 0; i < 6; i++)
+                            case "DiceV2 (1)":
+                                if (diceCast.scoreableArray[1])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[1].position = diceCast.PhysicalDice[1].transform.position;
-                                        diceCast.PhysicalDice[1].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[1].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            //diceCast.diceToRoll--;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[1]);
+                                            diceCast.Dice2Clicked = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
 
-                        case "DiceV2 (2)":
-                            if (diceCast.scoreableArray[2])
-                            {
-                                for (int i = 0; i < 6; i++)
+                            case "DiceV2 (2)":
+                                if (diceCast.scoreableArray[2])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[2].position = diceCast.PhysicalDice[2].transform.position;
-                                        diceCast.PhysicalDice[2].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[2].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            //diceCast.diceToRoll--;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[2]);
+                                            diceCast.Dice3Clicked = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
 
-                        case "DiceV2 (3)":
-                            if (diceCast.scoreableArray[3])
-                            {
-                                for (int i = 0; i < 6; i++)
+                            case "DiceV2 (3)":
+                                if (diceCast.scoreableArray[3])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[3].position = diceCast.PhysicalDice[3].transform.position;
-                                        diceCast.PhysicalDice[3].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[3].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            //diceCast.diceToRoll--;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[3]);
+                                            diceCast.Dice4Clicked = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
 
-                        case "DiceV2 (4)":
-                            if (diceCast.scoreableArray[4])
-                            {
-                                for (int i = 0; i < 6; i++)
+                            case "DiceV2 (4)":
+                                if (diceCast.scoreableArray[4])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[4].position = diceCast.PhysicalDice[4].transform.position;
-                                        diceCast.PhysicalDice[4].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[4].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            //diceCast.diceToRoll--;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[4]);
+                                            diceCast.Dice5Clicked = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
 
-                        case "DiceV2 (5)":
-                            if (diceCast.scoreableArray[5])
-                            {
-                                for (int i = 0; i < 6; i++)
+                            case "DiceV2 (5)":
+                                if (diceCast.scoreableArray[5])
                                 {
-                                    if (PocketSpawnOpen[i])
+                                    for (int i = 0; i < diceCast.diceToRoll; i++)
                                     {
-                                        previousLocations[5].position = diceCast.PhysicalDice[5].transform.position;
-                                        diceCast.PhysicalDice[5].transform.position = diceCast.PocketSpawns[i].transform.position;
-                                        PocketSpawnOpen[i] = false;
-                                        break;
+                                        if (diceCast.PocketSpawnOpen[i])
+                                        {
+                                            diceCast.PhysicalDice[5].transform.position = diceCast.PocketSpawns[i].transform.position;
+                                            diceCast.PocketSpawnOpen[i] = false;
+                                            //diceCast.diceToRoll--;
+                                            pocketHandler.AddToPocket(diceCast.DiceArray[5]);
+                                            diceCast.Dice6Clicked = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            break;
+                                break;
+                        }
                     }
+
+                    
 
 
 
                 }
             }
         }
+        */
+
     }
 
     public void RollDice()
     {
-        targetNumber = Random.Range(1, 7);
-        diceCast.CastDice(targetNumber);
-        //targetNumber = number;
-        isRolling = true;
-        StartCoroutine(RollAndStop());
+        if (transform.position.z < 9.1f)
+        {
+            targetNumber = Random.Range(1, 7);
+            //targetNumber = number;
+            isRolling = true;
+            StartCoroutine(RollAndStop());
+            diceCast.CastDice(targetNumber);
+        }
     }
 
     private IEnumerator RollAndStop()
