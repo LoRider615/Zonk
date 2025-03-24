@@ -71,7 +71,7 @@ public class PocketHandler : MonoBehaviour
             }
         }
 
-        TurnText.text = "Turn: " + currentTurn;
+        TurnText.text = "Turn: " + currentTurn + "/3";
         QuotaText.text = "Quota: $" + quota;
         CachedScoreText.text = "Total: $" + playerCachedScore;
         ScoreText.text = "Pocketed: $" + playerScore;

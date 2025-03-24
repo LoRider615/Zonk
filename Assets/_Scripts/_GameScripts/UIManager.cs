@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public GameObject tableCards;
     public GameObject cardPanel;
     public GameObject helpPanel;
-    public GameObject pausePanel;
+    public GameObject settingsPanel;
 
     private GameObject activePanel = null; // the current open panel. if there is a panel here, then nothing else will open
 
@@ -16,13 +16,13 @@ public class UIManager : MonoBehaviour
         CloseAllPanels();
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && activePanel == null)
-        {
-            OpenCardPanel();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0) && activePanel == null)
+    //    {
+    //        OpenCardPanel();
+    //    }
+    //}
 
     public void OpenPanel(GameObject panel)
     {
@@ -42,36 +42,40 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void OpenCardPanel()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.gameObject == tableCards)
-        {
-            OpenPanel(cardPanel);
-        }
-    }
+    //private void OpenCardPanel()
+    //{
+    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.gameObject == tableCards)
+    //    {
+    //        OpenPanel(cardPanel);
+    //    }
+    //}
 
     public void ToggleHelpPanel()
     {
         if (activePanel == helpPanel)
         {
             ClosePanel();
+            Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
             OpenPanel(helpPanel);
+            Time.timeScale = 0;
         }
     }
 
-    public void TogglePausePanel()
+    public void ToggleSettingsPanel()
     {
-        if (activePanel == pausePanel)
+        if (activePanel == settingsPanel)
         {
             ClosePanel();
+            Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
-            OpenPanel(pausePanel);
+            OpenPanel(settingsPanel);
+            Time.timeScale = 0;
         }
     }
 
@@ -79,7 +83,7 @@ public class UIManager : MonoBehaviour
     {
         cardPanel.SetActive(false);
         helpPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        settingsPanel.SetActive(false);
         activePanel = null;
     }
 }

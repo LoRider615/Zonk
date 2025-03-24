@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public AudioSource audioSource;
     public Slider musicSlider;
 
-    public void VolumeChange()
+    void Update()
     {
-        AudioListener.volume = musicSlider.value;
+        audioSource.volume = musicSlider.value;
     }
-
 }
