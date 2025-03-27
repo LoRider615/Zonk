@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject cardPanel;
     public GameObject helpPanel;
     public GameObject settingsPanel;
+    public GameObject runesPanel;
 
     private GameObject activePanel = null; // the current open panel. if there is a panel here, then nothing else will open
 
@@ -75,6 +76,20 @@ public class UIManager : MonoBehaviour
         else if (activePanel == null)
         {
             OpenPanel(settingsPanel);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void ToggleRunesPanel()
+    {
+        if (activePanel == runesPanel)
+        {
+            ClosePanel();
+            Time.timeScale = 1;
+        }
+        else if (activePanel == null)
+        {
+            OpenPanel(runesPanel);
             Time.timeScale = 0;
         }
     }
