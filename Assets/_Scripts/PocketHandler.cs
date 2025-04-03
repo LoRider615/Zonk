@@ -35,16 +35,16 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text TurnText;
     public TMP_Text QuotaText;
     public GameObject ZonkText;
-    public GameObject runesQuota;
+    //public GameObject runesQuota;
 
-    public UIManager uIManager;
+    //public UIManager uIManager;
 
     public int playerScore = 0;
     public int playerCachedScore = 0;
 
     private void Awake()
     {
-        uIManager = runesQuota.GetComponent<UIManager>();
+        //uIManager = runesQuota.GetComponent<UIManager>();
         _diceCast = this.GetComponent<DiceCast>();
 
         //Ensures all pockets are empty
@@ -424,10 +424,10 @@ public class PocketHandler : MonoBehaviour
             }
         }
 
-        if(quota >= 2000)
+        /*if(quota >= 2000)
         {
             uIManager.runesPanel.SetActive(true);
-        }
+        }*/
     }
 
     public void ZonkOut()
