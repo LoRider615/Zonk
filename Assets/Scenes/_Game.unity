@@ -5344,7 +5344,7 @@ MonoBehaviour:
   cardPanel: {fileID: 1176302340}
   helpPanel: {fileID: 559234915}
   settingsPanel: {fileID: 1184858804}
-  runesPanel: {fileID: 466041944}
+  runesPanel: {fileID: 2086845625}
   runesQuota: {fileID: 1937256980}
   pocketHandler: {fileID: 0}
 --- !u!114 &1115270172
