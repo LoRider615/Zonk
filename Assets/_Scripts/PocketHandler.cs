@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,13 +35,16 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text TurnText;
     public TMP_Text QuotaText;
     public GameObject ZonkText;
+    public GameObject runesQuota;
+
+    public UIManager uIManager;
 
     public int playerScore = 0;
     public int playerCachedScore = 0;
 
     private void Awake()
     {
-        
+        uIManager = runesQuota.GetComponent<UIManager>();
         _diceCast = this.GetComponent<DiceCast>();
 
         //Ensures all pockets are empty
@@ -389,6 +393,7 @@ public class PocketHandler : MonoBehaviour
     /// </summary>
     public void EndTurn()
     {
+        
         ZonkText.SetActive(false);
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
@@ -417,6 +422,11 @@ public class PocketHandler : MonoBehaviour
             {
                 SceneManager.LoadScene(3);
             }
+        }
+
+        if(quota >= 2000)
+        {
+            uIManager.runesPanel.SetActive(true);
         }
     }
 

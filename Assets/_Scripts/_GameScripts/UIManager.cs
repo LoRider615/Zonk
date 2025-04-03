@@ -9,9 +9,9 @@ public class UIManager : MonoBehaviour
     public GameObject helpPanel;
     public GameObject settingsPanel;
     public GameObject runesPanel;
-    public GameObject runesQuota;
+    //public GameObject runesQuota;
 
-    public PocketHandler pocketHandler;
+    //public PocketHandler pocketHandler;
 
     private GameObject activePanel = null; // the current open panel. if there is a panel here, then nothing else will open
 
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        pocketHandler = runesQuota.GetComponent<PocketHandler>();
+        //pocketHandler = runesQuota.GetComponent<PocketHandler>();
         runesPanel.SetActive(false);
     }
 
@@ -91,9 +91,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleRunesPanel()
     {
-        if(pocketHandler.quota >= 2000)
-        {
-            runesPanel.SetActive(true);
+        
             
             if (activePanel == runesPanel)
             {
@@ -105,7 +103,7 @@ public class UIManager : MonoBehaviour
                 OpenPanel(runesPanel);
                 Time.timeScale = 0;
             }
-        }
+        
     }
 
     private void CloseAllPanels()
