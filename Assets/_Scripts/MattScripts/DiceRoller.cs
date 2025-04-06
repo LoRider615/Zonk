@@ -174,6 +174,15 @@ public class DiceRoller : MonoBehaviour
             StartCoroutine(RollAndStop());
             diceCast.CastDice(targetNumber);
         }
+        else if (gameManager.GetComponent<DiceCast>().hotCast)
+        {
+            gameManager.GetComponent<DiceCast>().HotCastReset();
+            targetNumber = Random.Range(1, 7);
+            //targetNumber = number;
+            isRolling = true;
+            StartCoroutine(RollAndStop());
+            diceCast.CastDice(targetNumber);
+        }
     }
 
     private IEnumerator RollAndStop()

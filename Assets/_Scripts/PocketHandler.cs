@@ -26,6 +26,8 @@ public class PocketHandler : MonoBehaviour
     public int currentPocket = 0;
     public int currentTurn = 1;
     public int quota = 1000;
+    public int diceAdded = 0;
+    public int previousPoints = 0;
 
     private DiceCast _diceCast;
 
@@ -128,6 +130,14 @@ public class PocketHandler : MonoBehaviour
     /// <param name="diceNum"></param>
     public void AddToPocket(int diceNum)
     {
+        diceAdded++;
+        if (diceAdded == 6)
+        {
+            _diceCast.hotCast = true;
+            diceAdded = 0;
+        }
+            
+
         switch (currentPocket)
         {
             case 1:
@@ -146,7 +156,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket1[i] == 0)
                     {
                         Pocket1[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -167,7 +177,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket2[i] == 0)
                     {
                         Pocket2[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -189,7 +199,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket3[i] == 0)
                     {
                         Pocket3[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -211,7 +221,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket4[i] == 0)
                     {
                         Pocket4[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -233,7 +243,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket5[i] == 0)
                     {
                         Pocket5[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -255,7 +265,7 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket6[i] == 0)
                     {
                         Pocket6[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + CalculatePocketPoints();
+                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
                         break;
                     }
                 }
@@ -398,7 +408,7 @@ public class PocketHandler : MonoBehaviour
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
         playerScore = CalculatePocketPoints();
-        playerCachedScore += playerScore;
+        playerCachedScore += playerScore + previousPoints;
         playerScore = 0;
         ScoreText.text = "Pocketed: $" + playerScore;
         CachedScoreText.text = "Cached: $" + playerCachedScore;
@@ -406,13 +416,15 @@ public class PocketHandler : MonoBehaviour
         //Debug.Log("End of turn: " + currentTurn);
         currentTurn++;
         TurnText.text = "Turn: " + currentTurn;
+        diceAdded = 0;
+        previousPoints = 0;
 
         SetPockets();
         if (currentTurn > 3)
         {
             if (playerCachedScore >= quota)
             {
-                quota += 1000;
+                quota += (int)(1000 + (quota / 2 / 2 * 0.6));
                 currentTurn = 1;
                 TurnText.text = "Turn: " + currentTurn;
                 QuotaText.text = "Quota: $" + quota;

@@ -20,6 +20,7 @@ public class DiceCast : MonoBehaviour
     public GameObject[] TableSpawns = new GameObject[6];
     public bool[] scoreableArray = new bool[6];
     public bool[] PocketSpawnOpen = new bool[6];
+    public bool hotCast = false;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -220,6 +221,16 @@ public class DiceCast : MonoBehaviour
         StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
+    }
+
+    public void HotCastReset()
+    {
+        pocketHandler.previousPoints += pocketHandler.CalculatePocketPoints();
+        ResetDice();
+        ResetSpawnOpen();
+        pocketHandler.SetPockets();
+        pocketHandler.currentPocket = 0;
+        hotCast = false;
     }
     
     public IEnumerator CountDice()
