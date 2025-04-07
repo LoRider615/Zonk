@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UIManager : MonoBehaviour
 {
     public GameObject tableCards;
@@ -9,6 +10,9 @@ public class UIManager : MonoBehaviour
     public GameObject helpPanel;
     public GameObject settingsPanel;
     public GameObject runesPanel;
+    public GameObject tutorialPanel;
+    public DiceManager diceManager;
+
     //public GameObject runesQuota;
 
     //public PocketHandler pocketHandler;
@@ -18,13 +22,17 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         CloseAllPanels();
+        if (diceManager.isTutorialMode == true)
+        {
+            OpenPanel(tutorialPanel);
+        }
     }
 
-    private void Awake()
-    {
-        //pocketHandler = runesQuota.GetComponent<PocketHandler>();
-        runesPanel.SetActive(false);
-    }
+    //private void Awake()
+    //{
+    //    //pocketHandler = runesQuota.GetComponent<PocketHandler>();
+    //    runesPanel.SetActive(false);
+    //}
 
     //void Update()
     //{
@@ -91,19 +99,16 @@ public class UIManager : MonoBehaviour
 
     public void ToggleRunesPanel()
     {
-        
-            
-            if (activePanel == runesPanel)
-            {
-                ClosePanel();
-                Time.timeScale = 1;
-            }
-            else if (activePanel == null)
-            {
-                OpenPanel(runesPanel);
-                Time.timeScale = 0;
-            }
-        
+        if (activePanel == runesPanel)
+        {
+            ClosePanel();
+            Time.timeScale = 1;
+        }
+        else if (activePanel == null)
+        {
+            OpenPanel(runesPanel);
+            Time.timeScale = 0;
+        }
     }
 
     private void CloseAllPanels()
@@ -111,6 +116,8 @@ public class UIManager : MonoBehaviour
         cardPanel.SetActive(false);
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        runesPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
         activePanel = null;
     }
 }

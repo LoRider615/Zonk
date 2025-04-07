@@ -13,13 +13,13 @@ public class DiceRoller : MonoBehaviour
     public bool scoreable = false;
     public bool selected = false;
 
-
-    
+    private DiceManager diceManager;
 
     void Start()
     {
         diceRb = GetComponent<Rigidbody>();
         diceCast = gameManager.GetComponent<DiceCast>();
+        diceManager = GameObject.FindObjectOfType<DiceManager>();
     }
 
     private void Update()
@@ -164,21 +164,23 @@ public class DiceRoller : MonoBehaviour
 
     }
 
+    // i rewrote this btw, should function the same
     public void RollDice()
     {
-        if (transform.position.z < 9.1f)
+        if (transform.position.z < 9.1f || gameManager.GetComponent<DiceCast>().hotCast)
         {
-            targetNumber = Random.Range(1, 7);
-            //targetNumber = number;
-            isRolling = true;
-            StartCoroutine(RollAndStop());
-            diceCast.CastDice(targetNumber);
-        }
-        else if (gameManager.GetComponent<DiceCast>().hotCast)
-        {
-            gameManager.GetComponent<DiceCast>().HotCastReset();
-            targetNumber = Random.Range(1, 7);
-            //targetNumber = number;
+            if (gameManager.GetComponent<DiceCast>().hotCast)
+            {
+                gameManager.GetComponent<DiceCast>().HotCastReset();
+            }
+
+            DiceCast diceCast = gameManager.GetComponent<DiceCast>();
+
+            if (!diceManager.isTutorialMode)
+            {
+                targetNumber = Random.Range(1, 7);
+            }
+
             isRolling = true;
             StartCoroutine(RollAndStop());
             diceCast.CastDice(targetNumber);

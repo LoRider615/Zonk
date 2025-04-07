@@ -415,7 +415,7 @@ public class PocketHandler : MonoBehaviour
         currentPocket = 0;
         //Debug.Log("End of turn: " + currentTurn);
         currentTurn++;
-        TurnText.text = "Turn: " + currentTurn;
+        TurnText.text = "Turn: " + currentTurn + "/3";
         diceAdded = 0;
         previousPoints = 0;
 
@@ -426,7 +426,7 @@ public class PocketHandler : MonoBehaviour
             {
                 quota += (int)(1000 + (quota / 2 / 2 * 0.6));
                 currentTurn = 1;
-                TurnText.text = "Turn: " + currentTurn;
+                TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
                 //_audioSource.Play();
             }
@@ -449,7 +449,7 @@ public class PocketHandler : MonoBehaviour
 
     private IEnumerator Zonked()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2f);
         SetPockets();
         playerScore = 0;
         ScoreText.text = "Pocket Total: $" + playerScore;
