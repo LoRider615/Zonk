@@ -41,11 +41,11 @@ public class Tutorial : MonoBehaviour
         "You got a 3 of a kind! It scores 100 times the number on the die. 1's are the exception, scoring 1000. All dice combos can be found in the help menu in the top right. Cast again!",
         "You got a Zonk... A Zonk occurs when you can't score any dice, meaning you can't cast again. You also lose all points in your pocket and end your turn early. Tap 'End Turn' to continue.",
         "Let's try again! Cast the dice. Pay attention to the top right. You are now on your second turn of the quota.",
-        "Score the 1 and roll again.",
+        "Score what you can and cast again.",
         "You can score all of the dice! That's called a Hot Cast! You are able to cast again while staying in the same turn. Be careful, as you can risk losing it all.",
         "Score what you can, and then end your turn. Ending your turn allows you to safely cache your points. You don't want to risk Zonking with all of these points in your pocket, right?",
-        "You are now on your last turn, though you are way over of the quota. Feel free to score and end your turn early.",
-        "Good job! This marks the end of the tutorial, feel free to press the Settings button in the top left to return to the main menu. Press 'End Turn' to close this menu"
+        "You are now on your last turn, though you are way over of the quota. Feel free to cast, score any dice, and end your turn early.",
+        "This marks the end of the tutorial! feel free to press the Settings button in the top left to return to the main menu. Press 'End Turn' to close this menu."
     };
 
     private int[][] tutorialDiceValues = new int[][]
