@@ -11,6 +11,8 @@ public class DiceCast : MonoBehaviour
 {
     private bool rainbow = false;
     private bool threePairs = false;
+    private bool twoOnes = false;
+    private bool scoreBuff = false;
     private PocketHandler pocketHandler;
     public Button CastDiceButton;
 
@@ -282,7 +284,8 @@ public class DiceCast : MonoBehaviour
         foursRolled = 0;
         fivesRolled = 0;
         sixesRolled = 0;
-        
+
+
         //Counting all the numbers from dice rolls 
         for (int index = 0; index < arr.Length; index++)
         {
@@ -329,6 +332,12 @@ public class DiceCast : MonoBehaviour
                             if (sixesRolled == 1)
                             {
                                 rainbow = true;
+                                scoreBuff = true;
+                                if(scoreBuff == true)
+                                {
+                                    maxPotentialScore += 5;
+                                }
+
                                 maxPotentialScore += 2500;
                             }
                         }
@@ -343,6 +352,12 @@ public class DiceCast : MonoBehaviour
             if (onesRolled == 2)
             {
                 onePair = true;
+                //will need to put code below into another if statement to make it only active when the modifier is active
+                twoOnes = true;
+                if(twoOnes == true)
+                {
+                    maxPotentialScore += 200;
+                }
             }
             if (twosRolled == 2)
             {
@@ -578,6 +593,7 @@ public class DiceCast : MonoBehaviour
 
         return maxPotentialScore;
     }
+
 
     /// <summary>
     /// Code used to check if a button is scoreable, going to need to be replaced once actual dice are in, but the concept will need to remain
