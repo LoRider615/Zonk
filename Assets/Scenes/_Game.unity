@@ -125,6 +125,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1588034309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4072685368175177076, guid: 81facfb8b13794640911ce394d49a4e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3413357167223542748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3413357167223542748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 3413357167223542750}
     - target: {fileID: 2236114687476718651, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -238,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierButton: {fileID: 3413357167223542749}
+  gameManager: {fileID: 1588034309}
   pocketHandler: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

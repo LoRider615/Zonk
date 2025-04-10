@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Logan Sharkey
@@ -37,6 +38,8 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text TurnText;
     public TMP_Text QuotaText;
     public GameObject ZonkText;
+    public GameObject UIManager;
+    public RunesUI runeUI;
     //public GameObject runesQuota;
 
     //public UIManager uIManager;
@@ -46,6 +49,8 @@ public class PocketHandler : MonoBehaviour
 
     private void Awake()
     {
+
+        runeUI = UIManager.GetComponent<RunesUI>();
         //uIManager = runesQuota.GetComponent<UIManager>();
         _diceCast = this.GetComponent<DiceCast>();
 
@@ -440,6 +445,7 @@ public class PocketHandler : MonoBehaviour
         {
             uIManager.runesPanel.SetActive(true);
         }*/
+        runeUI.ButtonOn();
     }
 
     public void ZonkOut()
