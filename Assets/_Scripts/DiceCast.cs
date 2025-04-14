@@ -16,6 +16,9 @@ public class DiceCast : MonoBehaviour
     private PocketHandler pocketHandler;
     public Button CastDiceButton;
 
+    [SerializeField]
+    private bool finalChance = false;
+
     public int[] DiceArray;
     public GameObject[] PhysicalDice = new GameObject[6];
     public GameObject[] PocketSpawns = new GameObject[6];
@@ -252,7 +255,13 @@ public class DiceCast : MonoBehaviour
         }
         Debug.Log(scoreable);
         if (scoreable == 0)
-            pocketHandler.ZonkOut();
+            if (finalChance)
+            {
+                finalChance = false;
+                CastDiceButton.interactable = true;
+            }
+            else
+                pocketHandler.ZonkOut();
     }
 
 
