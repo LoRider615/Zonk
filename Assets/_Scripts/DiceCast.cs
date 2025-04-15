@@ -23,6 +23,7 @@ public class DiceCast : MonoBehaviour
     public GameObject[] PhysicalDice = new GameObject[6];
     public GameObject[] PocketSpawns = new GameObject[6];
     public GameObject[] TableSpawns = new GameObject[6];
+    public GameObject textOne;
     public bool[] scoreableArray = new bool[6];
     public bool[] PocketSpawnOpen = new bool[6];
     public bool hotCast = false;
@@ -44,11 +45,13 @@ public class DiceCast : MonoBehaviour
     public int sixesRolled = 0;
     public int diceStoppedCount = 0;
 
+
     private void Awake()
     {
         ResetSpawnOpen();
         DiceArray = null;
         pocketHandler = GetComponent<PocketHandler>();
+        textOne.SetActive(false);
     }
 
     private void Update()
@@ -187,6 +190,8 @@ public class DiceCast : MonoBehaviour
                 }
             }
         }
+
+        StartCoroutine(TwoOnes());
     }
 
     public void CastDice(int diceNum)
@@ -274,6 +279,18 @@ public class DiceCast : MonoBehaviour
     public int PassCalculatedScore(int[] arr)
     {
         return CalculateMaxPotentialScore(arr);
+    }
+
+    IEnumerator TwoOnes()
+    {
+        if(twoOnes == true)
+        {
+            //change line below to instantiate 
+            //make text a prefab
+            textOne.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            Destroy(textOne.gameObject);
+        }
     }
 
     /// <summary>
@@ -366,6 +383,7 @@ public class DiceCast : MonoBehaviour
                 if(twoOnes == true)
                 {
                     maxPotentialScore += 200;
+                    //could call coroutine to make pop up text appear here if needed
                 }
             }
             if (twosRolled == 2)
