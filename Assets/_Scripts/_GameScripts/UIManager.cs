@@ -116,7 +116,7 @@ public class UIManager : MonoBehaviour
         cardPanel.SetActive(false);
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
-        //runesPanel.SetActive(false);
+        runesPanel.SetActive(false);
         tutorialPanel.SetActive(false);
         activePanel = null;
     }

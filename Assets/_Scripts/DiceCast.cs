@@ -191,7 +191,7 @@ public class DiceCast : MonoBehaviour
             }
         }
 
-        StartCoroutine(TwoOnes());
+        //StartCoroutine(TwoOnes());
     }
 
     public void CastDice(int diceNum)
@@ -289,7 +289,8 @@ public class DiceCast : MonoBehaviour
             //make text a prefab
             textOne.SetActive(true);
             yield return new WaitForSeconds(3f);
-            Destroy(textOne.gameObject);
+            textOne.SetActive(false);
+            //Destroy(textOne.gameObject);
         }
     }
 
@@ -383,7 +384,7 @@ public class DiceCast : MonoBehaviour
                 if(twoOnes == true)
                 {
                     maxPotentialScore += 200;
-                    //could call coroutine to make pop up text appear here if needed
+                    StartCoroutine(TwoOnes());
                 }
             }
             if (twosRolled == 2)
