@@ -380,12 +380,14 @@ public class DiceCast : MonoBehaviour
             {
                 onePair = true;
                 //will need to put code below into another if statement to make it only active when the modifier is active
+                //keep line below here? need to test
                 twoOnes = true;
-                if(twoOnes == true)
+
+                /*if(twoOnes == true)
                 {
                     maxPotentialScore += 200;
                     StartCoroutine(TwoOnes());
-                }
+                }*/
             }
             if (twosRolled == 2)
             {
@@ -746,6 +748,13 @@ public class DiceCast : MonoBehaviour
             PhysicalDice[i].GetComponent<DiceRoller>().scoreable = false;
         }
         CastDiceButton.interactable = true;
+    }
+
+    //if troubles, may need to figure out once the button has been pressed, this is true forever 
+    public void SerpentButton()
+    {
+        //serpentsStare == true;
+        //maybe it's set active true?
     }
 
 }
