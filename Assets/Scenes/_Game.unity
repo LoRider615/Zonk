@@ -260,6 +260,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b9fb47c5774f0ed4bbe32ead78327f7b,
         type: 3}
+    - target: {fileID: 1983145764953940025, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Dithering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983145764953940025, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983145764953940025, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983145764953940025, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2236114687476718651, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_LocalPosition.x
