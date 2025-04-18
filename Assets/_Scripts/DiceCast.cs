@@ -27,6 +27,7 @@ public class DiceCast : MonoBehaviour
     public bool[] scoreableArray = new bool[6];
     public bool[] PocketSpawnOpen = new bool[6];
     public bool hotCast = false;
+    public bool snakeEyesActive = false;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -383,11 +384,16 @@ public class DiceCast : MonoBehaviour
                 //keep line below here? need to test
                 twoOnes = true;
 
-                /*if(twoOnes == true)
+                if(twoOnes == true)
                 {
-                    maxPotentialScore += 200;
-                    StartCoroutine(TwoOnes());
-                }*/
+                    if(snakeEyesActive == true)
+                    {
+                        maxPotentialScore += 200;
+                        StartCoroutine(TwoOnes());
+                        //OH MY GOSH IT FINALLY WORKS!!!!
+                        //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
+                    }
+                }
             }
             if (twosRolled == 2)
             {
@@ -753,6 +759,8 @@ public class DiceCast : MonoBehaviour
     //if troubles, may need to figure out once the button has been pressed, this is true forever 
     public void SerpentButton()
     {
+        snakeEyesActive = true;
+        
         //serpentsStare == true;
         //maybe it's set active true?
     }
