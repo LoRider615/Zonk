@@ -9,6 +9,7 @@ public class DiceRoller : MonoBehaviour
     private bool isRolling = false;
     public GameObject gameManager;
     private DiceCast diceCast;
+    private PocketHandler pocketHandler;
     
     public bool scoreable = false;
     public bool selected = false;
@@ -19,7 +20,7 @@ public class DiceRoller : MonoBehaviour
 
     void Start()
     {
-        
+        pocketHandler = gameManager.GetComponent<PocketHandler>();
         diceRb = GetComponent<Rigidbody>();
         diceCast = gameManager.GetComponent<DiceCast>();
         diceManager = GameObject.FindObjectOfType<DiceManager>();
@@ -181,8 +182,28 @@ public class DiceRoller : MonoBehaviour
 
             if (!diceManager.isTutorialMode)
             {
-
-                //targetNumber = Random.Range(1, 7);
+                if (diceCast.councilOfFive && pocketHandler.currentPocket == 1)
+                {
+                    Debug.Log("Council of 5 Activated");
+                    if (Random.Range(1, 21) == 1)
+                    {
+                        targetNumber = 5;
+                    }
+                    else
+                        targetNumber = Random.Range(1, 7);
+                }
+                if (diceCast.evenFlow)
+                {
+                    Debug.Log("Even Flow activated");
+                    if (Random.Range(1, 41) == 1)
+                    {
+                        targetNumber = (Random.Range(1, 4) * 2);
+                    }
+                    else
+                        targetNumber = Random.Range(1, 7);
+                }
+                else
+                    targetNumber = Random.Range(1, 7);
                 //targetNumber = 1;
             }
 

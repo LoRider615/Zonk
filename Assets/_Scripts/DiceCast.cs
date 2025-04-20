@@ -37,6 +37,8 @@ public class DiceCast : MonoBehaviour
 
     public bool doubleRainbow1 = false;
     public bool doubleRainbow2 = false;
+    public bool councilOfFive = false;
+    public bool evenFlow = false;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
