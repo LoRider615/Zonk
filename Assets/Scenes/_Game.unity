@@ -414,7 +414,27 @@ PrefabInstance:
     - target: {fileID: 122016141311044130, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_text
-      value: "Modifier \nRune"
+      value: Modifier Rune
+      objectReference: {fileID: 0}
+    - target: {fileID: 122016141311044130, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 122016141311044130, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 122016141311044130, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 122016141311044130, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293059298
       objectReference: {fileID: 0}
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
@@ -426,6 +446,16 @@ PrefabInstance:
       propertyPath: lifeButton
       value: 
       objectReference: {fileID: 694849547}
+    - target: {fileID: 408006062895121253, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79
+      objectReference: {fileID: 0}
+    - target: {fileID: 920675133500914985, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96
+      objectReference: {fileID: 0}
     - target: {fileID: 1793521467340539689, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_Sprite
@@ -435,7 +465,42 @@ PrefabInstance:
     - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_text
-      value: Extra Life
+      value: Extra Life - Saves you from being zonked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 40.812443
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957426966310041449, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293256677
       objectReference: {fileID: 0}
     - target: {fileID: 1983145764953940025, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
@@ -550,11 +615,62 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 2555822172030967794, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555822172030967794, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab33d0c41551afd48881d1e14d0110f8,
+        type: 3}
     - target: {fileID: 3624868893399862225, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: runesPanel
       value: 
       objectReference: {fileID: 1117354336}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_text
+      value: Serpent's Stare - extra points if 2 ones rolled
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 62.210278
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668808888726310380, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293256677
+      objectReference: {fileID: 0}
     - target: {fileID: 4246216167388614044, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -595,6 +711,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4712036619919700478, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712036619919700478, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c26a7bda822bcd94280d1adab7e5db95,
+        type: 3}
+    - target: {fileID: 5033898330444783126, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -93
+      objectReference: {fileID: 0}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: textOne
@@ -630,6 +762,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 57bb01b5e1b94b746990ed113afa82e8,
+        type: 3}
+    - target: {fileID: 8977166705387037164, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977166705387037164, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340,
         type: 3}
     - target: {fileID: 9047981516030460432, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
