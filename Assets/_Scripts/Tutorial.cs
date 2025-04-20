@@ -15,23 +15,21 @@ public class Tutorial : MonoBehaviour
 
     private int tutorialStep = 0;
 
-    private void Awake()
-    {
-        diceManager.isTutorialMode = true;
-    }
-
     void Start()
     {
-        tutorialValues = new int[] { 2, 2, 4, 6, 5, 1 };
-        tutorialText.text = tutorialMessages[tutorialStep];
+        if (diceManager.isTutorialMode == true)
+        {
+            tutorialValues = new int[] { 2, 2, 4, 6, 5, 1 };
+            tutorialText.text = tutorialMessages[tutorialStep];
 
-        castButton.interactable = false;
-        endTurnButton.interactable = false;
+            castButton.interactable = false;
+            endTurnButton.interactable = false;
 
-        castButton.onClick.AddListener(OnButtonClicked);
-        endTurnButton.onClick.AddListener(OnButtonClicked);
+            castButton.onClick.AddListener(OnButtonClicked);
+            endTurnButton.onClick.AddListener(OnButtonClicked);
 
-        StartCoroutine(EnableButtonsAfterStart());
+            StartCoroutine(EnableButtonsAfterStart());
+        }
     }
 
     private string[] tutorialMessages = new string[]
@@ -64,16 +62,19 @@ public class Tutorial : MonoBehaviour
 
     void OnButtonClicked()
     {
-        tutorialValues = tutorialDiceValues[tutorialStep];
+        if (diceManager.isTutorialMode == true)
+        {
+            tutorialValues = tutorialDiceValues[tutorialStep];
 
-        tutorialStep++;
+            tutorialStep++;
 
-        castButton.interactable = false;
-        endTurnButton.interactable = false;
+            castButton.interactable = false;
+            endTurnButton.interactable = false;
 
-        StartCoroutine(WaitAndUpdateText());
+            StartCoroutine(WaitAndUpdateText());
 
-        Debug.Log("this is step: " + tutorialStep);
+            Debug.Log("this is step: " + tutorialStep);
+        }
     }
 
     IEnumerator WaitAndUpdateText()
@@ -120,6 +121,7 @@ public class Tutorial : MonoBehaviour
             castButton.interactable = true;
             endTurnButton.interactable = true;
             uiManager.ClosePanel();
+            diceManager.isTutorialMode = false;
         }
     }
 

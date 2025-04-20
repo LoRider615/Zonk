@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DiceManager : MonoBehaviour
 {
@@ -9,6 +10,23 @@ public class DiceManager : MonoBehaviour
     private DiceCast diceCast;
     public bool isTutorialMode;
     private Tutorial tutorial;
+
+    private void Awake()
+    {
+        diceCast = gameManager.GetComponent<DiceCast>();
+        tutorial = FindObjectOfType<Tutorial>();
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "_Tutorial")
+        {
+            isTutorialMode = true;
+        }
+        else if (currentScene == "_Game")
+        {
+            isTutorialMode = false;
+        }
+    }
 
     public void RollAllDice()
     {
@@ -31,9 +49,13 @@ public class DiceManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void EnableTutorial()
     {
-        diceCast = gameManager.GetComponent<DiceCast>();
-        tutorial = FindObjectOfType<Tutorial>();
+        isTutorialMode = true;
+    }
+
+    public void DisableTutorial()
+    {
+        isTutorialMode = false;
     }
 }
