@@ -280,8 +280,18 @@ PrefabInstance:
       objectReference: {fileID: 4173952252934131948}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
+      propertyPath: evenFlow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
       propertyPath: finalChance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: councilOfFive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
