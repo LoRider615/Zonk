@@ -13,10 +13,13 @@ public class DiceRoller : MonoBehaviour
     public bool scoreable = false;
     public bool selected = false;
 
+
+
     private DiceManager diceManager;
 
     void Start()
     {
+        
         diceRb = GetComponent<Rigidbody>();
         diceCast = gameManager.GetComponent<DiceCast>();
         diceManager = GameObject.FindObjectOfType<DiceManager>();
@@ -178,7 +181,9 @@ public class DiceRoller : MonoBehaviour
 
             if (!diceManager.isTutorialMode)
             {
-                targetNumber = Random.Range(1, 7);
+
+                //targetNumber = Random.Range(1, 7);
+                //targetNumber = 1;
             }
 
             isRolling = true;

@@ -9,7 +9,9 @@ using UnityEngine.UI;
 
 public class DiceCast : MonoBehaviour
 {
-    private bool rainbow = false;
+    
+    public bool rainbow = false;
+
     private bool threePairs = false;
     private bool twoOnes = false;
     private bool scoreBuff = false;
@@ -29,6 +31,12 @@ public class DiceCast : MonoBehaviour
     public bool hotCast = false;
     public bool snakeEyesActive = false;
     public bool m2Active = true;
+    public bool clutchOrKick = false;
+    public bool clutchIsTrue = false;
+    public bool doubleRainbow = false;
+
+    public bool doubleRainbow1 = false;
+    public bool doubleRainbow2 = false;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -199,6 +207,9 @@ public class DiceCast : MonoBehaviour
 
     public void CastDice(int diceNum)
     {
+        rainbow = false;
+        doubleRainbow1 = false;
+
         if (DiceArray == null)
         {
             DiceArray = new int[diceToRoll];
@@ -211,7 +222,7 @@ public class DiceCast : MonoBehaviour
             pocketHandler.currentPocket++;
         }
 
-        for (int i = 0;i < diceToRoll; i++)
+        for (int i = 0; i < diceToRoll; i++)
         {
             if (DiceArray[i] == 0)
             {
@@ -230,7 +241,7 @@ public class DiceCast : MonoBehaviour
             else
                 selected++;
         }
-
+        //CheckIfScoreable(DiceArray);
         StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
@@ -245,7 +256,7 @@ public class DiceCast : MonoBehaviour
         pocketHandler.currentPocket = 0;
         hotCast = false;
     }
-    
+
     public IEnumerator CountDice()
     {
         yield return new WaitForSeconds(2);
@@ -281,12 +292,15 @@ public class DiceCast : MonoBehaviour
     /// <returns></returns>
     public int PassCalculatedScore(int[] arr)
     {
-        return CalculateMaxPotentialScore(arr);
+        int score = CalculateMaxPotentialScore(arr);
+        //if (clutchIsTrue)
+        //return score += (score / 10);
+        return score;
     }
 
     IEnumerator TwoOnes()
     {
-        if(twoOnes == true)
+        if (twoOnes == true)
         {
             //change line below to instantiate 
             //make text a prefab
@@ -304,10 +318,11 @@ public class DiceCast : MonoBehaviour
     private int CalculateMaxPotentialScore(int[] arr)
     {
         int maxPotentialScore = 0;
-        rainbow = false;
+        //rainbow = false;
         threePairs = false;
         bool onePair = false;
         bool twoPair = false;
+
         onesRolled = 0;
         twosRolled = 0;
         threesRolled = 0;
@@ -316,6 +331,21 @@ public class DiceCast : MonoBehaviour
         sixesRolled = 0;
         pairsRolled = 0;
 
+        if (clutchOrKick)
+        {
+            int numCount = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] != 0)
+                    numCount++;
+                if (numCount > 1)
+                    break;
+                else if (i == 5 && numCount < 1)
+                {
+                    clutchIsTrue = true;
+                }
+            }
+        }
 
         //Counting all the numbers from dice rolls 
         for (int index = 0; index < arr.Length; index++)
@@ -345,11 +375,70 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
-        
+
+        /*
+        if (doubleRainbow)
+        {
+            if (onesRolled == 0)
+            {
+                if (twosRolled == 1)
+                {
+                    if (threesRolled == 1)
+                    {
+                        if (foursRolled == 1)
+                        {
+                            if (fivesRolled == 1)
+                            {
+                                if (sixesRolled == 1)
+                                {
+                                    doubleRainbow1 = true;
+                                    scoreBuff = true;
+                                    if (scoreBuff == true)
+                                    {
+                                        maxPotentialScore += 5;
+                                    }
+
+                                    maxPotentialScore += 2000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (onesRolled == 1)
+            {
+                if (twosRolled == 1)
+                {
+                    if (threesRolled == 1)
+                    {
+                        if (foursRolled == 1)
+                        {
+                            if (fivesRolled == 1)
+                            {
+                                if (sixesRolled == 0)
+                                {
+                                    doubleRainbow2 = true;
+                                    scoreBuff = true;
+                                    if (scoreBuff == true)
+                                    {
+                                        maxPotentialScore += 5;
+                                    }
+
+                                    maxPotentialScore += 2000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        */
 
 
 
         //Checking for Rainbow score condition
+        /*
         if (onesRolled == 1)
         {
             if (twosRolled == 1)
@@ -376,6 +465,23 @@ public class DiceCast : MonoBehaviour
                 }
             }
         }
+        */
+
+        if (rainbow)
+        {
+            maxPotentialScore += 2500;
+            if (scoreBuff)
+                maxPotentialScore += 5;
+            return maxPotentialScore;
+        }
+        else if (doubleRainbow1)
+            maxPotentialScore += 2000 - 150;
+        else if (doubleRainbow2)
+            maxPotentialScore += 2000 - 50;
+
+
+
+
 
         //Checking for the 3 pairs score condition
         while (true)
@@ -387,9 +493,9 @@ public class DiceCast : MonoBehaviour
                 //keep line below here? need to test
                 twoOnes = true;
 
-                if(twoOnes == true)
+                if (twoOnes == true)
                 {
-                    if(snakeEyesActive == true)
+                    if (snakeEyesActive == true)
                     {
                         maxPotentialScore += 200;
                         StartCoroutine(TwoOnes());
@@ -476,13 +582,13 @@ public class DiceCast : MonoBehaviour
                     maxPotentialScore += 1000;
                     break;
                 case 4:
-                    maxPotentialScore += 2000;
+                    maxPotentialScore += 1100;
                     break;
                 case 5:
-                    maxPotentialScore += 4000;
+                    maxPotentialScore += 1200;
                     break;
                 case 6:
-                    maxPotentialScore += 6000;
+                    maxPotentialScore += 2000;
                     break;
                 default:
                     Debug.Log("Number of 1's rolled is over the current limit, please revise");
@@ -542,7 +648,7 @@ public class DiceCast : MonoBehaviour
                     Debug.Log("Number of 3's rolled is over the current limit, please revise");
                     break;
             }
-            
+
         }
 
         //scoring the fours rolled
@@ -682,58 +788,210 @@ public class DiceCast : MonoBehaviour
             }
         }
 
-        //Methodically goes through and dynamically checks for scoring numbers, 
+
         int unscoreable = 0;
         bool[] scoreable = new bool[diceToRoll];
-        for (int i = 0; i < diceToRoll; i++)
+        int[] scoreCount = new int[diceToRoll];
+
+        if (onesRolled == 1)
         {
-            scoreable[i] = false;
+            if (twosRolled == 1)
+            {
+                if (threesRolled == 1)
+                {
+                    if (foursRolled == 1)
+                    {
+                        if (fivesRolled == 1)
+                        {
+                            if (sixesRolled == 1)
+                            {
+                                rainbow = true;
+                                scoreBuff = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-            if (arr[i] == 1 || arr[i] == 5)
+        if (doubleRainbow && !rainbow)
+        {
+            if (onesRolled >= 1)
+            {
+                if (twosRolled >= 1)
+                {
+                    if (threesRolled >= 1)
+                    {
+                        if (foursRolled >= 1)
+                        {
+                            if (fivesRolled >= 1)
+                            {
+                                if (sixesRolled == 0)
+                                {
+                                    doubleRainbow1 = true;
+                                    scoreBuff = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (onesRolled == 0)
+            {
+                if (twosRolled >= 1)
+                {
+                    if (threesRolled >= 1)
+                    {
+                        if (foursRolled >= 1)
+                        {
+                            if (fivesRolled >= 1)
+                            {
+                                if (sixesRolled >= 1)
+                                {
+                                    doubleRainbow2 = true;
+                                    scoreBuff = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        if (rainbow)
+        {
+            for (int i = 0; i < diceToRoll; i++)
+            {
                 scoreable[i] = true;
+            }
+        }
+        else if (doubleRainbow1)
+        {
+            for (int i = 0; i < diceToRoll; i++)
+            {
+                if (arr[i] == 1)
+                {
+                    scoreable[i] = true;
+                    --onesRolled;
+                }
+                else if (arr[i] == 2 && scoreCount[1] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[1]++;
+                    --twosRolled;
+                }
+                else if (arr[i] == 3 && scoreCount[2] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[2]++;
+                    --threesRolled;
+                }
+                else if (arr[i] == 4 && scoreCount[3] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[3]++;
+                    --foursRolled;
+                }
+                else if (arr[i] == 5)
+                {
+                    scoreable[i] = true;
+                    --fivesRolled;
+                }
+                else { scoreable[i] = false; }
+            }
+        }
+        else if (doubleRainbow2)
+        {
+            for (int i = 0; i < diceToRoll; i++)
+            {
+                if (arr[i] == 2 && scoreCount[1] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[1]++;
+                    --twosRolled;
+                }
+                else if (arr[i] == 3 && scoreCount[2] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[2]++;
+                    --threesRolled;
+                }
+                else if (arr[i] == 4 && scoreCount[3] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[3]++;
+                    --foursRolled;
+                }
+                else if (arr[i] == 5)
+                {
+                    scoreable[i] = true;
+                    --fivesRolled;
+                }
+                else if (arr[i] == 6 && scoreCount[5] == 0)
+                {
+                    scoreable[i] = true;
+                    scoreCount[5]++;
+                    --sixesRolled;
 
-            else if (twosRolled >= 3)
-            {
-                if (arr[i] == 2)
-                    scoreable[i] = true;
+                }
             }
-            else if (threesRolled >= 3)
-            {
-                if (arr[i] == 3)
-                    scoreable[i] = true;
-            }
-            else if (foursRolled >= 3)
-            {
-                if (arr[i] == 4)
-                    scoreable[i] = true;
-            }
-            else if (fivesRolled >= 3)
-            {
-                if (arr[i] == 5)
-                    scoreable[i] = true;
-            }
-            else if (sixesRolled >= 3)
-            {
-                if (arr[i] == 6)
-                    scoreable[i] = true;
-            }
-            else if (arr[i] == 0)
+        }
+        //Methodically goes through and dynamically checks for scoring numbers, 
+        else
+        {
+            for (int i = 0; i < diceToRoll; i++)
             {
                 scoreable[i] = false;
-            }
-            else
-                unscoreable++;
 
+                if (arr[i] == 1 || arr[i] == 5)
+                    scoreable[i] = true;
+
+                else if (twosRolled >= 3)
+                {
+                    if (arr[i] == 2)
+                        scoreable[i] = true;
+                }
+                else if (threesRolled >= 3)
+                {
+                    if (arr[i] == 3)
+                        scoreable[i] = true;
+                }
+                else if (foursRolled >= 3)
+                {
+                    if (arr[i] == 4)
+                        scoreable[i] = true;
+                }
+                else if (fivesRolled >= 3)
+                {
+                    if (arr[i] == 5)
+                        scoreable[i] = true;
+                }
+                else if (sixesRolled >= 3)
+                {
+                    if (arr[i] == 6)
+                        scoreable[i] = true;
+                }
+                else if (arr[i] == 0)
+                {
+                    scoreable[i] = false;
+                }
+                else
+                    unscoreable++;
+
+            }
         }
-        //Debug.Log(unscoreable);
-        //Zonk Detection
-        /*
-        if (unscoreable == diceToRoll)
-        {
-            //GetComponent<PocketHandler>().ZonkOut();
-            return null;
-        }
-        */
+                
+            //Debug.Log(unscoreable);
+            //Zonk Detection
+            /*
+            if (unscoreable == diceToRoll)
+            {
+                //GetComponent<PocketHandler>().ZonkOut();
+                return null;
+            }
+            */
+        
         return scoreable;
     }
 

@@ -11,10 +11,13 @@ public class DiceManager : MonoBehaviour
     public bool isTutorialMode;
     private Tutorial tutorial;
 
+    private int[] rainbowArray;
+
     private void Awake()
     {
         diceCast = gameManager.GetComponent<DiceCast>();
         tutorial = FindObjectOfType<Tutorial>();
+        rainbowArray = new int[6] { 1, 2, 3, 4, 5, 3 };
 
         string currentScene = SceneManager.GetActiveScene().name;
 
@@ -34,10 +37,17 @@ public class DiceManager : MonoBehaviour
 
         if (!isTutorialMode)
         {
-            foreach (DiceRoller die in diceArray)
+            for (int i = 0; i < diceArray.Length; i++)
             {
-                die.RollDice();  // normal roll
+                diceArray[i].targetNumber = rainbowArray[i];
+                diceArray[i].RollDice();
             }
+
+
+            //foreach (DiceRoller die in diceArray)
+            //{
+               // die.RollDice();  // normal roll
+            //}
         }
         else
         {

@@ -166,7 +166,38 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket1[i] == 0)
                     {
                         Pocket1[i] = diceNum;
-                        ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (_diceCast.rainbow)
+                        {
+                            if (i == 5 && _diceCast.clutchOrKick)
+                            {
+                                ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (2500 / 10));
+                                
+                            }
+                            else if (i == 5)
+                            {
+                                ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                            }
+                        }
+                        else if (_diceCast.doubleRainbow1 || _diceCast.doubleRainbow2)
+                        {
+                            if (i == 4 && _diceCast.clutchOrKick)
+                            {
+                                ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (2000 / 10));
+                            }
+                            else if (i == 4)
+                            {
+                                ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                            }
+                        }
+
+                        else if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
+                        else
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+
                         break;
                     }
                 }
@@ -188,6 +219,11 @@ public class PocketHandler : MonoBehaviour
                     {
                         Pocket2[i] = diceNum;
                         ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
                         break;
                     }
                 }
@@ -210,6 +246,11 @@ public class PocketHandler : MonoBehaviour
                     {
                         Pocket3[i] = diceNum;
                         ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
                         break;
                     }
                 }
@@ -232,6 +273,11 @@ public class PocketHandler : MonoBehaviour
                     {
                         Pocket4[i] = diceNum;
                         ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
                         break;
                     }
                 }
@@ -254,6 +300,11 @@ public class PocketHandler : MonoBehaviour
                     {
                         Pocket5[i] = diceNum;
                         ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
                         break;
                     }
                 }
@@ -276,6 +327,11 @@ public class PocketHandler : MonoBehaviour
                     {
                         Pocket6[i] = diceNum;
                         ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints);
+                        if (i == 5 && _diceCast.clutchOrKick)
+                        {
+                            ScoreText.text = "Pocketed: $" + (CalculatePocketPoints() + previousPoints + (CalculatePocketPoints() / 10));
+                            _diceCast.clutchIsTrue = true;
+                        }
                         break;
                     }
                 }
@@ -417,8 +473,14 @@ public class PocketHandler : MonoBehaviour
         ZonkText.SetActive(false);
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
+        
         playerScore = CalculatePocketPoints();
-        playerCachedScore += playerScore + previousPoints;
+        if (_diceCast.clutchIsTrue)
+            playerCachedScore += playerScore + previousPoints + (playerScore / 10);
+        else
+            playerCachedScore += playerScore + previousPoints;
+
+        _diceCast.clutchIsTrue = false;
         playerScore = 0;
         ScoreText.text = "Pocketed: $" + playerScore;
         CachedScoreText.text = "Cached: $" + playerCachedScore;
