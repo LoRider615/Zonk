@@ -33,6 +33,9 @@ public class PocketHandler : MonoBehaviour
     public int quotaLevel = 0;
     public int highscore = 0;
 
+    public bool mrXLife = false;
+    public Button lifeButton;
+
     private DiceCast _diceCast;
 
     public AudioSource _audioSource;
@@ -52,6 +55,8 @@ public class PocketHandler : MonoBehaviour
 
     private void Awake()
     {
+        lifeButton.interactable = false;
+        
         highscore = PlayerPrefs.GetInt("highscore");
         PlayerPrefs.SetInt("score", quotaLevel);
 
@@ -532,13 +537,41 @@ public class PocketHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SetPockets();
-        playerScore = 0;
+
+        if(mrXLife == true)
+        {
+            lifeButton.interactable = true;
+            ZonkText.SetActive(true);
+            GetComponent<DiceCast>().CastDiceButton.interactable = true;
+        }
+        if(mrXLife == false)
+        {
+            playerScore = 0;
+            ScoreText.text = "Pocket Total: $" + playerScore;
+            for (int i = 0; i < _diceCast.diceToRoll; i++)
+            {
+                _diceCast.PhysicalDice[i].GetComponent<MeshRenderer>().enabled = false;
+            }
+            ZonkText.SetActive(true);
+        }
+
+        /*playerScore = 0;
         ScoreText.text = "Pocket Total: $" + playerScore;
         for (int i = 0; i < _diceCast.diceToRoll; i++)
         {
             _diceCast.PhysicalDice[i].GetComponent<MeshRenderer>().enabled = false;
         }
-        ZonkText.SetActive(true);
+        ZonkText.SetActive(true);*/
+    }
+
+    public void ExtraLife()
+    {
+        ZonkText.SetActive(false);
+    }
+
+    public void IsXLifeActive()
+    {
+        mrXLife = true;
     }
 
 }
