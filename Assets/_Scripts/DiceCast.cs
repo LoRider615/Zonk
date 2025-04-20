@@ -28,6 +28,7 @@ public class DiceCast : MonoBehaviour
     public bool[] PocketSpawnOpen = new bool[6];
     public bool hotCast = false;
     public bool snakeEyesActive = false;
+    public bool m2Active = true;
 
     public int diceToRoll = 6;
     public int maxDiceToRoll = 6;
@@ -44,6 +45,7 @@ public class DiceCast : MonoBehaviour
     public int foursRolled = 0;
     public int fivesRolled = 0;
     public int sixesRolled = 0;
+    public int pairsRolled = 0;
     public int diceStoppedCount = 0;
 
 
@@ -312,6 +314,7 @@ public class DiceCast : MonoBehaviour
         foursRolled = 0;
         fivesRolled = 0;
         sixesRolled = 0;
+        pairsRolled = 0;
 
 
         //Counting all the numbers from dice rolls 

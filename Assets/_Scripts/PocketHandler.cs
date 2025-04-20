@@ -29,6 +29,9 @@ public class PocketHandler : MonoBehaviour
     public int quota = 1000;
     public int diceAdded = 0;
     public int previousPoints = 0;
+    
+    public int quotaLevel = 0;
+    public int highscore = 0;
 
     private DiceCast _diceCast;
 
@@ -49,6 +52,8 @@ public class PocketHandler : MonoBehaviour
 
     private void Awake()
     {
+        highscore = PlayerPrefs.GetInt("highscore");
+        PlayerPrefs.SetInt("score", quotaLevel);
 
         runeUI = UIManager.GetComponent<RunesUI>();
         //uIManager = runesQuota.GetComponent<UIManager>();
@@ -433,6 +438,14 @@ public class PocketHandler : MonoBehaviour
                 currentTurn = 1;
                 TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
+                
+                quotaLevel++;
+                PlayerPrefs.SetInt("score", quotaLevel);
+
+                if (quotaLevel >= highscore) 
+                {
+                    PlayerPrefs.SetInt("highscore", quotaLevel);
+                }
                 //_audioSource.Play();
             }
             else
