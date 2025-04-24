@@ -782,6 +782,26 @@ PrefabInstance:
       propertyPath: duoTwoModifer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: duoSixModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: duoTwoModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: duoFourModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: duoThreeModifier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6977210652911317088, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_IsActive
