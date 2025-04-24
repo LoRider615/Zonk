@@ -34,6 +34,15 @@ public class DiceCast : MonoBehaviour
     public bool clutchOrKick = false;
     public bool clutchIsTrue = false;
     public bool doubleRainbow = false;
+    
+    public bool duoTwoModifier = false;
+    private bool duoTwoIsTrue = false;
+    public bool duoThreeModifier = false;
+    private bool duoThreeIsTrue = false;
+    public bool duoFourModifier = false;
+    private bool duoFourIsTrue = false;
+    public bool duoSixModifier = false;
+    private bool duoSixIsTrue = false;
 
     public bool doubleRainbow1 = false;
     public bool doubleRainbow2 = false;
@@ -55,7 +64,6 @@ public class DiceCast : MonoBehaviour
     public int foursRolled = 0;
     public int fivesRolled = 0;
     public int sixesRolled = 0;
-    public int pairsRolled = 0;
     public int diceStoppedCount = 0;
 
 
@@ -211,6 +219,11 @@ public class DiceCast : MonoBehaviour
     {
         rainbow = false;
         doubleRainbow1 = false;
+        doubleRainbow2 = false;
+        duoTwoIsTrue = false;
+        duoThreeIsTrue = false;
+        duoFourIsTrue = false;
+        duoSixIsTrue = false;
 
         if (DiceArray == null)
         {
@@ -243,7 +256,7 @@ public class DiceCast : MonoBehaviour
             else
                 selected++;
         }
-        //CheckIfScoreable(DiceArray);
+        CheckIfScoreable(DiceArray);
         StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
@@ -331,7 +344,6 @@ public class DiceCast : MonoBehaviour
         foursRolled = 0;
         fivesRolled = 0;
         sixesRolled = 0;
-        pairsRolled = 0;
 
         if (clutchOrKick)
         {
@@ -481,9 +493,25 @@ public class DiceCast : MonoBehaviour
         else if (doubleRainbow2)
             maxPotentialScore += 2000 - 50;
 
+        if (duoTwoIsTrue)
+        {
+            maxPotentialScore += 100;
+        }
 
+        if (duoThreeIsTrue)
+        {
+            maxPotentialScore += 150;
+        }
 
+        if (duoFourIsTrue)
+        {
+            maxPotentialScore += 200;
+        }
 
+        if (duoSixIsTrue)
+        {
+            maxPotentialScore += 300;
+        }
 
         //Checking for the 3 pairs score condition
         while (true)
@@ -795,6 +823,24 @@ public class DiceCast : MonoBehaviour
         bool[] scoreable = new bool[diceToRoll];
         int[] scoreCount = new int[diceToRoll];
 
+        //if (duoTwoModifer)
+        //{
+        //    Debug.Log("duoTwoModifer is active");
+        //    if (threesRolled == 2)
+        //    {
+        //        Debug.Log("there are 2 two's");
+        //        for (int i = 0; i < diceToRoll; i++)
+        //        {
+        //            Debug.Log("I am going to check if dice " + i + "is a a 3");
+        //            if (arr[i] == 3)
+        //            {
+        //                scoreable[i] = true;
+        //                duoTwoIsTrue = true;
+        //            }
+        //        }
+        //    }
+        //}
+
         if (onesRolled == 1)
         {
             if (twosRolled == 1)
@@ -859,7 +905,6 @@ public class DiceCast : MonoBehaviour
                 }
             }
         }
-
 
         if (rainbow)
         {
@@ -954,15 +999,39 @@ public class DiceCast : MonoBehaviour
                     if (arr[i] == 2)
                         scoreable[i] = true;
                 }
+                else if (twosRolled == 2 && duoTwoModifier) // check for duo 2 modifier scoring
+                {
+                    if (arr[i] == 2)
+                    {
+                        scoreable[i] = true;
+                        duoTwoIsTrue = true;
+                    }
+                }
                 else if (threesRolled >= 3)
                 {
                     if (arr[i] == 3)
                         scoreable[i] = true;
                 }
+                else if (threesRolled == 2 && duoThreeModifier) // check for duo 3 modifier scoring
+                {
+                    if (arr[i] == 3)
+                    {
+                        scoreable[i] = true;
+                        duoThreeIsTrue = true;
+                    }
+                }
                 else if (foursRolled >= 3)
                 {
                     if (arr[i] == 4)
                         scoreable[i] = true;
+                }
+                else if (foursRolled == 2 && duoFourModifier) // check for duo 4 modifier scoring
+                {
+                    if (arr[i] == 4)
+                    {
+                        scoreable[i] = true;
+                        duoFourIsTrue = true;
+                    }
                 }
                 else if (fivesRolled >= 3)
                 {
@@ -973,6 +1042,14 @@ public class DiceCast : MonoBehaviour
                 {
                     if (arr[i] == 6)
                         scoreable[i] = true;
+                }
+                else if (sixesRolled == 2 && duoSixModifier) // check for duo 6 modifier scoring
+                {
+                    if (arr[i] == 6)
+                    {
+                        scoreable[i] = true;
+                        duoSixIsTrue = true;
+                    }
                 }
                 else if (arr[i] == 0)
                 {
