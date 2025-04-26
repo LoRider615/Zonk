@@ -60,14 +60,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //private void OpenCardPanel()
-    //{
-    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.gameObject == tableCards)
-    //    {
-    //        OpenPanel(cardPanel);
-    //    }
-    //}
+    public void OpenCardPanel()
+    {
+        OpenPanel(cardPanel);
+    }
 
     public void ToggleHelpPanel()
     {

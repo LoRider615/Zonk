@@ -45,6 +45,7 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text QuotaText;
     public GameObject ZonkText;
     public GameObject UIManager;
+    public UIManager uiManager;
     public RunesUI runeUI;
     //public GameObject runesQuota;
 
@@ -506,8 +507,13 @@ public class PocketHandler : MonoBehaviour
                 TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
                 
+                // update high score
                 quotaLevel++;
                 PlayerPrefs.SetInt("score", quotaLevel);
+
+                // open card panel to select from three random cards
+                // TODO send 3 random cards to card panel UI
+                uiManager.OpenCardPanel();
 
                 if (quotaLevel >= highscore) 
                 {
