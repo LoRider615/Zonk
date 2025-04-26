@@ -13,9 +13,45 @@ public class Card
     public virtual void Use(DiceCast diceCast)
     {
         Debug.Log(cardName + " used!");
+        if (cardType == CardType.FinalChance)
+        {
+            // logic here
+        }
+        if (cardType == CardType.DoubleRainbow)
+        {
+            // logic here
+        }
+        if (cardType == CardType.CouncilOf5)
+        {
+            // logic here
+        }
+        if (cardType == CardType.ScoringBuff)
+        {
+            // logic here
+        }
+        if (cardType == CardType.ExtraLife)
+        {
+            // logic here
+        }
         if (cardType == CardType.Duo2)
         {
             diceCast.duoTwoModifier = true;
+        }
+        if (cardType == CardType.Duo3)
+        {
+            diceCast.duoThreeModifier = true;
+        }
+        if (cardType == CardType.Duo4)
+        {
+            diceCast.duoFourModifier = true;
+        }
+        if (cardType == CardType.Duo6)
+        {
+            diceCast.duoSixModifier = true;
+        }
+        if (cardType == CardType.EvenFlow)
+        {
+            // logic here
         }
     }
 }

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject tableCards;
     public GameObject cardPanel;
+    public GameObject inventoryPanel;
     public GameObject helpPanel;
     public GameObject settingsPanel;
     public GameObject runesPanel;
@@ -93,16 +94,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleRunesPanel()
+    public void ToggleInventoryPanel()
     {
-        if (activePanel == runesPanel)
+        if (activePanel == inventoryPanel)
         {
             ClosePanel();
             Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
-            OpenPanel(runesPanel);
+            OpenPanel(inventoryPanel);
             Time.timeScale = 0;
         }
     }
@@ -114,6 +115,7 @@ public class UIManager : MonoBehaviour
         settingsPanel.SetActive(false);
         runesPanel.SetActive(false);
         tutorialPanel.SetActive(false);
+        inventoryPanel.SetActive(false);
         activePanel = null;
     }
 }

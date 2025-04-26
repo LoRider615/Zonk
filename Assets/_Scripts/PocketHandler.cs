@@ -26,7 +26,7 @@ public class PocketHandler : MonoBehaviour
 
     public int currentPocket = 0;
     public int currentTurn = 1;
-    public int quota = 1000;
+    public int quota = 500;
     public int diceAdded = 0;
     public int previousPoints = 0;
     
@@ -34,6 +34,7 @@ public class PocketHandler : MonoBehaviour
     public int highscore = 0;
 
     public bool mrXLife = false;
+    public bool xLifeAlreadyUsed = false;
     public Button lifeButton;
 
     private DiceCast _diceCast;
@@ -46,6 +47,7 @@ public class PocketHandler : MonoBehaviour
     public GameObject ZonkText;
     public GameObject UIManager;
     public UIManager uiManager;
+    public DiceCast diceCast;
     public RunesUI runeUI;
     //public GameObject runesQuota;
 
@@ -502,17 +504,18 @@ public class PocketHandler : MonoBehaviour
         {
             if (playerCachedScore >= quota)
             {
-                quota += (int)(1000 + (quota / 2 / 2 * 0.6));
+                quota += (int)(500 + (quota / 2 / 2 * 0.6));
                 currentTurn = 1;
                 TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
+                xLifeAlreadyUsed = false; // reset extra life
                 
                 // update high score
                 quotaLevel++;
                 PlayerPrefs.SetInt("score", quotaLevel);
 
                 // open card panel to select from three random cards
-                // TODO send 3 random cards to card panel UI
+                uiManager.ClosePanel();
                 uiManager.OpenCardPanel();
 
                 if (quotaLevel >= highscore) 
@@ -526,11 +529,6 @@ public class PocketHandler : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
         }
-
-        /*if(quota >= 2000)
-        {
-            uIManager.runesPanel.SetActive(true);
-        }*/
         runeUI.ButtonOn();
     }
 
@@ -544,13 +542,18 @@ public class PocketHandler : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SetPockets();
 
-        if(mrXLife == true)
+        if (mrXLife == true)
         {
-            lifeButton.interactable = true;
-            ZonkText.SetActive(true);
-            GetComponent<DiceCast>().CastDiceButton.interactable = true;
+            if (!xLifeAlreadyUsed)
+            {
+                Debug.LogWarning("Using extra life!");
+                xLifeAlreadyUsed = true;
+                ZonkText.SetActive(true);
+                lifeButton.interactable = true;
+                GetComponent<DiceCast>().CastDiceButton.interactable = true;
+            }
         }
-        if(mrXLife == false)
+        else 
         {
             playerScore = 0;
             ScoreText.text = "Pocket Total: $" + playerScore;

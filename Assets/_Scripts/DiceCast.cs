@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -260,6 +261,19 @@ public class DiceCast : MonoBehaviour
         StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
+    }
+
+    public int GetAmountOfDiceLeft()
+    {
+        int amount = 0;
+        for (int i = 0; i < DiceArray.Length; i++)
+        {
+            if (DiceArray[i] > 0)
+            {
+                amount++;
+            }
+        }
+        return amount;
     }
 
     public void HotCastReset()
