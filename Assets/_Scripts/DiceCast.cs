@@ -20,7 +20,8 @@ public class DiceCast : MonoBehaviour
     public Button CastDiceButton;
 
     [SerializeField]
-    private bool finalChance = false;
+    public bool finalChance = false;
+    public bool finalChanceUsed = false;
 
     public int[] DiceArray;
     public GameObject[] PhysicalDice = new GameObject[6];
@@ -74,6 +75,8 @@ public class DiceCast : MonoBehaviour
         DiceArray = null;
         pocketHandler = GetComponent<PocketHandler>();
         textOne.SetActive(false);
+
+
     }
 
     private void Update()
@@ -303,16 +306,20 @@ public class DiceCast : MonoBehaviour
         }
         Debug.Log(scoreable);
         if (scoreable == 0)
-            if (finalChance)
+        {
+            Debug.Log("there are this many dice left on the table: " + GetAmountOfDiceLeft());
+            if (finalChance && !finalChanceUsed && GetAmountOfDiceLeft() == 1) // if final chance is on, has not been used this turn, and only one dice left...
             {
-                finalChance = false;
+                finalChanceUsed = true;
                 CastDiceButton.interactable = true;
             }
             else
+            {
+                //Debug.Log("Final chance already used, so going onto zonk logic");
                 pocketHandler.ZonkOut();
+            }
+        }
     }
-
-
 
     /// <summary>
     /// This is a getter function, used mainly for calculating individual pocket scores

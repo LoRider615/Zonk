@@ -498,6 +498,7 @@ public class PocketHandler : MonoBehaviour
         TurnText.text = "Turn: " + currentTurn + "/3";
         diceAdded = 0;
         previousPoints = 0;
+        diceCast.finalChanceUsed = false;
 
         SetPockets();
         if (currentTurn > 3)
@@ -509,7 +510,7 @@ public class PocketHandler : MonoBehaviour
                 TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
                 xLifeAlreadyUsed = false; // reset extra life
-                
+
                 // update high score
                 quotaLevel++;
                 PlayerPrefs.SetInt("score", quotaLevel);
@@ -539,23 +540,24 @@ public class PocketHandler : MonoBehaviour
 
     private IEnumerator Zonked()
     {
+        //Debug.Log("About to run zonk logic");
         yield return new WaitForSeconds(2f);
         SetPockets();
 
-        if (mrXLife == true)
+        if (mrXLife == true && !xLifeAlreadyUsed)
         {
-            if (!xLifeAlreadyUsed)
-            {
-                Debug.LogWarning("Using extra life!");
-                xLifeAlreadyUsed = true;
-                ZonkText.SetActive(true);
-                lifeButton.interactable = true;
-                GetComponent<DiceCast>().CastDiceButton.interactable = true;
-            }
+            //Debug.Log("Extra life is active and has not been used, running logic for extra life");
+            ZonkText.SetActive(true);
+            lifeButton.interactable = true;
+            GetComponent<DiceCast>().CastDiceButton.interactable = true;
+            xLifeAlreadyUsed = true;
         }
-        else 
+        else
         {
+            //Debug.Log("No extra life and no final chance");
+            GetComponent<DiceCast>().CastDiceButton.interactable = false;
             playerScore = 0;
+            lifeButton.interactable = false; // make sure it can't be used
             ScoreText.text = "Pocket Total: $" + playerScore;
             for (int i = 0; i < _diceCast.diceToRoll; i++)
             {
