@@ -6,7 +6,7 @@ public class DiceRoller : MonoBehaviour
 {
     private Rigidbody diceRb;
     public int targetNumber;
-    private bool isRolling = false;
+    public bool isRolling = false;
     public GameObject gameManager;
     private DiceCast diceCast;
     private PocketHandler pocketHandler;

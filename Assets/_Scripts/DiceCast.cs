@@ -100,7 +100,7 @@ public class DiceCast : MonoBehaviour
                         switch (hit.collider.name)
                         {
                             case "DiceV2":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
@@ -118,7 +118,7 @@ public class DiceCast : MonoBehaviour
                                 break;
 
                             case "DiceV2 (1)":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
@@ -136,7 +136,7 @@ public class DiceCast : MonoBehaviour
                                 break;
 
                             case "DiceV2 (2)":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
@@ -154,7 +154,7 @@ public class DiceCast : MonoBehaviour
                                 break;
 
                             case "DiceV2 (3)":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
@@ -172,7 +172,7 @@ public class DiceCast : MonoBehaviour
                                 break;
 
                             case "DiceV2 (4)":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
@@ -190,7 +190,7 @@ public class DiceCast : MonoBehaviour
                                 break;
 
                             case "DiceV2 (5)":
-                                if (hit.collider.GetComponent<DiceRoller>().scoreable)
+                                if (hit.collider.GetComponent<DiceRoller>().scoreable && !hit.collider.GetComponent<DiceRoller>().isRolling)
                                 {
                                     for (int i = 0; i < diceToRoll; i++)
                                     {
