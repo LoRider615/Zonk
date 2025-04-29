@@ -15,7 +15,7 @@ public class DiceCast : MonoBehaviour
 
     private bool threePairs = false;
     private bool twoOnes = false;
-    private bool scoreBuff = false;
+    public bool scoreBuff = false;
     private PocketHandler pocketHandler;
     public Button CastDiceButton;
 

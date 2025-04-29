@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 public class CardManager : MonoBehaviour
 {
     public DiceCast diceCast;
+    public PocketHandler pocketHandler;
     public UIManager uiManager;
     public GameObject cardUIPrefab; // UI Prefab for a single card
     public Transform cardPanel;
@@ -18,11 +19,17 @@ public class CardManager : MonoBehaviour
     public List<Card> inventory = new List<Card>(); // cards in the player's inventory
 
     // THIS IS TEMPORARY ----
-    public Card testCard;
-    public Card testCard2;
-    public Card testCard3;
-    public Card testCard4;
-    public Card testCard5;
+    public Card Card1;
+    public Card Card2;
+    public Card Card3;
+    public Card Card4;
+    public Card Card5;
+    public Card Card6;
+    public Card Card7;
+    public Card Card8;
+    public Card Card9;
+    public Card Card10;
+    public Card Card11;
 
     //void Start()
     //{
@@ -37,11 +44,17 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
-        AddCard(testCard);
-        AddCard(testCard2);
-        AddCard(testCard3);
-        AddCard(testCard4);
-        AddCard(testCard5);
+        AddCard(Card1);
+        AddCard(Card2);
+        AddCard(Card3);
+        AddCard(Card4);
+        AddCard(Card5);
+        AddCard(Card6);
+        AddCard(Card7);
+        AddCard(Card8);
+        AddCard(Card9);
+        AddCard(Card10);
+        AddCard(Card11);
         DrawCards(3);
     }
 
@@ -94,7 +107,7 @@ public class CardManager : MonoBehaviour
 
     public void UseCard(Card card)
     {
-        card.Use(diceCast);
+        card.Use(diceCast, pocketHandler);
         inventory.Add(card);
         UpdateInventoryUI();
         drawnCards.Remove(card);

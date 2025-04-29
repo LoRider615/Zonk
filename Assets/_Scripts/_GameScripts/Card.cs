@@ -10,24 +10,28 @@ public class Card
     public string description;
     public CardType cardType;
 
-    public virtual void Use(DiceCast diceCast)
+    public virtual void Use(DiceCast diceCast, PocketHandler pocketHandler)
     {
         Debug.Log(cardName + " used!");
+        if (cardType == CardType.SerpentStare)
+        {
+            diceCast.snakeEyesActive = true;
+        }
         if (cardType == CardType.FinalChance)
         {
-            // logic here
+            diceCast.finalChance = true;
         }
         if (cardType == CardType.DoubleRainbow)
         {
-            // logic here
+            diceCast.doubleRainbow = true;
         }
         if (cardType == CardType.CouncilOf5)
         {
-            // logic here
+            diceCast.councilOfFive = true;
         }
         if (cardType == CardType.ScoringBuff)
         {
-            // logic here
+            //scorebuff
         }
         if (cardType == CardType.ExtraLife)
         {
@@ -58,6 +62,7 @@ public class Card
 
 public enum CardType
 {
+    SerpentStare,
     FinalChance,
     DoubleRainbow,
     CouncilOf5,
