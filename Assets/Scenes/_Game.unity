@@ -137,6 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &237451570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5274751797631541, guid: 81facfb8b13794640911ce394d49a4e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3413357167223542748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8fce404aecf84448e7de11e336d1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &545307630 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8526361881289257984, guid: 81facfb8b13794640911ce394d49a4e3,
@@ -1204,7 +1216,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cardManager
       value: 
-      objectReference: {fileID: 3413357167223542749}
+      objectReference: {fileID: 237451570}
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: endTurnButton
@@ -1390,85 +1402,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 3413357167223542755}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DisableFinalChanceText
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DiceCast, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5989076921949361938, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_Name
       value: RunesInvButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_text
-      value: "Runes \nAquired"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
@@ -1483,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: duoTwoModifier
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
@@ -1540,41 +1477,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 3413357167223542755}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DisableFinalChanceText
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DiceCast, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 9117498408989650588, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_IsActive
@@ -1605,18 +1507,6 @@ PrefabInstance:
       addedObject: {fileID: 1262666944}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81facfb8b13794640911ce394d49a4e3, type: 3}
---- !u!114 &3413357167223542749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5274751797631541, guid: 81facfb8b13794640911ce394d49a4e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3413357167223542748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8fce404aecf84448e7de11e336d1fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3413357167223542751 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,

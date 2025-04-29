@@ -524,7 +524,20 @@ public class PocketHandler : MonoBehaviour
         {
             if (playerCachedScore >= quota)
             {
-                quota += (int)(500 + (quota / 2 / 2 * 0.6));
+                if (quotaLevel < 3)
+                {
+                    quota += (int)(500 + (quota / 4 * 0.6));
+                }
+                else if (quotaLevel < 6)
+                {
+                    quota += (int)(500 + (quota / 4 * 0.7));
+                }
+                else if (quotaLevel < 9)
+                {
+                    quota += (int)(500 + (quota / 4 * 0.8));
+                }
+                
+                //quota += (int)(quota *1.1);
                 currentTurn = 1;
                 TurnText.text = "Turn: " + currentTurn + "/3";
                 QuotaText.text = "Quota: $" + quota;
