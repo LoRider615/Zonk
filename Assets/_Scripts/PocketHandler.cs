@@ -47,6 +47,7 @@ public class PocketHandler : MonoBehaviour
     public GameObject ZonkText;
     public GameObject UIManager;
     public UIManager uiManager;
+    public CardManager cardManager;
     public DiceCast diceCast;
     public RunesUI runeUI;
     //public GameObject runesQuota;
@@ -516,6 +517,7 @@ public class PocketHandler : MonoBehaviour
                 PlayerPrefs.SetInt("score", quotaLevel);
 
                 // open card panel to select from three random cards
+                if ()
                 uiManager.ClosePanel();
                 uiManager.OpenCardPanel();
 
