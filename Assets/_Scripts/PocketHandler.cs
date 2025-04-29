@@ -56,6 +56,8 @@ public class PocketHandler : MonoBehaviour
 
     //public UIManager uIManager;
 
+    //grug
+
     public int playerScore = 0;
     public int playerCachedScore = 0;
 
@@ -533,9 +535,11 @@ public class PocketHandler : MonoBehaviour
                 PlayerPrefs.SetInt("score", quotaLevel);
 
                 // open card panel to select from three random cards
-                if ()
-                uiManager.ClosePanel();
-                uiManager.OpenCardPanel();
+                if (cardManager.availableCards.Count > 0)
+                {
+                    uiManager.ClosePanel();
+                    uiManager.OpenCardPanel();
+                }
 
                 if (quotaLevel >= highscore) 
                 {
