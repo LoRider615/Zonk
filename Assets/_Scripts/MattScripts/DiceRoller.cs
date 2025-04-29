@@ -202,8 +202,8 @@ public class DiceRoller : MonoBehaviour
                     else
                         targetNumber = Random.Range(1, 7);
                 }
-                else
-                    targetNumber = Random.Range(1, 7);
+                //else
+                    //targetNumber = Random.Range(1, 7);
                 //targetNumber = 1;
             }
 

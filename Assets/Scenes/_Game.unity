@@ -125,6 +125,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &33466281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4750778340947011460, guid: 81facfb8b13794640911ce394d49a4e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3413357167223542748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &545307630 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8526361881289257984, guid: 81facfb8b13794640911ce394d49a4e3,
@@ -137,6 +149,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3413357167223542748}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &705784832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3413357167223542748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &728542147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,9 +1192,19 @@ PrefabInstance:
       objectReference: {fileID: 3413357167223542753}
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
+      propertyPath: castButton
+      value: 
+      objectReference: {fileID: 705784832}
+    - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
       propertyPath: lifeButton
       value: 
       objectReference: {fileID: 1262666947}
+    - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: endTurnButton
+      value: 
+      objectReference: {fileID: 33466281}
     - target: {fileID: 458064586047661321, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_AnchorMax.x

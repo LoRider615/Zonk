@@ -109,7 +109,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[0].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[0].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }
@@ -127,7 +127,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[1].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[1].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }
@@ -145,7 +145,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[2].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[2].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }
@@ -163,7 +163,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[3].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[3].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }
@@ -181,7 +181,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[4].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[4].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }
@@ -199,7 +199,7 @@ public class DiceCast : MonoBehaviour
                                             PhysicalDice[5].GetComponent<DiceRoller>().selected = true;
                                             PocketSpawnOpen[i] = false;
                                             pocketHandler.AddToPocket(PhysicalDice[5].GetComponent<DiceRoller>().targetNumber);
-                                            CastDiceButton.interactable = true;
+                                            //CastDiceButton.interactable = true;
                                             break;
                                         }
                                     }

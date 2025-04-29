@@ -36,6 +36,8 @@ public class PocketHandler : MonoBehaviour
     public bool mrXLife = false;
     public bool xLifeAlreadyUsed = false;
     public Button lifeButton;
+    public Button castButton;
+    public Button endTurnButton;
 
     private DiceCast _diceCast;
 
@@ -345,6 +347,20 @@ public class PocketHandler : MonoBehaviour
                 }
                 break;
         }
+        playerScore = CalculatePocketPoints();
+        if (playerScore == 0)
+        {
+            castButton.interactable = false;
+            endTurnButton.interactable = false;
+        }
+        else
+        {
+            castButton.interactable = true;
+            endTurnButton.interactable = true;
+        }
+
+
+
     }
     /*
     /// <summary>
