@@ -22,6 +22,7 @@ public class DiceCast : MonoBehaviour
     [SerializeField]
     public bool finalChance = false;
     public bool finalChanceUsed = false;
+    public GameObject finalChanceText;
 
     public int[] DiceArray;
     public GameObject[] PhysicalDice = new GameObject[6];
@@ -76,7 +77,7 @@ public class DiceCast : MonoBehaviour
         pocketHandler = GetComponent<PocketHandler>();
         textOne.SetActive(false);
 
-
+        finalChanceText.SetActive(false);
     }
 
     private void Update()
@@ -311,6 +312,7 @@ public class DiceCast : MonoBehaviour
             if (finalChance && !finalChanceUsed && GetAmountOfDiceLeft() == 1) // if final chance is on, has not been used this turn, and only one dice left...
             {
                 finalChanceUsed = true;
+                finalChanceText.SetActive(true);
                 CastDiceButton.interactable = true;
             }
             else
@@ -319,6 +321,11 @@ public class DiceCast : MonoBehaviour
                 pocketHandler.ZonkOut();
             }
         }
+    }
+
+    public void DisableFinalChanceText()
+    {
+        finalChanceText.SetActive(false);
     }
 
     /// <summary>
