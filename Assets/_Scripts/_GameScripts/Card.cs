@@ -31,11 +31,11 @@ public class Card
         }
         if (cardType == CardType.ScoringBuff)
         {
-            //scorebuff
+            diceCast.scoreBuff = true;
         }
         if (cardType == CardType.ExtraLife)
         {
-            // logic here
+            pocketHandler.mrXLife = true;
         }
         if (cardType == CardType.Duo2)
         {
@@ -55,7 +55,7 @@ public class Card
         }
         if (cardType == CardType.EvenFlow)
         {
-            // logic here
+            diceCast.evenFlow = true;
         }
     }
 }
