@@ -161,6 +161,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3413357167223542748}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &688934321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5020503804783393087, guid: 81facfb8b13794640911ce394d49a4e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3413357167223542748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &705784832 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9029282923801906956, guid: 81facfb8b13794640911ce394d49a4e3,
@@ -1459,6 +1465,11 @@ PrefabInstance:
       propertyPath: mrXLife
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: textOne
+      value: 
+      objectReference: {fileID: 688934321}
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: diceCast

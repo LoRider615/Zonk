@@ -14,7 +14,7 @@ public class DiceCast : MonoBehaviour
     public bool rainbow = false;
 
     private bool threePairs = false;
-    private bool twoOnes = false;
+    public bool twoOnes = false;
     public bool scoreBuff = false;
     private PocketHandler pocketHandler;
     public Button CastDiceButton;
@@ -557,6 +557,7 @@ public class DiceCast : MonoBehaviour
                     {
                         maxPotentialScore += 200;
                         StartCoroutine(TwoOnes());
+                        onePair = false;
                         //OH MY GOSH IT FINALLY WORKS!!!!
                         //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
                     }

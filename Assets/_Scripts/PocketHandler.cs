@@ -46,6 +46,7 @@ public class PocketHandler : MonoBehaviour
     public TMP_Text CachedScoreText;
     public TMP_Text TurnText;
     public TMP_Text QuotaText;
+    public GameObject textOne;
     public GameObject ZonkText;
     public GameObject UIManager;
     public UIManager uiManager;
@@ -498,6 +499,8 @@ public class PocketHandler : MonoBehaviour
     {
         
         ZonkText.SetActive(false);
+        diceCast.twoOnes = false;
+        textOne.SetActive(false);
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
         
