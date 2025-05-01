@@ -557,7 +557,7 @@ public class DiceCast : MonoBehaviour
                     {
                         maxPotentialScore += 200;
                         StartCoroutine(TwoOnes());
-                        onePair = false;
+                        onePair = false; //this might not be doing anything - TEST!
                         //OH MY GOSH IT FINALLY WORKS!!!!
                         //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
                     }
