@@ -578,30 +578,30 @@ public class PocketHandler : MonoBehaviour
 
     private IEnumerator Zonked()
     {
-        //Debug.Log("About to run zonk logic");
+        Debug.Log("About to run zonk logic");
         yield return new WaitForSeconds(2f);
         SetPockets();
 
         if (mrXLife == true && !xLifeAlreadyUsed)
         {
-            //Debug.Log("Extra life is active and has not been used, running logic for extra life");
+            Debug.Log("Extra life is active and has not been used, running logic for extra life");
             ZonkText.SetActive(true);
             lifeButton.interactable = true;
-            GetComponent<DiceCast>().CastDiceButton.interactable = true;
+            diceCast.CastDiceButton.interactable = true;
             xLifeAlreadyUsed = true;
         }
         else
         {
             //Debug.Log("No extra life and no final chance");
-            GetComponent<DiceCast>().CastDiceButton.interactable = false;
+            diceCast.CastDiceButton.interactable = false;
             playerScore = 0;
-            lifeButton.interactable = false; // make sure it can't be used
             ScoreText.text = "Pocket Total: $" + playerScore;
             for (int i = 0; i < _diceCast.diceToRoll; i++)
             {
                 _diceCast.PhysicalDice[i].GetComponent<MeshRenderer>().enabled = false;
             }
             ZonkText.SetActive(true);
+            lifeButton.interactable = false;
         }
 
         /*playerScore = 0;

@@ -1463,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: mrXLife
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 368019283689387215, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
