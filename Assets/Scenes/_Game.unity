@@ -1681,6 +1681,21 @@ PrefabInstance:
       propertyPath: inventoryPanel
       value: 
       objectReference: {fileID: 2083947153}
+    - target: {fileID: 3729162801961007158, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066980165410085498, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066980165410085498, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4319806759528657079, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1751,10 +1766,40 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 190
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825112947514128301, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5989076921949361938, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_Name
       value: RunesInvButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008243450529457699, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 6090350490927278825, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
@@ -1791,6 +1836,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6635665455832271939, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635665455832271939, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635665455832271939, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23
+      objectReference: {fileID: 0}
     - target: {fileID: 6852444478018879331, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
       propertyPath: m_Type
@@ -1817,6 +1877,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8b4f46f110b59a14a9a6b96a4c06810c,
+        type: 3}
+    - target: {fileID: 8016082293993771253, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f6fe39be654e7647b58e773ee9fa689,
         type: 3}
     - target: {fileID: 8194101295879062871, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
