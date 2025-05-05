@@ -1647,6 +1647,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3624868893399862225, guid: 81facfb8b13794640911ce394d49a4e3,
         type: 3}
+      propertyPath: diceCast
+      value: 
+      objectReference: {fileID: 3413357167223542755}
+    - target: {fileID: 3624868893399862225, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
+      propertyPath: pocketHandler
+      value: 
+      objectReference: {fileID: 3413357167223542751}
+    - target: {fileID: 3624868893399862225, guid: 81facfb8b13794640911ce394d49a4e3,
+        type: 3}
       propertyPath: inventoryPanel
       value: 
       objectReference: {fileID: 2083947153}

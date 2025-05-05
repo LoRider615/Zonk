@@ -69,6 +69,8 @@ public class DiceCast : MonoBehaviour
     public int sixesRolled = 0;
     public int diceStoppedCount = 0;
 
+    private bool hasZonked = false;
+
 
     private void Awake()
     {
@@ -222,6 +224,8 @@ public class DiceCast : MonoBehaviour
 
     public void CastDice(int diceNum)
     {
+        hasZonked = false;
+
         rainbow = false;
         doubleRainbow1 = false;
         doubleRainbow2 = false;
@@ -303,7 +307,6 @@ public class DiceCast : MonoBehaviour
                     scoreable++;
                 }
             }
-
         }
         Debug.Log(scoreable);
         if (scoreable == 0)
@@ -315,9 +318,10 @@ public class DiceCast : MonoBehaviour
                 finalChanceText.SetActive(true);
                 CastDiceButton.interactable = true;
             }
-            else
+            else if (!hasZonked)
             {
                 //Debug.Log("Final chance already used, so going onto zonk logic");
+                hasZonked = true;
                 pocketHandler.ZonkOut();
             }
         }
@@ -1123,6 +1127,8 @@ public class DiceCast : MonoBehaviour
             PhysicalDice[i].GetComponent<DiceRoller>().scoreable = false;
         }
         CastDiceButton.interactable = true;
+
+        hasZonked = false;
     }
 
     //if troubles, may need to figure out once the button has been pressed, this is true forever 

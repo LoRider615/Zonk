@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject runesPanel;
     public GameObject tutorialPanel;
     public DiceManager diceManager;
+    public PocketHandler pocketHandler;
 
     //public GameObject runesQuota;
 
@@ -49,6 +50,9 @@ public class UIManager : MonoBehaviour
         {
             panel.SetActive(true);
             activePanel = panel;
+            Time.timeScale = 0;
+            pocketHandler.castButton.interactable = false;
+            pocketHandler.endTurnButton.interactable = false;
         }
     }
 
@@ -58,6 +62,9 @@ public class UIManager : MonoBehaviour
         {
             activePanel.SetActive(false);
             activePanel = null;
+            Time.timeScale = 1;
+            pocketHandler.castButton.interactable = true;
+            pocketHandler.endTurnButton.interactable = true;
         }
     }
 
@@ -71,12 +78,10 @@ public class UIManager : MonoBehaviour
         if (activePanel == helpPanel)
         {
             ClosePanel();
-            Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
             OpenPanel(helpPanel);
-            Time.timeScale = 0;
         }
     }
 
@@ -85,12 +90,10 @@ public class UIManager : MonoBehaviour
         if (activePanel == settingsPanel)
         {
             ClosePanel();
-            Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
             OpenPanel(settingsPanel);
-            Time.timeScale = 0;
         }
     }
 
@@ -99,12 +102,10 @@ public class UIManager : MonoBehaviour
         if (activePanel == inventoryPanel)
         {
             ClosePanel();
-            Time.timeScale = 1;
         }
         else if (activePanel == null)
         {
             OpenPanel(inventoryPanel);
-            Time.timeScale = 0;
         }
     }
 
