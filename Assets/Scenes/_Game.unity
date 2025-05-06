@@ -5275,6 +5275,7 @@ MonoBehaviour:
   highscore: 0
   mrXLife: 0
   xLifeAlreadyUsed: 0
+  evenPocket: 0
   lifeButton: {fileID: 110978059994639542}
   castButton: {fileID: 5913466797269589200}
   endTurnButton: {fileID: 7976026641423971416}
@@ -5938,58 +5939,58 @@ MonoBehaviour:
   inventory: []
   Card1:
     cardName: "Serpent\u2019s Stare"
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Two 1's can be scored for 400 points instead of 200
     cardType: 0
   Card2:
     cardName: Final Chance
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: ab33d0c41551afd48881d1e14d0110f8, type: 3}
     description: If only one die remains (as in, all others are pocketed), it can
       be casted twice
     cardType: 1
   Card3:
     cardName: Double Rainbow
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Rainbows can now be scored with 1,2,3,4,5 or 2,3,4,5,6
     cardType: 2
   Card4:
     cardName: Council of 5
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: c26a7bda822bcd94280d1adab7e5db95, type: 3}
     description: First cast of every turn is more likely to roll 5's
     cardType: 3
   Card5:
     cardName: Scoring Buff
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: c26a7bda822bcd94280d1adab7e5db95, type: 3}
     description: Earn +5% from Scoring Combos
     cardType: 4
   Card6:
     cardName: Extra Life
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: ab33d0c41551afd48881d1e14d0110f8, type: 3}
     description: Safe from one ZONK once per quota
     cardType: 5
   Card7:
     cardName: Duo 2
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Two 2's can be scored for 100
     cardType: 6
   Card8:
     cardName: Duo 3
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Two 3's can be scored for 150
     cardType: 7
   Card9:
     cardName: Duo 4
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Two 4's can be scored for 200
     cardType: 8
   Card10:
     cardName: Duo 6
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: d6f7ba4bdf3a84e4f8a5d68d5cf23340, type: 3}
     description: Two 6's can be scored for 250
     cardType: 9
   Card11:
     cardName: Even Flow
-    cardImage: {fileID: 0}
+    cardImage: {fileID: 21300000, guid: c26a7bda822bcd94280d1adab7e5db95, type: 3}
     description: Increase the chance of even numbers
     cardType: 10
 --- !u!4 &3430026638112392258
