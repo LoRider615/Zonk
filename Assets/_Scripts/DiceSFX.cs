@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiceSFX : MonoBehaviour
 {
-    public AudioClip collisionSound;
+    public AudioClip[] collisionSounds;
     public AudioSource audioSource;
 
     void Start()
@@ -14,6 +14,11 @@ public class DiceSFX : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        audioSource.PlayOneShot(collisionSound);
+        if (collision.gameObject.CompareTag("Table"))
+        {
+            int randomIndex = Random.Range(0, collisionSounds.Length);
+            AudioClip selectedSound = collisionSounds[randomIndex];
+            audioSource.PlayOneShot(selectedSound);
+        }
     }
 }
