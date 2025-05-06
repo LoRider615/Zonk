@@ -5,7 +5,7 @@ using UnityEngine;
 public class DiceSFX : MonoBehaviour
 {
     public AudioClip collisionSound;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     void Start()
     {
