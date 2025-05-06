@@ -41,6 +41,7 @@ public class PocketHandler : MonoBehaviour
 
     private DiceCast _diceCast;
 
+    public AudioSource coins;
     public AudioSource _audioSource;
     public TMP_Text ScoreText;
     public TMP_Text CachedScoreText;
@@ -562,6 +563,9 @@ public class PocketHandler : MonoBehaviour
                     PlayerPrefs.SetInt("highscore", playerCachedScore);
                 }
                 //_audioSource.Play();
+
+                coins.Play();
+
             }
             else
             {
