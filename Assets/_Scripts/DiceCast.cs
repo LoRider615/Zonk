@@ -33,6 +33,7 @@ public class DiceCast : MonoBehaviour
     public bool[] PocketSpawnOpen = new bool[6];
     public bool hotCast = false;
     public bool snakeEyesActive = false;
+    public bool snakeEyesRolled = false;
     public bool m2Active = true;
     public bool clutchOrKick = false;
     public bool clutchIsTrue = false;
@@ -367,8 +368,6 @@ public class DiceCast : MonoBehaviour
         int maxPotentialScore = 0;
         //rainbow = false;
         threePairs = false;
-        bool onePair = false;
-        bool twoPair = false;
 
         onesRolled = 0;
         twosRolled = 0;
@@ -546,89 +545,89 @@ public class DiceCast : MonoBehaviour
         }
 
         //Checking for the 3 pairs score condition
-        while (true)
-        {
-            if (onesRolled == 2)
-            {
-                onePair = true;
-                //will need to put code below into another if statement to make it only active when the modifier is active
-                //keep line below here? need to test
-                twoOnes = true;
+        //while (true)
+        //{
+        //    if (onesRolled == 2)
+        //    {
+        //        onePair = true;
+        //        //will need to put code below into another if statement to make it only active when the modifier is active
+        //        //keep line below here? need to test
+        //        twoOnes = true;
 
-                if (twoOnes == true)
-                {
-                    if (snakeEyesActive == true)
-                    {
-                        maxPotentialScore += 200;
-                        StartCoroutine(TwoOnes());
-                        onePair = false; //this might not be doing anything - TEST!
-                        //OH MY GOSH IT FINALLY WORKS!!!!
-                        //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
-                    }
-                }
-            }
-            if (twosRolled == 2)
-            {
-                if (onePair)
-                    twoPair = true;
-                else
-                    onePair = true;
-            }
-            if (threesRolled == 2)
-            {
-                if (onePair && twoPair)
-                {
-                    threePairs = true;
-                    maxPotentialScore += 750;
-                    break;
-                }
-                else if (onePair)
-                    twoPair = true;
-                else
-                    onePair = true;
-            }
-            if (foursRolled == 2)
-            {
-                if (onePair && twoPair)
-                {
-                    threePairs = true;
-                    maxPotentialScore += 750;
-                    break;
-                }
-                else if (onePair)
-                    twoPair = true;
-                else
-                    onePair = true;
-            }
-            if (fivesRolled == 2)
-            {
-                if (onePair && twoPair)
-                {
-                    threePairs = true;
-                    maxPotentialScore += 750;
-                    break;
-                }
-                else if (onePair)
-                    twoPair = true;
-                else
-                    onePair = true;
-            }
-            if (sixesRolled == 2)
-            {
-                if (onePair && twoPair)
-                {
-                    threePairs = true;
-                    maxPotentialScore += 750;
-                    break;
-                }
-                else if (onePair)
-                    twoPair = true;
-                else
-                    onePair = true;
-            }
-            break;
+        //        if (twoOnes == true)
+        //        {
+        //            if (snakeEyesActive == true)
+        //            {
+        //                maxPotentialScore += 200;
+        //                StartCoroutine(TwoOnes());
+        //                onePair = false; //this might not be doing anything - TEST!
+        //                //OH MY GOSH IT FINALLY WORKS!!!!
+        //                //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
+        //            }
+        //        }
+        //    }
+        //    if (twosRolled == 2)
+        //    {
+        //        if (onePair)
+        //            twoPair = true;
+        //        else
+        //            onePair = true;
+        //    }
+        //    if (threesRolled == 2)
+        //    {
+        //        if (onePair && twoPair)
+        //        {
+        //            threePairs = true;
+        //            maxPotentialScore += 750;
+        //            break;
+        //        }
+        //        else if (onePair)
+        //            twoPair = true;
+        //        else
+        //            onePair = true;
+        //    }
+        //    if (foursRolled == 2)
+        //    {
+        //        if (onePair && twoPair)
+        //        {
+        //            threePairs = true;
+        //            maxPotentialScore += 750;
+        //            break;
+        //        }
+        //        else if (onePair)
+        //            twoPair = true;
+        //        else
+        //            onePair = true;
+        //    }
+        //    if (fivesRolled == 2)
+        //    {
+        //        if (onePair && twoPair)
+        //        {
+        //            threePairs = true;
+        //            maxPotentialScore += 750;
+        //            break;
+        //        }
+        //        else if (onePair)
+        //            twoPair = true;
+        //        else
+        //            onePair = true;
+        //    }
+        //    if (sixesRolled == 2)
+        //    {
+        //        if (onePair && twoPair)
+        //        {
+        //            threePairs = true;
+        //            maxPotentialScore += 750;
+        //            break;
+        //        }
+        //        else if (onePair)
+        //            twoPair = true;
+        //        else
+        //            onePair = true;
+        //    }
+        //    break;
 
-        }
+        //}
 
         //Scoring the ones rolled
         if (onesRolled > 0 && !(rainbow || threePairs))
@@ -796,7 +795,23 @@ public class DiceCast : MonoBehaviour
                     break;
             }
         }
-        threePairs = false;
+        
+        if (snakeEyesRolled)
+        {
+            maxPotentialScore += 200;
+            StartCoroutine(TwoOnes());
+            snakeEyesRolled = false;
+        }
+
+
+        if (threePairs)
+        {
+            maxPotentialScore += 750;
+        }
+        
+
+
+            threePairs = false;
         rainbow = false;
 
         return maxPotentialScore;
@@ -855,6 +870,8 @@ public class DiceCast : MonoBehaviour
         int unscoreable = 0;
         bool[] scoreable = new bool[diceToRoll];
         int[] scoreCount = new int[diceToRoll];
+        bool onePair = false;
+        bool twoPair = false;
 
         //if (duoTwoModifer)
         //{
@@ -873,6 +890,93 @@ public class DiceCast : MonoBehaviour
         //        }
         //    }
         //}
+
+        while (true)
+        {
+            if (onesRolled == 2)
+            {
+                onePair = true;
+                //will need to put code below into another if statement to make it only active when the modifier is active
+                //keep line below here? need to test
+                twoOnes = true;
+
+                if (twoOnes == true)
+                {
+                    if (snakeEyesActive == true)
+                    {
+                        //maxPotentialScore += 200;
+                        //StartCoroutine(TwoOnes());
+                        onePair = false; //this might not be doing anything - TEST!
+                        //OH MY GOSH IT FINALLY WORKS!!!!
+                        //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
+                    }
+                }
+            }
+            if (twosRolled == 2)
+            {
+                if (onePair)
+                    twoPair = true;
+                else
+                    onePair = true;
+            }
+            if (threesRolled == 2)
+            {
+                if (onePair && twoPair)
+                {
+                    threePairs = true;
+                    //maxPotentialScore += 750;
+                    break;
+                }
+                else if (onePair)
+                    twoPair = true;
+                else
+                    onePair = true;
+            }
+            if (foursRolled == 2)
+            {
+                if (onePair && twoPair)
+                {
+                    threePairs = true;
+                    //maxPotentialScore += 750;
+                    break;
+                }
+                else if (onePair)
+                    twoPair = true;
+                else
+                    onePair = true;
+            }
+            if (fivesRolled == 2)
+            {
+                if (onePair && twoPair)
+                {
+                    threePairs = true;
+                    //maxPotentialScore += 750;
+                    break;
+                }
+                else if (onePair)
+                    twoPair = true;
+                else
+                    onePair = true;
+            }
+            if (sixesRolled == 2)
+            {
+                if (onePair && twoPair)
+                {
+                    threePairs = true;
+                    //maxPotentialScore += 750;
+                    break;
+                }
+                else if (onePair)
+                    twoPair = true;
+                else
+                    onePair = true;
+            }
+            break;
+
+        }
+
+
+
 
         if (onesRolled == 1)
         {
@@ -1017,6 +1121,10 @@ public class DiceCast : MonoBehaviour
                 }
             }
         }
+        
+
+
+
         //Methodically goes through and dynamically checks for scoring numbers, 
         else
         {
