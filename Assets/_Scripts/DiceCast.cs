@@ -14,6 +14,7 @@ public class DiceCast : MonoBehaviour
     public bool rainbow = false;
 
     private bool threePairs = false;
+    public bool threePairsTrigger = false;
     public bool twoOnes = false;
     public bool scoreBuff = false;
     private PocketHandler pocketHandler;
@@ -367,7 +368,7 @@ public class DiceCast : MonoBehaviour
     {
         int maxPotentialScore = 0;
         //rainbow = false;
-        threePairs = false;
+        //threePairs = false;
 
         onesRolled = 0;
         twosRolled = 0;
@@ -811,7 +812,7 @@ public class DiceCast : MonoBehaviour
         
 
 
-            threePairs = false;
+        //threePairs = false;
         rainbow = false;
 
         return maxPotentialScore;
@@ -906,6 +907,7 @@ public class DiceCast : MonoBehaviour
                     {
                         //maxPotentialScore += 200;
                         //StartCoroutine(TwoOnes());
+                        snakeEyesRolled = true;
                         onePair = false; //this might not be doing anything - TEST!
                         //OH MY GOSH IT FINALLY WORKS!!!!
                         //THANK YOU SO MUCH FOR YOUR ADVICE, LOGAN!!
@@ -971,11 +973,27 @@ public class DiceCast : MonoBehaviour
                 else
                     onePair = true;
             }
+            if (threePairs)
+            {
+                for (int i = 0; i < diceToRoll; i++)
+                {
+                    scoreable[i] = true;
+                }
+            }
+
+
+
             break;
 
         }
 
-
+        if (threePairs)
+        {
+            for (int i = 0; i < diceToRoll; i++)
+            {
+                scoreable[i] = true;
+            }
+        }
 
 
         if (onesRolled == 1)
@@ -1126,7 +1144,7 @@ public class DiceCast : MonoBehaviour
 
 
         //Methodically goes through and dynamically checks for scoring numbers, 
-        else
+        else if (!threePairs)
         {
             for (int i = 0; i < diceToRoll; i++)
             {
