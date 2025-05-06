@@ -185,6 +185,8 @@ public class PocketHandler : MonoBehaviour
                 {
                     if (Pocket1[i] == 0)
                     {
+                        if (i == 5)
+                            _diceCast.threePairsTrigger = true;
                         Pocket1[i] = diceNum;
                         if (_diceCast.rainbow)
                         {
