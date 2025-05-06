@@ -36,6 +36,7 @@ public class PocketHandler : MonoBehaviour
 
     public bool mrXLife = false;
     public bool xLifeAlreadyUsed = false;
+    public bool evenPocket = false;
     public Button lifeButton;
     public Button castButton;
     public Button endTurnButton;
@@ -159,7 +160,14 @@ public class PocketHandler : MonoBehaviour
     {
         diceAdded++;
 
-        poof.Play();
+        if (diceAdded % 2 == 0)
+            evenPocket = true;
+        else
+            evenPocket = false;
+
+
+
+            poof.Play();
 
         if (diceAdded == 6)
         {
@@ -186,7 +194,11 @@ public class PocketHandler : MonoBehaviour
                     if (Pocket1[i] == 0)
                     {
                         if (i == 5)
+                        {
                             _diceCast.threePairsTrigger = true;
+
+                        }
+                            
                         Pocket1[i] = diceNum;
                         if (_diceCast.rainbow)
                         {
@@ -512,13 +524,17 @@ public class PocketHandler : MonoBehaviour
         _diceCast.ResetDice();
         _diceCast.ResetSpawnOpen();
         
+        
         playerScore = CalculatePocketPoints();
         if (_diceCast.clutchIsTrue)
             playerCachedScore += playerScore + previousPoints + (playerScore / 10);
+        else if (_diceCast.threePairsTrigger)
+            playerCachedScore += playerScore + previousPoints;
         else
             playerCachedScore += playerScore + previousPoints;
 
         _diceCast.clutchIsTrue = false;
+        _diceCast.threePairsTrigger = false;
         playerScore = 0;
         ScoreText.text = "Pocketed: $" + playerScore;
         CachedScoreText.text = "Cached: $" + playerCachedScore;

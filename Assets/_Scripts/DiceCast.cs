@@ -235,6 +235,7 @@ public class DiceCast : MonoBehaviour
         duoThreeIsTrue = false;
         duoFourIsTrue = false;
         duoSixIsTrue = false;
+        threePairsTrigger = false;
 
         if (DiceArray == null)
         {
@@ -525,22 +526,22 @@ public class DiceCast : MonoBehaviour
         else if (doubleRainbow2)
             maxPotentialScore += 2000 - 50;
 
-        if (duoTwoIsTrue)
+        if (duoTwoIsTrue && pocketHandler.evenPocket)
         {
             maxPotentialScore += 100;
         }
 
-        if (duoThreeIsTrue)
+        if (duoThreeIsTrue && pocketHandler.evenPocket)
         {
             maxPotentialScore += 150;
         }
 
-        if (duoFourIsTrue)
+        if (duoFourIsTrue && pocketHandler.evenPocket)
         {
             maxPotentialScore += 200;
         }
 
-        if (duoSixIsTrue)
+        if (duoSixIsTrue && pocketHandler.evenPocket)
         {
             maxPotentialScore += 300;
         }
@@ -756,13 +757,13 @@ public class DiceCast : MonoBehaviour
                     maxPotentialScore += 500;
                     break;
                 case 4:
-                    maxPotentialScore += 1000;
+                    maxPotentialScore += 550;
                     break;
                 case 5:
-                    maxPotentialScore += 2000;
+                    maxPotentialScore += 600;
                     break;
                 case 6:
-                    maxPotentialScore += 3000;
+                    maxPotentialScore += 1000;
                     break;
                 default:
                     Debug.Log("Number of 5's rolled is over the current limit, please revise");
@@ -805,7 +806,7 @@ public class DiceCast : MonoBehaviour
         }
 
 
-        if (threePairs)
+        if (threePairs && threePairsTrigger)
         {
             maxPotentialScore += 750;
         }
@@ -1153,7 +1154,7 @@ public class DiceCast : MonoBehaviour
                 if (arr[i] == 1 || arr[i] == 5)
                     scoreable[i] = true;
 
-                else if (twosRolled >= 3)
+                if (twosRolled >= 3)
                 {
                     if (arr[i] == 2)
                         scoreable[i] = true;
@@ -1166,7 +1167,7 @@ public class DiceCast : MonoBehaviour
                         duoTwoIsTrue = true;
                     }
                 }
-                else if (threesRolled >= 3)
+                if (threesRolled >= 3)
                 {
                     if (arr[i] == 3)
                         scoreable[i] = true;
@@ -1179,7 +1180,7 @@ public class DiceCast : MonoBehaviour
                         duoThreeIsTrue = true;
                     }
                 }
-                else if (foursRolled >= 3)
+                if (foursRolled >= 3)
                 {
                     if (arr[i] == 4)
                         scoreable[i] = true;
@@ -1192,12 +1193,12 @@ public class DiceCast : MonoBehaviour
                         duoFourIsTrue = true;
                     }
                 }
-                else if (fivesRolled >= 3)
-                {
-                    if (arr[i] == 5)
-                        scoreable[i] = true;
-                }
-                else if (sixesRolled >= 3)
+                //else if (fivesRolled >= 3)
+                //{
+                //    if (arr[i] == 5)
+                //        scoreable[i] = true;
+                //}
+                if (sixesRolled >= 3)
                 {
                     if (arr[i] == 6)
                         scoreable[i] = true;
@@ -1210,7 +1211,7 @@ public class DiceCast : MonoBehaviour
                         duoSixIsTrue = true;
                     }
                 }
-                else if (arr[i] == 0)
+                if (arr[i] == 0)
                 {
                     scoreable[i] = false;
                 }
