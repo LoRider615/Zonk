@@ -237,6 +237,8 @@ public class DiceCast : MonoBehaviour
         duoSixIsTrue = false;
         threePairsTrigger = false;
 
+        Debug.Log("Player pocket score before cast: " + pocketHandler.playerScore);
+
         if (DiceArray == null)
         {
             DiceArray = new int[diceToRoll];
@@ -272,6 +274,8 @@ public class DiceCast : MonoBehaviour
         StartCoroutine(CountDice());
 
         CastDiceButton.interactable = false;
+        Debug.Log("Player pocket score: " + pocketHandler.playerScore);
+
     }
 
     public int GetAmountOfDiceLeft()
@@ -323,7 +327,7 @@ public class DiceCast : MonoBehaviour
             }
             else if (!hasZonked)
             {
-                //Debug.Log("Final chance already used, so going onto zonk logic");
+                Debug.Log("Final chance already used, so going onto zonk logic");
                 hasZonked = true;
                 pocketHandler.ZonkOut();
             }
@@ -1193,11 +1197,11 @@ public class DiceCast : MonoBehaviour
                         duoFourIsTrue = true;
                     }
                 }
-                //else if (fivesRolled >= 3)
-                //{
-                //    if (arr[i] == 5)
-                //        scoreable[i] = true;
-                //}
+                if (fivesRolled >= 3)
+                {
+                    if (arr[i] == 5)
+                        scoreable[i] = true;
+                }
                 if (sixesRolled >= 3)
                 {
                     if (arr[i] == 6)

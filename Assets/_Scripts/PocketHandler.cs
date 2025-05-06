@@ -164,10 +164,10 @@ public class PocketHandler : MonoBehaviour
             evenPocket = true;
         else
             evenPocket = false;
+        Debug.Log("Player pocket score before added to pocket: " + playerScore);
 
 
-
-            poof.Play();
+        poof.Play();
 
         if (diceAdded == 6)
         {
@@ -371,6 +371,7 @@ public class PocketHandler : MonoBehaviour
                 }
                 break;
         }
+        Debug.Log("Player pocket score during adding: " + playerScore);
         playerScore = CalculatePocketPoints();
         if (playerScore == 0)
         {
@@ -383,7 +384,7 @@ public class PocketHandler : MonoBehaviour
             endTurnButton.interactable = true;
         }
 
-
+        Debug.Log("Player pocket score after added: " + playerScore);
 
     }
     /*
@@ -607,7 +608,7 @@ public class PocketHandler : MonoBehaviour
     {
         Debug.Log($"Zonked started: mrXLife = {mrXLife}, xLifeAlreadyUsed = {xLifeAlreadyUsed}");
         yield return new WaitForSeconds(2f);
-        SetPockets();
+        //SetPockets();
 
         if (mrXLife == true && !xLifeAlreadyUsed)
         {

@@ -5273,7 +5273,7 @@ MonoBehaviour:
   previousPoints: 0
   quotaLevel: 0
   highscore: 0
-  mrXLife: 0
+  mrXLife: 1
   xLifeAlreadyUsed: 0
   evenPocket: 0
   lifeButton: {fileID: 110978059994639542}
