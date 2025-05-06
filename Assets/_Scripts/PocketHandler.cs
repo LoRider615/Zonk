@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -41,6 +42,7 @@ public class PocketHandler : MonoBehaviour
 
     private DiceCast _diceCast;
 
+    public AudioSource poof;
     public AudioSource coins;
     public AudioSource _audioSource;
     public TMP_Text ScoreText;
@@ -156,6 +158,9 @@ public class PocketHandler : MonoBehaviour
     public void AddToPocket(int diceNum)
     {
         diceAdded++;
+
+        poof.Play();
+
         if (diceAdded == 6)
         {
             _diceCast.hotCast = true;
