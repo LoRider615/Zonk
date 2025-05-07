@@ -226,8 +226,11 @@ public class DiceCast : MonoBehaviour
 
     public void CastDice(int diceNum)
     {
+        CastDiceButton.interactable = false;
         hasZonked = false;
+        threePairs = false;
 
+        snakeEyesRolled = false;
         rainbow = false;
         doubleRainbow1 = false;
         doubleRainbow2 = false;
@@ -273,7 +276,7 @@ public class DiceCast : MonoBehaviour
         CheckIfScoreable(DiceArray);
         StartCoroutine(CountDice());
 
-        CastDiceButton.interactable = false;
+        
         Debug.Log("Player pocket score: " + pocketHandler.playerScore);
 
     }
@@ -547,7 +550,7 @@ public class DiceCast : MonoBehaviour
 
         if (duoSixIsTrue && pocketHandler.evenPocket)
         {
-            maxPotentialScore += 300;
+            maxPotentialScore += 250;
         }
 
         //Checking for the 3 pairs score condition
@@ -644,7 +647,12 @@ public class DiceCast : MonoBehaviour
                     maxPotentialScore += 100;
                     break;
                 case 2:
-                    maxPotentialScore += 200;
+                    if (snakeEyesRolled)
+                    {
+                        maxPotentialScore += 400;
+                    }
+                    else
+                        maxPotentialScore += 200;
                     break;
                 case 3:
                     maxPotentialScore += 1000;
@@ -804,9 +812,9 @@ public class DiceCast : MonoBehaviour
         
         if (snakeEyesRolled)
         {
-            maxPotentialScore += 200;
+           // maxPotentialScore += 200;
             StartCoroutine(TwoOnes());
-            snakeEyesRolled = false;
+            //snakeEyesRolled = false;
         }
 
 
@@ -819,6 +827,14 @@ public class DiceCast : MonoBehaviour
 
         //threePairs = false;
         rainbow = false;
+
+        if (scoreBuff)
+        {
+            maxPotentialScore += (int)(maxPotentialScore * .05f);
+            return maxPotentialScore;
+        }
+
+
 
         return maxPotentialScore;
     }

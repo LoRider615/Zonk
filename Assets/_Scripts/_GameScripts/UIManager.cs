@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
             OpenPanel(tutorialPanel);
         }
 
-        Cursor.SetCursor(PlayerSettings.defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(PlayerSettings.defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
  
     }
 

@@ -162,7 +162,7 @@ public class PocketHandler : MonoBehaviour
     {
         diceAdded++;
 
-        if (diceAdded % 2 == 0)
+        if (diceAdded >= 2)
             evenPocket = true;
         else
             evenPocket = false;
