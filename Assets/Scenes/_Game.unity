@@ -2618,7 +2618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 0, y: 73.2}
   m_SizeDelta: {x: 351.1, y: 101.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &794032054048325042
@@ -3432,8 +3432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34.999985}
-  m_SizeDelta: {x: 0, y: -70.00003}
+  m_AnchoredPosition: {x: 0, y: -47.749985}
+  m_SizeDelta: {x: 0, y: -95.50003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253529135001820058
 MonoBehaviour:
@@ -4324,8 +4324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 566.4, y: 101.4}
+  m_AnchoredPosition: {x: 0, y: 73.2}
+  m_SizeDelta: {x: 599.8, y: 101.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1889006238861415242
 GameObject:
@@ -4627,8 +4627,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ZONK!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6586,7 +6586,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 650, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &3449193980446423889
 Transform:
@@ -6750,11 +6750,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You casted no scoreable dice, \nall pocketed money lost. \n\n<b>Tap \"End
+  m_text: "No scoreable dice were cast, \nall pocketed money lost. \n<b>Tap \"End
     Turn\" to continue</b>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 06df7344fac9f9c43aa97f3f0e7a6f42, type: 2}
-  m_sharedMaterial: {fileID: -3396766497598093618, guid: 06df7344fac9f9c43aa97f3f0e7a6f42,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6779,8 +6779,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8817,8 +8817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34.999985}
-  m_SizeDelta: {x: 0, y: -70.00003}
+  m_AnchoredPosition: {x: 0, y: -51.449986}
+  m_SizeDelta: {x: 0, y: -102.90003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4980838525995455827
 CanvasRenderer:
@@ -8863,7 +8863,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 650, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &4993787031549450251
 Transform:
@@ -9231,12 +9231,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You can recast your final die!
 
-
     <b>Tap "Cast Dice" to try casting
     again</b>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 06df7344fac9f9c43aa97f3f0e7a6f42, type: 2}
-  m_sharedMaterial: {fileID: -3396766497598093618, guid: 06df7344fac9f9c43aa97f3f0e7a6f42,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9261,8 +9260,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9371,8 +9370,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8b4f46f110b59a14a9a6b96a4c06810c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10519,7 +10518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6284120844833904100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11548,8 +11547,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FINAL CHANCE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11574,8 +11573,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.2
-  m_fontSizeBase: 61.2
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11794,8 +11793,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: USE EXTRA LIFE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11826,7 +11825,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -12958,14 +12957,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
+  m_Color: {r: 1, g: 0.495283, b: 0.495283, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8b4f46f110b59a14a9a6b96a4c06810c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13221,7 +13220,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 250, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8295758708589233516
 RectTransform:
@@ -13702,14 +13701,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.83367974, b: 0.22921856, a: 1}
+  m_Color: {r: 1, g: 0.9196838, b: 0.504717, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8b4f46f110b59a14a9a6b96a4c06810c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
