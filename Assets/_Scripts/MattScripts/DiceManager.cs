@@ -17,7 +17,7 @@ public class DiceManager : MonoBehaviour
     {
         diceCast = gameManager.GetComponent<DiceCast>();
         tutorial = FindObjectOfType<Tutorial>();
-        rainbowArray = new int[6] { 2, 2, 2, 4, 4, 4 };
+        rainbowArray = new int[6] { 6, 6, 2, 5, 1, 2 };
 
         string currentScene = SceneManager.GetActiveScene().name;
 
