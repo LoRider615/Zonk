@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -15,6 +16,9 @@ public class UIManager : MonoBehaviour
     public DiceManager diceManager;
     public PocketHandler pocketHandler;
 
+    public bool wasCastOn;
+    public bool wasEndOn;
+
     //public GameObject runesQuota;
 
     //public PocketHandler pocketHandler;
@@ -28,6 +32,9 @@ public class UIManager : MonoBehaviour
         {
             OpenPanel(tutorialPanel);
         }
+
+        Cursor.SetCursor(PlayerSettings.defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+ 
     }
 
     //private void Awake()
@@ -51,6 +58,22 @@ public class UIManager : MonoBehaviour
             panel.SetActive(true);
             activePanel = panel;
             Time.timeScale = 0;
+            if (pocketHandler.castButton.interactable == false)
+            {
+                wasCastOn = false;
+            } 
+            else
+            {
+                wasCastOn = true;
+            }
+            if (pocketHandler.endTurnButton.interactable == false)
+            {
+                wasEndOn = false;
+            }
+            else
+            {
+                wasEndOn = true;
+            }
             pocketHandler.castButton.interactable = false;
             pocketHandler.endTurnButton.interactable = false;
         }
@@ -63,8 +86,22 @@ public class UIManager : MonoBehaviour
             activePanel.SetActive(false);
             activePanel = null;
             Time.timeScale = 1;
-            pocketHandler.castButton.interactable = true;
-            pocketHandler.endTurnButton.interactable = true;
+            if (wasCastOn)
+            {
+                pocketHandler.castButton.interactable = true;
+            } 
+            else
+            {
+                pocketHandler.castButton.interactable = false;
+            }
+            if (wasEndOn)
+            {
+                pocketHandler.endTurnButton.interactable = true;
+            }
+            else
+            {
+                pocketHandler.endTurnButton.interactable = false;
+            }
         }
     }
 

@@ -2261,8 +2261,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cached: $Amnt'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2504,8 +2504,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Quota: $Amnt'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3020,8 +3020,8 @@ MonoBehaviour:
     remaining dice or End Turn to Cache points.\n  4. If no Scoring Combos appear,
     you've Zonked! Your turn is skipped and pocketed money is lost."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 06df7344fac9f9c43aa97f3f0e7a6f42, type: 2}
+  m_sharedMaterial: {fileID: -3396766497598093618, guid: 06df7344fac9f9c43aa97f3f0e7a6f42,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3046,8 +3046,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 49.9
+  m_fontSizeBase: 49.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 30
@@ -3448,8 +3448,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3480,7 +3480,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3573,16 +3573,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cast Dice
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3599,8 +3599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4034,7 +4034,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8588874529812793828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6411911}
+  m_AnchorMin: {x: 0, y: 0.5687899}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -4597,6 +4597,8 @@ MonoBehaviour:
   tutorialPanel: {fileID: 8754659624156822344}
   diceManager: {fileID: 7835907896968537554}
   pocketHandler: {fileID: 3046080231588243219}
+  wasCastOn: 0
+  wasEndOn: 0
 --- !u!114 &2112247617783295936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5169,8 +5171,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: adfaf891fc2386d47b4abe615f657e35, type: 2}
-  m_sharedMaterial: {fileID: -6686596026313787099, guid: adfaf891fc2386d47b4abe615f657e35,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5234,7 +5236,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2546621127706523358
@@ -5613,8 +5615,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Pocketed: $Amnt'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5721,7 +5723,7 @@ MonoBehaviour:
   previousPoints: 0
   quotaLevel: 0
   highscore: 0
-  mrXLife: 0
+  mrXLife: 1
   xLifeAlreadyUsed: 0
   evenPocket: 0
   lifeButton: {fileID: 110978059994639542}
@@ -8202,8 +8204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Turn: Amnt'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8369,8 +8371,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Help Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8401,7 +8403,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -9819,7 +9821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11186,8 +11188,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Good job!!\n   +400"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 06df7344fac9f9c43aa97f3f0e7a6f42, type: 2}
-  m_sharedMaterial: {fileID: -3396766497598093618, guid: 06df7344fac9f9c43aa97f3f0e7a6f42,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11753,16 +11755,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: End Turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11779,8 +11781,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14007,6 +14009,7 @@ MonoBehaviour:
   fivesRolled: 0
   sixesRolled: 0
   diceStoppedCount: 0
+  hasZonked: 0
 --- !u!114 &8952944779352913407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14029,8 +14032,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Runes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61eec2fd139579943b121a6f7c10f596, type: 2}
-  m_sharedMaterial: {fileID: -5560352021120670085, guid: 61eec2fd139579943b121a6f7c10f596,
+  m_fontAsset: {fileID: 11400000, guid: 188223bbd8d77b441bb25da851df070e, type: 2}
+  m_sharedMaterial: {fileID: 9060088285869606673, guid: 188223bbd8d77b441bb25da851df070e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14055,8 +14058,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14259,8 +14262,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7253989436512081385}
   m_HandleRect: {fileID: 1584493674976948594}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.35880888
+  m_Value: 1
+  m_Size: 0.4312101
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

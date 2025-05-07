@@ -15,8 +15,8 @@ public class HighScore : MonoBehaviour
     {
         score = PlayerPrefs.GetInt("score");
         highscore = PlayerPrefs.GetInt("highscore");
-        scoreText.text = "Quota Level Reached: " + score;
-        highscoreText.text = "Highest Quota Reached: " + highscore;
+        scoreText.text = "Final Score: " + score;
+        highscoreText.text = "High Score: " + highscore;
         PlayerPrefs.SetInt("score", 0);
     }
 }

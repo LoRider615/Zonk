@@ -117,6 +117,8 @@ public class PocketHandler : MonoBehaviour
 
     public void SetPockets()
     {
+        Debug.Log("Resetting the pockets");
+
         if (Pocket1 == null) Pocket1 = new int[_diceCast.diceToRoll];
         if (Pocket2 == null) Pocket2 = new int[_diceCast.diceToRoll];
         if (Pocket3 == null) Pocket3 = new int[_diceCast.diceToRoll];
@@ -522,7 +524,12 @@ public class PocketHandler : MonoBehaviour
         ZonkText.SetActive(false);
         diceCast.twoOnes = false;
         textOne.SetActive(false);
-        _diceCast.ResetDice();
+        if (diceCast.hasZonked) // if the player zonked and ends turns, they won't get any points
+        {
+            Debug.Log("Has already zonked, so about to clear dice pockets");
+            SetPockets();
+        }
+        _diceCast.ResetDice(); 
         _diceCast.ResetSpawnOpen();
         
         
@@ -548,6 +555,7 @@ public class PocketHandler : MonoBehaviour
         diceCast.finalChanceUsed = false;
 
         SetPockets();
+
         if (currentTurn > 3)
         {
             if (playerCachedScore >= quota)
@@ -606,7 +614,7 @@ public class PocketHandler : MonoBehaviour
 
     private IEnumerator Zonked()
     {
-        Debug.Log($"Zonked started: mrXLife = {mrXLife}, xLifeAlreadyUsed = {xLifeAlreadyUsed}");
+        //Debug.Log($"Zonked started: mrXLife = {mrXLife}, xLifeAlreadyUsed = {xLifeAlreadyUsed}");
         yield return new WaitForSeconds(2f);
         //SetPockets();
 
@@ -628,6 +636,7 @@ public class PocketHandler : MonoBehaviour
             }
             ZonkText.SetActive(true);
             lifeButton.interactable = false;
+            //SetPockets();
         }
 
         /*playerScore = 0;
@@ -644,7 +653,7 @@ public class PocketHandler : MonoBehaviour
         ZonkText.SetActive(false);
         diceCast.CastDiceButton.interactable = true;
         xLifeAlreadyUsed = true;
-        Debug.Log($"Extra life activated. Current playerScore: {playerScore}");
+        Debug.Log("Extra life activated. Current playerScore: " + playerScore);
     }
 
     public void IsXLifeActive()

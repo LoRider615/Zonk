@@ -14,7 +14,7 @@ public class DiceSFX : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        //Debug.Log("Collided with: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Table"))
         {
             int randomIndex = Random.Range(0, collisionSounds.Length);

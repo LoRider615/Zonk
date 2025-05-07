@@ -71,7 +71,7 @@ public class DiceCast : MonoBehaviour
     public int sixesRolled = 0;
     public int diceStoppedCount = 0;
 
-    private bool hasZonked = false;
+    public bool hasZonked = false;
 
 
     private void Awake()
@@ -327,7 +327,7 @@ public class DiceCast : MonoBehaviour
             }
             else if (!hasZonked)
             {
-                Debug.Log("Final chance already used, so going onto zonk logic");
+                Debug.Log("Final chance already used or not active, so going onto zonk logic");
                 hasZonked = true;
                 pocketHandler.ZonkOut();
             }
@@ -1250,6 +1250,7 @@ public class DiceCast : MonoBehaviour
 
     public void ResetDice()
     {
+        Debug.Log("Resetting the dice");
         for (int i = 0; i < maxDiceToRoll; i++)
         {
             PhysicalDice[i].transform.position = TableSpawns[i].transform.position;
