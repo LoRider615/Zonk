@@ -572,6 +572,10 @@ public class PocketHandler : MonoBehaviour
                 {
                     quota += (int)(500 + (quota / 4 * 0.8));
                 }
+                else if (quotaLevel >= 10)
+                {
+                    quota += (int)(500 + (quota / 4 * 1.0));
+                }
                 
                 //quota += (int)(quota *1.1);
                 currentTurn = 1;
